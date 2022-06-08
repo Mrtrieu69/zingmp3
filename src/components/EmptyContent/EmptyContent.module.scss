@@ -1,0 +1,54 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.icon {
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+}
+
+.album {
+    background-image: var(--empty-album-icon);
+}
+
+.podcast {
+    background-image: var(--empty-podcast-icon);
+}
+
+.song {
+    background-image: var(--empty-song-icon);
+}
+
+.upload {
+    background-image: var(--empty-upload-icon);
+}
+
+.mv {
+    background-image: var(--empty-mv-icon);
+}
+
+.text {
+    font-size: 1.6rem;
+    margin-top: 16px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.explore {
+    margin-top: 16px;
+    padding: 9px 24px;
+    font-size: 1.4rem;
+    color: white !important;
+    background-color: var(--purple-primary);
+    border-radius: 999px;
+    min-width: 150px;
+    text-align: center;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+}

@@ -1,0 +1,48 @@
+.wrapper {
+    height: var(--header-height);
+    min-width: 660px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--padding-section);
+}
+
+.level {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.level-left,
+.level-right {
+    display: inline-flex;
+    margin-right: 20px;
+    font-size: 24px;
+    color: var(--text-primary);
+    background-color: transparent;
+    cursor: pointer;
+
+    &.disabled {
+        opacity: 0.3;
+        user-select: none;
+        cursor: default;
+    }
+}
+
+.search {
+    width: 100%;
+    max-width: 540px;
+    height: 40px;
+    background-color: red;
+}
+
+.actions {
+    display: flex;
+    padding-left: 40px;
+}
+
+.action {
+    display: inline-flex;
+    margin-left: 10px;
+}

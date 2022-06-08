@@ -1,0 +1,140 @@
+.wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+
+    & + .wrapper {
+        margin-left: 10px;
+    }
+
+    &:hover {
+        background-color: var(--alpha-bg);
+    }
+}
+
+.title {
+    position: relative;
+}
+
+.small {
+    width: 32px;
+    height: 32px;
+
+    .icon {
+        font-size: 16px;
+        color: var(--text-primary);
+    }
+}
+
+.medium {
+    width: 40px;
+    height: 40px;
+
+    .icon {
+        font-size: 20px;
+        color: var(--text-primary);
+    }
+}
+
+.large {
+    width: 50px;
+    height: 50px;
+
+    .icon {
+        font-size: 40px;
+        color: var(--text-primary);
+    }
+}
+
+.rounded {
+    border-radius: 999px;
+
+    &:hover {
+        -webkit-filter: brightness(0.9);
+        filter: brightness(0.9);
+    }
+}
+
+.icon {
+    display: flex;
+}
+
+.wrapper.link {
+    font-size: 13px;
+    font-weight: 700;
+    width: 100%;
+    padding: 7px 25px;
+    justify-content: flex-start;
+    margin-left: 0;
+    color: var(--navigation-text);
+
+    &:hover {
+        color: var(--text-primary);
+    }
+
+    .icon {
+        font-size: 24px;
+        color: var(--navigation-text);
+    }
+
+    &:hover .icon {
+        color: var(--text-primary);
+    }
+
+    .title + .icon,
+    .icon + .title {
+        margin-left: 10px;
+    }
+
+    &.active {
+        position: relative;
+        background-color: var(--alpha-bg);
+        color: var(--text-primary);
+
+        .icon {
+            color: var(--primary-text);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 2px;
+            background-color: var(--purple-primary);
+        }
+    }
+
+    &.small {
+        .icon {
+            font-size: 20px;
+        }
+    }
+}
+
+.bgImage {
+    background-image: url('/assets/images/users/me.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.primary {
+    background-color: var(--purple-primary);
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    padding: 9px 24px;
+    border-radius: 999px;
+    text-align: center;
+    border: 1px solid transparent;
+
+    &.small {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+        min-width: 100px;
+        height: unset;
+        line-height: 12px;
+    }
+}

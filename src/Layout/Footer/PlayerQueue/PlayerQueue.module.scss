@@ -1,0 +1,219 @@
+.wrapper {
+    position: fixed;
+    background-color: var(--queue-player-popup-bg);
+    top: 0;
+    right: 0;
+    height: calc(100vh - 90px);
+    width: 330px;
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+    animation: fade-from-right 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 1px 6px rgba(0, 0, 0, 0.3), inset 0 1px 1px hsla(0, 0%, 100%, 0.3);
+    z-index: 12;
+
+    &.close {
+        transform: translateX(100%);
+    }
+}
+
+.header {
+    display: flex;
+    padding: 8px 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel {
+    flex: 1;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    height: 28px;
+    background-color: var(--alpha-bg);
+    border-radius: 999px;
+}
+
+.item {
+    flex: 1;
+    display: flex;
+    padding: 4px 0;
+    justify-content: center;
+    color: var(--navigation-text);
+    border-radius: 999px;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--text-item-hover);
+    }
+
+    &.active {
+        color: var(--text-item-hover);
+        background-color: var(--tab-active-bg);
+    }
+}
+
+.btn {
+    margin-left: 5px !important;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.body {
+    flex: 1;
+    overflow-y: overlay;
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px 15px;
+}
+
+.playlist {
+    flex-shrink: 0;
+}
+
+.song {
+    display: flex;
+    padding: 8px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+        background-color: var(--alpha-bg);
+
+        .more {
+            display: flex;
+        }
+
+        .desc {
+            max-width: 150px;
+        }
+
+        .icon {
+            display: flex;
+        }
+    }
+
+    &.active {
+        background-color: var(--purple-primary);
+        color: white;
+
+        .artists {
+            color: hsla(0, 0%, 100%, 0.6);
+        }
+
+        .btn-more {
+            &.like {
+                span {
+                    color: white !important;
+                }
+            }
+        }
+
+        .icon {
+            display: flex;
+            color: white;
+        }
+    }
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.desc {
+    max-width: 230px;
+}
+
+.title-song {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.artists {
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.block {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &:hover {
+        .icon {
+            filter: brightness(0.9);
+        }
+    }
+}
+
+.icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    display: none;
+    background-color: var(--dark-alpha-50);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.more {
+    display: none;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.btn-more {
+    width: 26px;
+    height: 26px;
+    background-color: transparent;
+    margin: 0 4px !important;
+
+    &:hover {
+        background-color: var(--alpha-bg);
+    }
+
+    &.like {
+        span {
+            color: var(--purple-primary);
+        }
+    }
+}
+
+// animations
+@keyframes fade-from-right {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,112 @@
+:root {
+    // text
+    --text-primary: #fff;
+    --text-secondary: hsla(0, 0%, 100%, 0.5);
+    --text-hover: #fff;
+    --text-placeholder: #dadada;
+    --navigation-text: #dadada;
+
+    // default
+    --header-height: 70px;
+    --footer-height: 90px;
+    --sidebar-width: 240px;
+    --sidebar-popup-width: 70px;
+    --padding-section: 59px;
+
+    --dark-alpha-10: rgba(0, 0, 0, 0.1);
+    --dark-alpha-50: rgba(0, 0, 0, 0.5);
+    --dark-alpha-70: rgba(0, 0, 0, 0.7);
+    --dark-alpha-80: rgba(0, 0, 0, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Inter, sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--layout-bg);
+    color: var(--text-primary);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizespeed;
+    background-size: 1920px auto;
+    background-repeat: repeat;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+    font-family: Inter, sans-serif;
+}
+
+a[href] {
+    color: var(--navigation-text);
+    text-decoration: none;
+}
+
+// fonts emmbeded
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/assets/fonts/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/assets/fonts/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/assets/fonts/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('/assets/fonts/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
+}
+
+body *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: transparent;
+    -webkit-box-shadow: inset 0 0 6px var(--scroll-thumb-bg);
+}
+
+body *::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background: transparent;
+}
+
+body *::-webkit-scrollbar {
+    display: block;
+    width: 6px;
+}
+
+// Custom toastify
+body {
+    .toast {
+        background-color: var(--primary-bg);
+        color: var(--text-primary);
+        border-left: 5px solid var(--toastify-color-warning);
+    }
+}
