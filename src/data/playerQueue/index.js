@@ -1,5 +1,6 @@
 const playerQueue = [
     {
+        id: '1',
         title: 'Anh mơ',
         isLike: true,
         isActive: false,
@@ -8,6 +9,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '2',
         title: 'Ánh sao và bầu trời',
         isLike: false,
         isActive: false,
@@ -16,6 +18,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '3',
         title: 'Bông hoa chẳng thuộc về ta',
         isLike: true,
         isActive: true,
@@ -24,6 +27,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '4',
         title: 'Tình yêu ngủ quên (chill version)',
         isLike: false,
         isActive: false,
@@ -32,6 +36,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '5',
         title: 'Phải lòng anh (dream ver.)',
         isLike: true,
         isActive: false,
@@ -40,6 +45,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '6',
         title: 'Em là ai trong đôi mắt anh',
         isLike: false,
         isActive: false,
@@ -48,6 +54,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '7',
         title: 'Tình đầu',
         isLike: false,
         isActive: false,
@@ -56,6 +63,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '8',
         title: 'Tình như lá bay xa',
         isLike: false,
         isActive: false,
@@ -64,6 +72,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '9',
         title: 'Someday',
         isLike: true,
         isActive: false,
@@ -72,6 +81,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '10',
         title: 'Anh mơ',
         isLike: true,
         isActive: false,
@@ -80,6 +90,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '11',
         title: 'Ánh sao và bầu trời',
         isLike: false,
         isActive: false,
@@ -88,6 +99,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '12',
         title: 'Bông hoa chẳng thuộc về ta',
         isLike: true,
         isActive: false,
@@ -96,6 +108,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '13',
         title: 'Tình yêu ngủ quên (chill version)',
         isLike: false,
         isActive: false,
@@ -104,6 +117,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '14',
         title: 'Phải lòng anh (dream ver.)',
         isLike: true,
         isActive: false,
@@ -112,6 +126,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '15',
         title: 'Em là ai trong đôi mắt anh',
         isLike: false,
         isActive: false,
@@ -120,6 +135,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '16',
         title: 'Tình đầu',
         isLike: false,
         isActive: false,
@@ -128,6 +144,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '17',
         title: 'Tình như lá bay xa',
         isLike: false,
         isActive: false,
@@ -136,6 +153,7 @@ const playerQueue = [
         isPlay: false,
     },
     {
+        id: '18',
         title: 'Someday',
         isLike: true,
         isActive: false,
