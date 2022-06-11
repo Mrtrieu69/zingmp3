@@ -22,6 +22,7 @@ function App() {
                     );
                 })}
             </Routes>
+            <audio id="audio" src="/music/favorite/tu-thich-thich-thanh-thuong-thuong.mp3"></audio>
         </div>
     );
 }
