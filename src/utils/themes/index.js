@@ -36,6 +36,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#1b2f5a,#182e5d)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
     xone: {
@@ -76,6 +77,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     zing: {
@@ -87,7 +89,7 @@ const themes = {
         '--alpha-layout-bg': 'rgba(16,31,63,0.8)',
         '--queue-player-popup-bg': '#5d218c',
         '--purple-primary': '#ed2b91',
-        '--link-text-hover': '',
+        '--link-text-hover': '#fe63da',
         '--sidebar-bg': 'hsla(0,0%,100%,0.05)',
         '--alpha-bg': 'hsla(0,0%,100%,0.1)',
         '--banner-home-dot': '#d8d8d8',
@@ -116,6 +118,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(to bottom, #740091, #2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     eiffel: {
@@ -156,6 +159,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
 
@@ -196,6 +200,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
     jiChangWook: {
@@ -235,6 +240,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
     lisa: {
@@ -274,6 +280,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
     jennieKim: {
@@ -313,6 +320,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
     jisoo: {
@@ -352,6 +360,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
     rose: {
@@ -391,6 +400,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#1b2f5a,#182e5d)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     dark: {
@@ -431,6 +441,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     purple: {
@@ -470,6 +481,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     blueLight: {
@@ -509,6 +521,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#1b2f5a,#182e5d)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     green: {
@@ -548,6 +561,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#137555,#15533f)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     brown: {
@@ -587,6 +601,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#7b5e58,#654943)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     pink: {
@@ -626,6 +641,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#ad3994,#8f0f72)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     red: {
@@ -665,6 +681,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#941c1c,#961919)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
     },
     light: {
@@ -704,6 +721,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
     gray: {
@@ -743,6 +761,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
     greenLight: {
@@ -782,6 +801,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
     pinkLight: {
@@ -821,6 +841,7 @@ const themes = {
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song.png")',
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
+        '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
     },
 };

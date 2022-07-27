@@ -11,8 +11,8 @@ const cx = classNames.bind(styles);
 
 const PLAYLIST = [
     { name: 'Playlist này chill phết', image: "url('/images/album/album1.webp')", subTitle: 'Zing mp3', isLike: true },
-    { name: 'Rap việt nghe là nghiền', image: "url('/images/album/album2.webp')", subTitle: 'Zing mp3', isLike: false },
-    { name: 'chill hits', image: "url('/images/album/album3.webp')", subTitle: 'Zing mp3', isLike: false },
+    { name: 'Rap việt nghe là nghiền', image: "url('/images/album/album2.webp')", subTitle: 'Zing mp3', isLike: true },
+    { name: 'chill hits', image: "url('/images/album/album3.webp')", subTitle: 'Zing mp3', isLike: true },
 ];
 
 const NAVBAR_LIST = [

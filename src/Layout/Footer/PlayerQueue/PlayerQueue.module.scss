@@ -81,6 +81,7 @@
     border-radius: 5px;
     align-items: center;
     justify-content: space-between;
+    cursor: default;
 
     &:hover {
         background-color: var(--alpha-bg);

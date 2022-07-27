@@ -78,6 +78,7 @@ const ThemeModal = () => {
             --empty-song-icon: ${colors['--empty-song-icon']};
             --empty-upload-icon: ${colors['--empty-upload-icon']};
             --empty-mv-icon: ${colors['--empty-mv-icon']};
+            --linear-gradient-bg: ${colors['--linear-gradient-bg']};
         `;
 
         const miniPlayer = document.querySelector('#mini-player');

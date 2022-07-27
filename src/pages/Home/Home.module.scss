@@ -1,3 +1,4 @@
+// Slider
 .slider {
     padding-top: 20px;
     margin: 0 -15px 20px;
@@ -5,6 +6,7 @@
     transform: perspective(500px);
     transform-style: preserve-3d;
     height: calc(20vw - 66px);
+    min-width: 640px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +19,7 @@
     }
 
     @media (max-width: 1024px) {
-        height: calc(30vw - 99px);
+        height: calc(30vw - 80px);
         min-height: 180px;
     }
 }
@@ -32,7 +34,7 @@
     opacity: 0;
     z-index: 1;
     transition: all 0.6s ease-in-out;
-    transform: translateZ(-50px);
+    transform: translateZ(-200px);
 
     @media (max-width: 1024px) {
         width: 50%;
@@ -111,4 +113,204 @@
     &:hover {
         filter: brightness(0.9);
     }
+}
+
+// play list
+.container {
+    min-width: 640px;
+    margin-top: 30px;
+
+    &.separate {
+        margin-top: 0;
+    }
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.playlists {
+    display: flex;
+    margin: 0 -12px;
+
+    @media (min-width: 1224px) {
+        margin: 0 -14px;
+    }
+}
+
+.playlist-item {
+    width: 20%;
+    padding: 0 12px;
+
+    @media (min-width: 1224px) {
+        padding: 0 14px;
+        width: 16.66667%;
+    }
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 5px;
+    background-size: 101%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: background-size ease 0.5s;
+
+    &:hover {
+        background-size: 110%;
+
+        .layout {
+            display: flex;
+        }
+    }
+}
+
+.layout {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+    margin: 0 !important;
+
+    &:hover {
+        background-color: var(--hover-tooltip-opacity) !important;
+    }
+
+    &.icon-play {
+        width: 45px;
+        height: 45px;
+        border: 1px solid white;
+        font-size: 24px;
+
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
+
+    &.like {
+        color: var(--purple-primary);
+    }
+}
+
+.name {
+    font-size: 1.4rem;
+    margin: 6px 0;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--link-text-hover);
+    }
+}
+
+// list
+.list {
+    display: flex;
+    margin: 0 -12px;
+
+    @media (max-width: 1024px) {
+        margin: 0 -14px;
+    }
+}
+
+.item {
+    width: 25%;
+    padding: 0 12px;
+
+    &:nth-child(5) {
+        display: none;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 0 14px;
+    }
+
+    @media (min-width: 1350px) {
+        width: 20%;
+
+        &:nth-child(5) {
+            display: block;
+        }
+    }
+}
+
+.artists {
+    color: var(--text-secondary);
+    font-size: 1.4rem;
+    font-weight: 400;
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+// zing chart
+.zing-chart {
+    position: relative;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.title-chart {
+    position: relative;
+    font-size: 2.8rem;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.icon-play-chart {
+    width: 28px;
+    height: 28px;
+    font-size: 1.8rem;
+    color: var(--purple-primary) !important;
+    background-color: white !important;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+}
+
+.bg-alpha {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: var(--linear-gradient-bg);
+    opacity: 0.95;
+}
+
+.more {
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 999px;
+    padding: 5px 25px;
+}
+
+.layer {
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
 }

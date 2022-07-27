@@ -1,0 +1,94 @@
+.wrapper {
+    position: relative;
+}
+
+.song {
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: hsla(0, 0%, 100%, 0.07);
+    border-radius: 4px;
+    user-select: none;
+    margin-bottom: 10px;
+
+    &:hover {
+        background-color: hsla(0, 0%, 100%, 0.2) !important;
+
+        .layout {
+            display: flex;
+        }
+    }
+}
+
+.song-left {
+    display: flex;
+    align-items: center;
+}
+
+.rank {
+    min-width: 22px;
+    font-size: 32px;
+    margin-right: 15px;
+    color: rgba(74, 144, 226, 0);
+}
+
+.is-top1 {
+    -webkit-text-stroke: 2px #4a90e2;
+}
+
+.is-top2 {
+    -webkit-text-stroke: 2px #50e3c2;
+}
+
+.is-top3 {
+    -webkit-text-stroke: 2px #e35050;
+}
+
+.control {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.layout {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    font-size: 24px;
+    display: flex;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.artists {
+    font-size: 1.4rem;
+    color: hsla(0, 0%, 100%, 0.5);
+}
+
+.percent {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
