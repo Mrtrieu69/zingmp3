@@ -8,6 +8,7 @@ import styles from './Home.module.scss';
 import Slider from './Slider';
 import { Button } from '../../components';
 import ZingChart from './ZingChart';
+import TypeSongs from './TypeSongs';
 
 const cx = classNames.bind(styles);
 
@@ -130,6 +131,7 @@ const Home = () => {
                 </div>
             ))}
             <ZingChart />
+            <TypeSongs />
         </div>
     );
 };

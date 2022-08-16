@@ -281,6 +281,10 @@
     margin-bottom: 20px;
 }
 
+.link {
+    color: white !important;
+}
+
 .icon-play-chart {
     width: 28px;
     height: 28px;
@@ -306,6 +310,12 @@
     border: 1px solid white;
     border-radius: 999px;
     padding: 5px 25px;
+    color: white !important;
+    font-size: 1.4rem;
+
+    &:hover {
+        background-color: hsla(0, 0%, 100%, 0.1);
+    }
 }
 
 .layer {
@@ -313,4 +323,29 @@
     position: relative;
     display: flex;
     justify-content: center;
+}
+
+.types {
+    display: flex;
+    margin: 20px -12px 30px;
+}
+
+.type {
+    padding: 0 12px;
+    width: 33.33333%;
+    overflow: hidden;
+}
+
+.type-image {
+    padding-top: 28%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-size 0.8s ease;
+
+    &:hover {
+        background-size: 110%;
+    }
 }

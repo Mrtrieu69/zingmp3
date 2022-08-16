@@ -79,14 +79,25 @@ const ThemeModal = () => {
             --empty-upload-icon: ${colors['--empty-upload-icon']};
             --empty-mv-icon: ${colors['--empty-mv-icon']};
             --linear-gradient-bg: ${colors['--linear-gradient-bg']};
+            --chart-bg-img-alpha: ${colors['--chart-bg-img-alpha']};
+            --chart-box-bg-alpha: ${colors['--chart-box-bg-alpha']};
         `;
 
         const miniPlayer = document.querySelector('#mini-player');
+        const weekBg = document.querySelector('#week-chart');
 
         if (colors['--mini-background-player']) {
             miniPlayer.style.backgroundImage = colors['--mini-background-player'];
         } else {
             miniPlayer.style.backgroundImage = 'none';
+        }
+
+        if (weekBg) {
+            if (colors['--has-week-chart-bg']) {
+                weekBg.style.backgroundImage = colors['--has-week-chart-bg'];
+            } else {
+                weekBg.style.backgroundImage = 'none';
+            }
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
