@@ -1,0 +1,161 @@
+.wrapper {
+    margin-top: 48px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.btn {
+    display: inline-flex;
+    font-size: 24px;
+    margin-left: 8px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &.disable {
+        opacity: 0.1;
+        pointer-events: none;
+    }
+}
+
+.container {
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    margin: 0 -14px;
+    transition: transform 0.5s ease;
+
+    @media (max-width: 1224px) {
+        margin: 0 -12px;
+    }
+}
+
+.card {
+    width: 33.33333%;
+    padding: 0 14px;
+    flex-shrink: 0;
+
+    @media (max-width: 1224px) {
+        padding: 0 12px;
+        width: 50%;
+    }
+}
+
+.event-image {
+    display: block;
+    position: relative;
+    padding-bottom: 56.25%;
+    background-position: center;
+    background-size: 100%;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-size 0.5s ease;
+
+    &:hover {
+        background-size: 110%;
+    }
+}
+
+.body {
+    user-select: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 13px 10px;
+    color: white;
+}
+
+.description {
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.time {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.33;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 9px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #ff0101;
+    background-color: #fff;
+    text-transform: uppercase;
+}
+
+.event-follow {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    text-transform: none;
+}
+.followers {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.block {
+    width: 15px;
+    height: 20px;
+}
+
+.follower {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-bg);
+    overflow: hidden;
+}
+
+.avatar {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.more {
+    order: -1;
+    font-size: 14px;
+    margin-left: 6px;
+    color: var(--text-secondary);
+}
+
+.btn-follow {
+    &:hover {
+        opacity: 0.9;
+        background-color: var(--purple-primary);
+    }
+}

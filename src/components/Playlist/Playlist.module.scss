@@ -28,7 +28,7 @@
     border-radius: 5px;
     display: flex;
     border-bottom: 1px solid var(--border-secondary);
-    cursor: grab;
+    user-select: none;
 
     &:first-child {
         border-top: 1px solid var(--border-secondary);
@@ -40,11 +40,6 @@
         .mask {
             display: flex;
         }
-    }
-
-    &.dragging {
-        background-color: var(--layout-bg);
-        box-shadow: 0 0 10px var(--dark-alpha-50);
     }
 
     @media (max-width: 1024px) {

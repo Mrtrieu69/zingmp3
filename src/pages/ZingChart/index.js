@@ -22,6 +22,9 @@ const ZingChart = () => {
                 <Button className={cx('btn-play')} size="medium" rounded icon={<BsPlayFill />} />
             </div>
             <ChartSong SONGS={SONGS} />
+            <div className={cx('more')}>
+                <button>Xem top 100</button>
+            </div>
             <div className={cx('container')}>
                 <div id="week-chart" className={cx('background')}></div>
                 <div className={cx('blur')}></div>

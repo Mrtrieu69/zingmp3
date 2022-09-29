@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import { EmptyContent } from '../../../../components';
 import styles from './Song.module.scss';
-import { DragDropSongs } from '../../../../components';
+import { Playlist } from '../../../../components';
 
 const cx = classNames.bind(styles);
 
@@ -152,7 +152,7 @@ const Song = () => {
                 (SONGS.length <= 0 ? (
                     <EmptyContent type="song" message="No favorite songs in personal library yet!" />
                 ) : (
-                    <DragDropSongs list={SONGS} />
+                    <Playlist songs={SONGS} />
                 ))}
             {nav === 'uploaded' && <EmptyContent type="upload" message="No songs uploaded in personal library yet!" />}
         </div>

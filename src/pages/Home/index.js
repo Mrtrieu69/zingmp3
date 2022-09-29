@@ -9,6 +9,10 @@ import Slider from './Slider';
 import { Button } from '../../components';
 import ZingChart from './ZingChart';
 import TypeSongs from './TypeSongs';
+import SliderArtists from './SliderArtists';
+import Mixtape from './Mixtape';
+import Event from './Event';
+import Partner from './Partner';
 
 const cx = classNames.bind(styles);
 
@@ -132,6 +136,10 @@ const Home = () => {
             ))}
             <ZingChart />
             <TypeSongs />
+            <SliderArtists />
+            <Mixtape />
+            <Event />
+            <Partner />
         </div>
     );
 };

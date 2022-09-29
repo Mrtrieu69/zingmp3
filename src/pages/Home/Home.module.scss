@@ -118,7 +118,7 @@
 // play list
 .container {
     min-width: 640px;
-    margin-top: 30px;
+    margin-top: 48px;
 
     &.separate {
         margin-top: 0;
@@ -347,5 +347,172 @@
 
     &:hover {
         background-size: 110%;
+    }
+}
+
+// artists
+.artist-item {
+    padding: 0 14px;
+}
+
+.artist-img {
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.arrow-next {
+    right: 0 !important;
+}
+
+.arrow-prev {
+    left: -25px !important;
+    z-index: 999 !important;
+}
+
+.arrow-prev::before,
+.arrow-next::before {
+    font-size: 40px !important;
+}
+
+// card
+.zm-item {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.zm-card {
+    padding-bottom: 100%;
+    position: relative;
+}
+
+.image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+
+    &:nth-child(2) {
+        animation: fade 10s linear infinite;
+    }
+}
+
+.zm-card-content {
+    position: relative;
+    width: 100%;
+}
+
+.image-blur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-blur img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(2rem);
+
+    &:nth-child(2) {
+        animation: fade 10s linear infinite;
+    }
+}
+
+.zm-content {
+    position: relative;
+    padding: 12px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.zm-label {
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+// partner
+.partners {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+    justify-content: center;
+
+    @media (max-width: 1224px) {
+        margin: 0 -12px;
+    }
+}
+
+.col {
+    padding: 0 10px;
+    width: 12.5%;
+
+    @media (max-width: 1224px) {
+        padding: 0 12px;
+        width: 25%;
+    }
+}
+
+.sub-title {
+    font-size: 12px;
+    letter-spacing: 1.71px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.partner-content {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 20px;
+
+    @media (max-width: 1224px) {
+        margin-bottom: 24px;
+    }
+}
+
+.partner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partner-image {
+    max-width: 90%;
+    max-height: 80%;
+    width: auto;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    5% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
     }
 }
