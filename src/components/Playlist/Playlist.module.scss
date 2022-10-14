@@ -30,6 +30,14 @@
     border-bottom: 1px solid var(--border-secondary);
     user-select: none;
 
+    &.active {
+        background-color: var(--alpha-bg);
+
+        .mask {
+            display: flex;
+        }
+    }
+
     &:first-child {
         border-top: 1px solid var(--border-secondary);
     }
@@ -147,4 +155,21 @@
     &.like {
         color: var(--purple-primary);
     }
+}
+
+.btn-play,
+.btn-pause {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.pause-icon {
+    width: 18px;
+    height: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }

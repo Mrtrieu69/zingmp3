@@ -20,7 +20,7 @@
 
 .header {
     display: flex;
-    padding: 8px 14px;
+    padding: 14px;
     justify-content: center;
     align-items: center;
 }
@@ -97,6 +97,10 @@
         .icon {
             display: flex;
         }
+    }
+
+    &.prev {
+        opacity: 0.5;
     }
 
     &.active {
@@ -178,6 +182,16 @@
     color: white;
     display: none;
     background-color: var(--dark-alpha-50);
+
+    &.playing {
+        .pause-icon {
+            display: block;
+        }
+
+        .lib-icon {
+            display: none;
+        }
+    }
 }
 
 .image {
@@ -207,6 +221,21 @@
             color: var(--purple-primary);
         }
     }
+}
+
+.pause-icon {
+    display: none;
+    width: 18px;
+    height: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.next-songs {
+    padding: 15px 8px 5px;
+    font-weight: 700;
+    font-size: 14px;
 }
 
 // animations

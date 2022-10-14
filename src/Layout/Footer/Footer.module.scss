@@ -1,6 +1,6 @@
 .wrapper-bg {
     position: fixed;
-    bottom: 0;
+    bottom: calc(0 - var(--footer-height));
     left: 0;
     width: 100%;
     z-index: 20;
@@ -23,12 +23,25 @@
     height: 64px;
     display: flex;
     align-items: center;
+    position: relative;
+    left: 0;
+    transition: left 0.3s linear;
+
+    &.active {
+        left: 24px;
+
+        .image {
+            border-radius: 50%;
+            animation: spin 10s linear infinite;
+        }
+    }
 }
 
 .media-left {
+    position: relative;
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .media-content {
@@ -39,10 +52,11 @@
 }
 
 .image {
+    transition: border-radius 0.3s 0.3s ease;
     border-radius: 4px;
     width: 64px;
     height: 64px;
-    margin-right: 10px;
+    animation: spin-off 0.3s ease;
 }
 
 .name-song {
@@ -226,6 +240,29 @@
     }
 }
 
+.note {
+    position: absolute;
+    left: calc(50% - 5px);
+    top: calc(50% - 5px);
+    opacity: 0;
+}
+
+.note-1-spin {
+    animation: note-1-spin 4.8s linear infinite;
+}
+
+.note-2-spin {
+    animation: note-2-spin 4.8s 1.2s linear infinite;
+}
+
+.note-3-spin {
+    animation: note-1-spin 4.8s 2.4s linear infinite;
+}
+
+.note-4-spin {
+    animation: note-2-spin 4.8s 3.6s linear infinite;
+}
+
 // Animations
 @keyframes run-to-left {
     0% {
@@ -233,5 +270,56 @@
     }
     100% {
         transform: translateX(-50%);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    3% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-off {
+    0% {
+        transform: rotate(720deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+@keyframes note-1-spin {
+    0% {
+        opacity: 0;
+        transform: rotate(90deg) translateX(40px) rotate(-90deg) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(180deg) translateX(55px) rotate(-180deg) scale(1.3);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(260deg) translate(70px) rotate(-260deg) scale(1.7) rotate(45deg) rotate(50deg);
+    }
+}
+
+@keyframes note-2-spin {
+    0% {
+        opacity: 0;
+        transform: rotate(90deg) translateX(40px) rotate(-90deg) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(175deg) translateX(57.5px) rotate(-175deg) scale(1.3);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(260deg) translate(75px) rotate(-260deg) scale(1.7) rotate(45deg) rotate(-50deg);
     }
 }

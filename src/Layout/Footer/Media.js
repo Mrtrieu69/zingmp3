@@ -1,34 +1,39 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import { useSelector } from 'react-redux';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { MdMoreHoriz } from 'react-icons/md';
 
+import { SingleNote, DoubleNote } from '../../components/Icons';
 import styles from './Footer.module.scss';
 
 const cx = classNames.bind(styles);
 
 const Media = () => {
-    const title = 'Bông Hoa Chẳng Thuộc Ve Ta';
+    const { currentSong, isPlaying } = useSelector((state) => state.music);
     return (
-        <div className={cx('media')}>
+        <div className={cx('media', { active: isPlaying })}>
             <div className={cx('media-left')}>
-                <img
-                    className={cx('image')}
-                    src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/7/a/1/8/7a18245ee7b959293bebfd30661b6566.jpg"
-                    alt="song"
-                />
+                <img className={cx('image')} src={currentSong.image} alt="song" />
+                {isPlaying && (
+                    <>
+                        <SingleNote className={cx('note', 'note-1-spin')} />
+                        <DoubleNote className={cx('note', 'note-2-spin')} />
+                        <SingleNote className={cx('note', 'note-3-spin')} />
+                        <DoubleNote className={cx('note', 'note-4-spin')} />
+                    </>
+                )}
             </div>
             <div className={cx('media-content')}>
-                <div className={cx('name-song', { active: title.length > 16 })}>
+                <div className={cx('name-song', { active: currentSong.name.length > 16 && isPlaying })}>
                     <div className={cx('content')}>
-                        <span className={cx('text')}>{title}</span>
-                        {title.length > 16 && <span className={cx('text')}>{title}</span>}
+                        <span className={cx('text')}>{currentSong.name}</span>
+                        {currentSong.name.length > 16 && <span className={cx('text')}>{currentSong.name}</span>}
                     </div>
                 </div>
-                <h3 className={cx('author')}>AMEE</h3>
+                <h3 className={cx('author')}>{currentSong.artists}</h3>
             </div>
             <div className={cx('media-right')}>
-                {/* handle like */}
                 <button className={cx('btn')}>
                     <span className={cx('icon', { active: true })}>{true ? <AiFillHeart /> : <AiOutlineHeart />}</span>
                 </button>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
+import { useSelector } from 'react-redux';
 
 import styles from './Layout.module.scss';
 import SideBar from './SideBar';
@@ -10,6 +11,7 @@ const cx = classNames.bind(styles);
 
 const Layout = ({ children }) => {
     const [isScroll, setScroll] = useState(false);
+    const { isFirstStartApp } = useSelector((state) => state.music);
 
     const mainRef = useRef();
 
@@ -21,7 +23,7 @@ const Layout = ({ children }) => {
     }, []);
 
     return (
-        <div className={cx('container')}>
+        <div className={cx('container', { 'has-player': !isFirstStartApp })}>
             <div className={cx('wrapper')}>
                 <SideBar />
                 <div id="main" ref={mainRef} className={cx('main')}>

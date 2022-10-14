@@ -115,3 +115,17 @@ img {
     height: auto;
     width: 100%;
 }
+
+.has-player {
+    #footer {
+        bottom: 0;
+    }
+
+    #sidebar {
+        max-height: calc(100vh - var(--footer-height));
+    }
+
+    #main {
+        max-height: calc(100vh - var(--footer-height));
+    }
+}

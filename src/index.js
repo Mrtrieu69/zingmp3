@@ -5,16 +5,21 @@ import App from './App';
 import { GlobalStyles } from './components';
 import Modal from 'react-modal';
 import { ToastContainer } from 'react-toastify';
+import { store } from './store';
+import { Provider } from 'react-redux';
 
 Modal.setAppElement('#root');
 
 ReactDOM.render(
     <React.StrictMode>
-        <Router>
-            <GlobalStyles>
-                <App />
-                <ToastContainer autoClose={4000} closeButton={false} />
-            </GlobalStyles>
-        </Router>
-    </React.StrictMode>,document.getElementById('root')
+        <Provider store={store}>
+            <Router>
+                <GlobalStyles>
+                    <App />
+                    <ToastContainer autoClose={4000} closeButton={false} />
+                </GlobalStyles>
+            </Router>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root'),
 );

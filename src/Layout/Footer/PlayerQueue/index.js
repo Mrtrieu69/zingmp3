@@ -1,15 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import { MdTimer, MdMoreHoriz } from 'react-icons/md';
 
 import { Button } from '../../../components';
 import styles from './PlayerQueue.module.scss';
 import PlayerQueueItem from './PlayerQueueItem';
-import playerQueue from '../../../data/playerQueue';
 
 const cx = classNames.bind(styles);
 
 const PlayerQueue = ({ close, className }) => {
+    const { currentSong, currentList } = useSelector((state) => state.music);
+
+    const nextList = [...currentList].splice(currentSong.id + 1);
+
     return (
         <div className={cx('wrapper', { close: close, [className]: className })}>
             <div className={cx('header')}>
@@ -26,7 +30,11 @@ const PlayerQueue = ({ close, className }) => {
             </div>
             <div className={cx('body')}>
                 <div className={cx('playlist')}>
-                    {playerQueue.map((item, id) => (
+                    {currentList.slice(0, currentSong.id + 1).map((item, id) => (
+                        <PlayerQueueItem key={id} {...item} />
+                    ))}
+                    {nextList.length !== 0 && <div className={cx('next-songs')}>Next songs</div>}
+                    {nextList.map((item, id) => (
                         <PlayerQueueItem key={id} {...item} />
                     ))}
                 </div>

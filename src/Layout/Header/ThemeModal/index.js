@@ -34,8 +34,8 @@ const customStyles = {
 
 const ThemeModal = () => {
     const [modalIsOpen, setIsOpen] = useState(false);
-    const [currentTheme, setCurrentTheme] = useState(JSON.parse(localStorage.getItem('theme')) || 'purple');
-    const [reviewTheme, setReviewTheme] = useState(JSON.parse(localStorage.getItem('theme')) || 'purple');
+    const [currentTheme, setCurrentTheme] = useState(JSON.parse(localStorage.getItem('theme')) || 'zing');
+    const [reviewTheme, setReviewTheme] = useState(JSON.parse(localStorage.getItem('theme')) || 'zing');
 
     const colors = themes[reviewTheme];
 

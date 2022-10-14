@@ -33,7 +33,7 @@ const SideBar = () => {
 
     return (
         <>
-            <div className={cx('wrapper', { active: show })}>
+            <div id="sidebar" className={cx('wrapper', { active: show })}>
                 <div className={cx('brand')}>
                     <Link to="/" className={cx('link-brand')}>
                         <img className={cx('logo')} src={logo} alt="logo" />

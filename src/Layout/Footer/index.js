@@ -16,6 +16,7 @@ const cx = classNames.bind(styles);
 const Footer = () => {
     const [isVolumeActive, setIsVolumeActive] = useState(true);
     const [volume, setVolume] = useState(50);
+    const [audioEl, setAudioEl] = useState(null);
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
 
     useEffect(() => {
@@ -24,7 +25,7 @@ const Footer = () => {
         }
 
         function outsideClickListener(e) {
-            if (!e.target.closest(`.${cx('player-queue')}`)) {
+            if (!e.target.closest(`.${cx('player-queue')}`) && !e.target.closest(`#footer`)) {
                 setIsShowPlayerQueue(false);
                 removeClickListener();
             }
@@ -40,15 +41,22 @@ const Footer = () => {
     const handleChange = (e) => {
         const value = e.target.value;
         setVolume(value);
+        if (audioEl) {
+            audioEl.volume = value / 100;
+        }
         volumeRef.current.style.background = `linear-gradient(90deg, var(--progressbar-active-bg) ${value}%, var(--progressbar-player-bg) ${value}%)`;
     };
 
+    useEffect(() => {
+        setAudioEl(document.querySelector('#audio'));
+    }, []);
+
     return (
         <>
-            <div className={cx('wrapper-bg')}>
+            <div id="footer" className={cx('wrapper-bg')}>
                 <div id="mini-player" className={cx('wrapper')}>
                     <Media />
-                    <Player />
+                    <Player audioEl={audioEl} />
                     <div className={cx('controls')}>
                         <Button rounded size="medium" className={cx('btn-control')} icon={<BsCameraVideo />} />
                         <Button rounded size="medium" className={cx('btn-control')} icon={<BiMicrophone />} />
@@ -64,6 +72,7 @@ const Footer = () => {
                             className={cx('volume')}
                             onChange={handleChange}
                             value={volume}
+                            initialValue={50}
                         />
                         <div className={cx('narrow')}></div>
                         <button

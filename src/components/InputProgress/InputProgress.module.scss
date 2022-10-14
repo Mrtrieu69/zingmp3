@@ -22,7 +22,6 @@
     width: 100%;
     height: 3px;
     border-radius: 4px;
-    background: linear-gradient(90deg, var(--progressbar-active-bg) 50%, var(--progressbar-player-bg) 50%);
 
     &::-webkit-slider-thumb {
         display: none;

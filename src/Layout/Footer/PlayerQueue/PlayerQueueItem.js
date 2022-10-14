@@ -1,38 +1,58 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import { BsPlayFill, BsPauseFill } from 'react-icons/bs';
+import { BsPlayFill } from 'react-icons/bs';
 import { MdMoreHoriz } from 'react-icons/md';
 
 import { Button } from '../../../components';
 import styles from './PlayerQueue.module.scss';
+import { play, pause, setSong } from '../../../features/music/musicSlice';
 
 const cx = classNames.bind(styles);
 
-const PlayerQueueItem = ({ isActive, title, artists, image, isLike, isPlay }) => {
-    // State is used by redux, the current state is fake
+const PlayerQueueItem = ({ name, artists, image, isLike, id }) => {
+    const { isPlaying, currentSong } = useSelector((state) => state.music);
+    const dispatch = useDispatch();
 
-    const handlePlay = () => {};
+    const handleTogglePlay = () => {
+        if (currentSong.id === id) {
+            if (isPlaying) {
+                dispatch(pause());
+            } else {
+                dispatch(setSong(id));
+                dispatch(play());
+            }
+            return;
+        }
 
-    const handleLike = () => {};
+        dispatch(setSong(id));
+        dispatch(play());
+    };
 
     return (
-        <div className={cx('song', { active: isActive })}>
+        <div className={cx('song', { active: currentSong.id === id, prev: currentSong.id > id })}>
             <div className={cx('main')}>
                 <div className={cx('block')}>
                     <img className={cx('image')} src={image} alt="song" />
-                    <span onClick={handlePlay} className={cx('icon')}>
-                        {isPlay ? <BsPauseFill /> : <BsPlayFill />}
+                    <span
+                        onClick={handleTogglePlay}
+                        className={cx('icon', { playing: isPlaying && currentSong.id === id })}
+                    >
+                        <span
+                            className={cx('pause-icon')}
+                            style={{ backgroundImage: "url('/images/gif/icon-playing.gif')" }}
+                        ></span>
+                        <BsPlayFill className={cx('lib-icon')} />
                     </span>
                 </div>
                 <div className={cx('desc')}>
-                    <p className={cx('title-song')}>{title}</p>
+                    <p className={cx('title-song')}>{name}</p>
                     <p className={cx('artists')}>{artists}</p>
                 </div>
             </div>
             <div className={cx('more')}>
                 <Button
-                    onClick={handleLike}
                     size="small"
                     rounded
                     icon={isLike ? <AiFillHeart /> : <AiOutlineHeart />}

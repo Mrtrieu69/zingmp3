@@ -4,7 +4,7 @@ import styles from './InputProgress.module.scss';
 
 const cx = classNames.bind(styles);
 
-const InputProgress = forwardRef(({ className, ...passProps }, ref) => {
+const InputProgress = forwardRef(({ className, initialValue, ...passProps }, ref) => {
     return (
         <div className={cx('progress')}>
             <input
@@ -15,6 +15,9 @@ const InputProgress = forwardRef(({ className, ...passProps }, ref) => {
                 min="0"
                 max="100"
                 step="1"
+                style={{
+                    background: `linear-gradient(90deg, var(--progressbar-active-bg) ${initialValue}%, var(--progressbar-player-bg) ${initialValue}%)`,
+                }}
             />
         </div>
     );

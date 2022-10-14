@@ -9,7 +9,7 @@
 
 .main {
     flex: 1;
-    max-height: calc(100vh - var(--footer-height));
+    max-height: 100vh;
     overflow-y: overlay;
     overflow-x: hidden;
 

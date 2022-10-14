@@ -5,25 +5,22 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
-        <div>
-            <Routes>
-                {mainRoutes.map((route, index) => {
-                    const Page = route.component;
-                    return (
-                        <Route
-                            key={index}
-                            path={route.path}
-                            element={
-                                <Layout>
-                                    <Page />
-                                </Layout>
-                            }
-                        />
-                    );
-                })}
-            </Routes>
-            <audio id="audio" src="/music/favorite/tu-thich-thich-thanh-thuong-thuong.mp3"></audio>
-        </div>
+        <Routes>
+            {mainRoutes.map((route, index) => {
+                const Page = route.component;
+                return (
+                    <Route
+                        key={index}
+                        path={route.path}
+                        element={
+                            <Layout>
+                                <Page />
+                            </Layout>
+                        }
+                    />
+                );
+            })}
+        </Routes>
     );
 }
 
