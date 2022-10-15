@@ -14,8 +14,8 @@ import { Button } from '../../components';
 const cx = classNames.bind(styles);
 
 const Footer = () => {
-    const [isVolumeActive, setIsVolumeActive] = useState(true);
     const [volume, setVolume] = useState(50);
+    const [isMute, setIsMute] = useState(false);
     const [audioEl, setAudioEl] = useState(null);
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
 
@@ -40,11 +40,27 @@ const Footer = () => {
 
     const handleChange = (e) => {
         const value = e.target.value;
+        if (isMute) {
+            setIsMute(false);
+            audioEl.muted = false;
+        }
+
         setVolume(value);
         if (audioEl) {
             audioEl.volume = value / 100;
         }
         volumeRef.current.style.background = `linear-gradient(90deg, var(--progressbar-active-bg) ${value}%, var(--progressbar-player-bg) ${value}%)`;
+    };
+
+    const handleMute = () => {
+        if (isMute) {
+            audioEl.muted = false;
+            volumeRef.current.style.background = `linear-gradient(90deg, var(--progressbar-active-bg) ${volume}%, var(--progressbar-player-bg) ${volume}%)`;
+        } else {
+            volumeRef.current.style.background = `linear-gradient(90deg, var(--progressbar-active-bg) ${0}%, var(--progressbar-player-bg) ${0}%)`;
+            audioEl.muted = true;
+        }
+        setIsMute(!isMute);
     };
 
     useEffect(() => {
@@ -64,15 +80,15 @@ const Footer = () => {
                             rounded
                             size="medium"
                             className={cx('btn-control')}
-                            onClick={() => setIsVolumeActive(!isVolumeActive)}
-                            icon={isVolumeActive ? <BsVolumeUp /> : <BsVolumeMute />}
+                            onClick={handleMute}
+                            icon={isMute ? <BsVolumeMute /> : <BsVolumeUp />}
                         />
                         <InputProgress
                             ref={volumeRef}
                             className={cx('volume')}
                             onChange={handleChange}
-                            value={volume}
-                            initialValue={50}
+                            value={isMute ? 0 : volume}
+                            initialValue={isMute ? 0 : volume}
                         />
                         <div className={cx('narrow')}></div>
                         <button

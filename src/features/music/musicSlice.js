@@ -4,6 +4,9 @@ import FAVORITE_SONGS from '../../data/favoriteSongs';
 const currentSong = FAVORITE_SONGS[0];
 
 const initialState = {
+    listPlayed: [],
+    isRandom: false,
+    isRepeat: false,
     isFirstStartApp: true,
     isPlaying: false,
     currentSong,
@@ -33,12 +36,25 @@ export const musicSlice = createSlice({
         togglePlay: (state) => {
             state.isPlaying = !state.isPlaying;
         },
+        toggleIsRepeat: (state) => {
+            state.isRepeat = !state.isRepeat;
+        },
+        toggleIsRandom: (state) => {
+            state.isRandom = !state.isRandom;
+        },
         startApp: (state) => {
             state.isFirstStartApp = false;
+        },
+        setListPlayed: (state, action) => {
+            if (state.listPlayed.includes(action.payload)) {
+                state.listPlayed = [];
+            }
+            state.listPlayed.push(action.payload);
         },
     },
 });
 
-export const { togglePlay, setSong, pause, play, startApp } = musicSlice.actions;
+export const { togglePlay, setSong, pause, play, startApp, toggleIsRepeat, toggleIsRandom, setListPlayed } =
+    musicSlice.actions;
 
 export default musicSlice.reducer;

@@ -7,7 +7,7 @@ import { BiShuffle } from 'react-icons/bi';
 import { TbRepeat } from 'react-icons/tb';
 
 import styles from './Footer.module.scss';
-import { setSong, togglePlay } from '../../features/music/musicSlice';
+import { setSong, togglePlay, toggleIsRepeat, toggleIsRandom, setListPlayed } from '../../features/music/musicSlice';
 import { InputProgress } from '../../components';
 import { Button } from '../../components';
 
@@ -15,16 +15,19 @@ const cx = classNames.bind(styles);
 
 const Player = ({ audioEl }) => {
     const [progress, setProgress] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
 
-    const { currentSong, isPlaying } = useSelector((state) => state.music);
+    const { currentSong, isPlaying, isRepeat, isRandom, currentList, listPlayed } = useSelector((state) => state.music);
     const dispatch = useDispatch();
 
     const inputProgress = useRef();
 
-    const formatTime = (sec) => {
-        let result = '03:24';
+    const formatTime = (time) => {
+        const floor = Math.floor(time);
+        let min = Math.floor(floor / 60);
+        let sec = floor % 60;
 
-        return result;
+        return `0${min}:${sec < 10 ? `0${sec}` : sec}`;
     };
 
     const handleChange = (e) => {
@@ -49,8 +52,25 @@ const Player = ({ audioEl }) => {
         dispatch(togglePlay());
     };
 
+    const getRandomSong = () => {
+        const length = currentList.length;
+        const copyList = listPlayed.length === length - 1 ? [] : [...listPlayed];
+        let random;
+
+        do {
+            random = Math.floor(Math.random() * length);
+        } while (copyList.includes(random) || random === currentList.id);
+        dispatch(setListPlayed(random));
+        return random;
+    };
+
     const handleNext = () => {
-        dispatch(setSong(currentSong.id + 1));
+        if (isRandom) {
+            const index = getRandomSong();
+            dispatch(setSong(index));
+        } else {
+            dispatch(setSong(currentSong.id + 1));
+        }
     };
 
     const handlePrev = () => {
@@ -59,7 +79,11 @@ const Player = ({ audioEl }) => {
 
     useEffect(() => {
         const handleEnded = () => {
-            handleNext();
+            if (isRepeat) {
+                audioEl.play();
+            } else {
+                handleNext();
+            }
         };
 
         const handleUpdateTime = () => {
@@ -70,6 +94,7 @@ const Player = ({ audioEl }) => {
                 setProgress(currentPercent);
                 inputProgress.current.style.background = `linear-gradient(90deg, var(--progressbar-active-bg) ${currentPercent}%, var(--progressbar-player-bg) ${currentPercent}%)`;
             }
+            setCurrentTime(currentTime);
         };
 
         if (audioEl) {
@@ -83,7 +108,9 @@ const Player = ({ audioEl }) => {
                 audioEl.removeEventListener('timeupdate', handleUpdateTime);
             }
         };
-    }, [audioEl, currentSong]);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [audioEl, currentSong, isRepeat, isRandom]);
 
     useEffect(() => {
         if (audioEl) {
@@ -100,7 +127,13 @@ const Player = ({ audioEl }) => {
     return (
         <div className={cx('player')}>
             <div className={cx('actions')}>
-                <Button size="medium" rounded className={cx('btn-player', 'active')} icon={<BiShuffle />} />
+                <Button
+                    size="medium"
+                    onClick={() => dispatch(toggleIsRandom())}
+                    rounded
+                    className={cx('btn-player', { active: isRandom })}
+                    icon={<BiShuffle />}
+                />
                 <Button
                     size="medium"
                     onClick={handlePrev}
@@ -116,12 +149,18 @@ const Player = ({ audioEl }) => {
                     icon={isPlaying ? <BsPauseCircle /> : <BsPlayCircle />}
                 />
                 <Button size="medium" onClick={handleNext} rounded className={cx('btn-player')} icon={<MdSkipNext />} />
-                <Button size="medium" rounded className={cx('btn-player')} icon={<TbRepeat />} />
+                <Button
+                    size="medium"
+                    onClick={() => dispatch(toggleIsRepeat())}
+                    rounded
+                    className={cx('btn-player', { active: isRepeat })}
+                    icon={<TbRepeat />}
+                />
             </div>
             <div className={cx('progress')}>
-                <span className={cx('time', 'left')}>00:00</span>
-                <InputProgress ref={inputProgress} value={progress} initialValue={0} onChange={handleChange} />
-                <span className={cx('time', 'right')}>{formatTime()}</span>
+                <span className={cx('time', 'left')}>{formatTime(currentTime)}</span>
+                <InputProgress ref={inputProgress} value={progress} initialValue={progress} onChange={handleChange} />
+                <span className={cx('time', 'right')}>{formatTime(currentSong.duration)}</span>
             </div>
             <audio id="audio" src={currentSong.url} />
         </div>

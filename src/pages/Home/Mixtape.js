@@ -28,8 +28,8 @@ const Mixtapes = [
     },
     {
         label: 'Mixtape phố cũ còn anh',
-        image1: '/images/mixtape/chi-con-ta-va-ta-giua-troi.jpg',
-        image2: '/images/mixtape/pho-cu-con-anh.jpg',
+        image1: '/images/mixtape/pho-cu-con-anh.jpg',
+        image2: '/images/mixtape/chi-con-ta-va-ta-giua-troi.jpg',
     },
 ];
 
