@@ -77,6 +77,18 @@ const Player = ({ audioEl }) => {
         dispatch(setSong(currentSong.id - 1));
     };
 
+    const handleMouseDown = () => {
+        if (audioEl) {
+            audioEl.muted = true;
+        }
+    };
+
+    const handleMouseUp = () => {
+        if (audioEl) {
+            audioEl.muted = false;
+        }
+    };
+
     useEffect(() => {
         const handleEnded = () => {
             if (isRepeat) {
@@ -159,7 +171,14 @@ const Player = ({ audioEl }) => {
             </div>
             <div className={cx('progress')}>
                 <span className={cx('time', 'left')}>{formatTime(currentTime)}</span>
-                <InputProgress ref={inputProgress} value={progress} initialValue={progress} onChange={handleChange} />
+                <InputProgress
+                    ref={inputProgress}
+                    value={progress}
+                    initialValue={progress}
+                    onChange={handleChange}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                />
                 <span className={cx('time', 'right')}>{formatTime(currentSong.duration)}</span>
             </div>
             <audio id="audio" src={currentSong.url} />
