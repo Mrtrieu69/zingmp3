@@ -5,9 +5,17 @@ import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 import { BsPlayCircle, BsPauseCircle } from 'react-icons/bs';
 import { BiShuffle } from 'react-icons/bi';
 import { TbRepeat } from 'react-icons/tb';
+import { Loader } from '../../components/Icons';
 
 import styles from './Footer.module.scss';
-import { setSong, togglePlay, toggleIsRepeat, toggleIsRandom, setListPlayed } from '../../features/music/musicSlice';
+import {
+    setSong,
+    togglePlay,
+    toggleIsRepeat,
+    toggleIsRandom,
+    setListPlayed,
+    setIsLoadingData,
+} from '../../features/music/musicSlice';
 import { InputProgress } from '../../components';
 import { Button } from '../../components';
 
@@ -17,7 +25,9 @@ const Player = ({ audioEl }) => {
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
 
-    const { currentSong, isPlaying, isRepeat, isRandom, currentList, listPlayed } = useSelector((state) => state.music);
+    const { currentSong, isPlaying, isRepeat, isRandom, currentList, listPlayed, isLoadingData } = useSelector(
+        (state) => state.music,
+    );
     const dispatch = useDispatch();
 
     const inputProgress = useRef();
@@ -109,15 +119,26 @@ const Player = ({ audioEl }) => {
             setCurrentTime(currentTime);
         };
 
+        const handleLoadStart = () => {
+            dispatch(setIsLoadingData(true));
+        };
+
+        const handleLoadeddata = () => {
+            dispatch(setIsLoadingData(false));
+        };
+
         if (audioEl) {
             audioEl.addEventListener('ended', handleEnded);
-
             audioEl.addEventListener('timeupdate', handleUpdateTime);
+            audioEl.addEventListener('loadstart', handleLoadStart);
+            audioEl.addEventListener('loadeddata', handleLoadeddata);
         }
         return () => {
             if (audioEl) {
                 audioEl.removeEventListener('ended', handleEnded);
                 audioEl.removeEventListener('timeupdate', handleUpdateTime);
+                audioEl.removeEventListener('loadstart', handleLoadStart);
+                audioEl.removeEventListener('loadeddata', handleLoadeddata);
             }
         };
 
@@ -153,13 +174,19 @@ const Player = ({ audioEl }) => {
                     className={cx('btn-player')}
                     icon={<MdSkipPrevious />}
                 />
-                <Button
-                    onClick={handlePlayMusic}
-                    size="large"
-                    rounded
-                    className={cx('btn-player', 'separate')}
-                    icon={isPlaying ? <BsPauseCircle /> : <BsPlayCircle />}
-                />
+                {isLoadingData ? (
+                    <div className={cx('loading')}>
+                        <Loader />
+                    </div>
+                ) : (
+                    <Button
+                        onClick={handlePlayMusic}
+                        size="large"
+                        rounded
+                        className={cx('btn-player', 'separate')}
+                        icon={isPlaying ? <BsPauseCircle /> : <BsPlayCircle />}
+                    />
+                )}
                 <Button size="medium" onClick={handleNext} rounded className={cx('btn-player')} icon={<MdSkipNext />} />
                 <Button
                     size="medium"

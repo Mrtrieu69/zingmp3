@@ -238,6 +238,25 @@
     font-size: 14px;
 }
 
+.loader-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    animation: spinner 2s linear infinite;
+    font-size: 25px;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 // animations
 @keyframes fade-from-right {
     0% {

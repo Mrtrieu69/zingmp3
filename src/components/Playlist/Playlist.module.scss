@@ -173,3 +173,17 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.loader-icon {
+    display: flex;
+    animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { MdMoreHoriz } from 'react-icons/md';
 import { BsMusicNoteBeamed, BsFillPlayFill } from 'react-icons/bs';
+import { BiLoader } from 'react-icons/bi';
 
 import styles from './Playlist.module.scss';
 import { setSong, pause, play, startApp } from '../../features/music/musicSlice';
@@ -15,7 +16,7 @@ const cx = classNames.bind(styles);
 
 const Playlist = ({ songs, onLike = () => {} }) => {
     const [idCurrentSong, setIdCurrentSong] = useState(null);
-    const { currentSong, isPlaying, isFirstStartApp } = useSelector((state) => state.music);
+    const { currentSong, isPlaying, isFirstStartApp, isLoadingData } = useSelector((state) => state.music);
     const dispatch = useDispatch();
 
     const handlePlay = (index) => {
@@ -49,7 +50,11 @@ const Playlist = ({ songs, onLike = () => {} }) => {
                         <div className={cx('block')}>
                             <img src={song.image} className={cx('song-thumb')} alt={song.name} />
                             <div className={cx('mask')}>
-                                {isPlaying && song.id === idCurrentSong ? (
+                                {song.id === idCurrentSong && isLoadingData ? (
+                                    <span className={cx('loader-icon')}>
+                                        <BiLoader />
+                                    </span>
+                                ) : isPlaying && song.id === idCurrentSong ? (
                                     <span onClick={handlePause} className={cx('btn-pause')}>
                                         <span
                                             className={cx('pause-icon')}

@@ -1,3 +1,26 @@
+import classNames from 'classnames/bind';
+
+import styles from './Icons.module.scss';
+
+const cx = classNames.bind(styles);
+
+export const Loader = () => (
+    <div className={cx('lds-spinner')}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+);
+
 export const IconSong = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <defs>

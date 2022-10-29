@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { BsPlayFill } from 'react-icons/bs';
 import { MdMoreHoriz } from 'react-icons/md';
+import { BiLoader } from 'react-icons/bi';
 
 import { Button } from '../../../components';
 import styles from './PlayerQueue.module.scss';
@@ -12,7 +13,7 @@ import { play, pause, setSong } from '../../../features/music/musicSlice';
 const cx = classNames.bind(styles);
 
 const PlayerQueueItem = ({ name, artists, image, isLike, id }) => {
-    const { isPlaying, currentSong } = useSelector((state) => state.music);
+    const { isPlaying, currentSong, isLoadingData } = useSelector((state) => state.music);
     const dispatch = useDispatch();
 
     const handleTogglePlay = () => {
@@ -35,16 +36,22 @@ const PlayerQueueItem = ({ name, artists, image, isLike, id }) => {
             <div className={cx('main')}>
                 <div className={cx('block')}>
                     <img className={cx('image')} src={image} alt="song" />
-                    <span
-                        onClick={handleTogglePlay}
-                        className={cx('icon', { playing: isPlaying && currentSong.id === id })}
-                    >
+                    {id === currentSong.id && isLoadingData ? (
+                        <span className={cx('loader-icon')}>
+                            <BiLoader />
+                        </span>
+                    ) : (
                         <span
-                            className={cx('pause-icon')}
-                            style={{ backgroundImage: "url('/images/gif/icon-playing.gif')" }}
-                        ></span>
-                        <BsPlayFill className={cx('lib-icon')} />
-                    </span>
+                            onClick={handleTogglePlay}
+                            className={cx('icon', { playing: isPlaying && currentSong.id === id })}
+                        >
+                            <span
+                                className={cx('pause-icon')}
+                                style={{ backgroundImage: "url('/images/gif/icon-playing.gif')" }}
+                            ></span>
+                            <BsPlayFill className={cx('lib-icon')} />
+                        </span>
+                    )}
                 </div>
                 <div className={cx('desc')}>
                     <p className={cx('title-song')}>{name}</p>
