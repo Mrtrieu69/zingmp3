@@ -18,6 +18,7 @@ import {
 } from '../../features/music/musicSlice';
 import { InputProgress } from '../../components';
 import { Button } from '../../components';
+import { formatTime } from '../../utils';
 
 const cx = classNames.bind(styles);
 
@@ -32,14 +33,6 @@ const Player = ({ audioEl }) => {
 
     const inputProgress = useRef();
 
-    const formatTime = (time) => {
-        const floor = Math.floor(time);
-        let min = Math.floor(floor / 60);
-        let sec = floor % 60;
-
-        return `0${min}:${sec < 10 ? `0${sec}` : sec}`;
-    };
-
     const handleChange = (e) => {
         const value = e.target.value;
         setProgress(value);
@@ -50,7 +43,6 @@ const Player = ({ audioEl }) => {
                 inputProgress.current.style.background = `linear-gradient(90deg, var(--progressbar-active-bg) ${value}%, var(--progressbar-player-bg) ${value}%)`;
             }
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     };
 
     const handlePlayMusic = () => {

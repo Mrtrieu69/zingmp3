@@ -8,8 +8,8 @@ import { FiLogOut } from 'react-icons/fi';
 export const MENU_SETTING = {
     MENU_MAIN: [
         { iconLeft: <BiBlock />, title: 'Blocklist' },
-        { iconLeft: <MdOutlineHighQuality />, title: 'Music quality', children: [] },
-        { iconLeft: <BsPlayCircle />, title: 'Display', children: [] },
+        { iconLeft: <MdOutlineHighQuality />, title: 'Music quality' },
+        { iconLeft: <BsPlayCircle />, title: 'Display' },
     ],
     MENU_FOOTER: [
         { iconLeft: <AiOutlineInfoCircle />, title: 'Introduce' },

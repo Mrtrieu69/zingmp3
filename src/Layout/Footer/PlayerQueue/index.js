@@ -10,7 +10,8 @@ import PlayerQueueItem from './PlayerQueueItem';
 const cx = classNames.bind(styles);
 
 const PlayerQueue = ({ close, className }) => {
-    const { currentSong, currentList } = useSelector((state) => state.music);
+    const { currentSong } = useSelector((state) => state.music);
+    const currentList = useSelector((state) => state.music[state.music['currentList']]);
 
     const nextList = [...currentList].splice(currentSong.id + 1);
 

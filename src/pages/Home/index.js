@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BsPlayFill } from 'react-icons/bs';
 import { MdMoreHoriz } from 'react-icons/md';
@@ -17,9 +18,27 @@ import Partner from './Partner';
 const cx = classNames.bind(styles);
 
 const PLAYLIST = [
-    { name: 'Playlist này chill phết', image: "url('/images/album/album1.webp')", subTitle: 'Zing mp3', isLike: true },
-    { name: 'Rap việt nghe là nghiền', image: "url('/images/album/album2.webp')", subTitle: 'Zing mp3', isLike: true },
-    { name: 'chill hits', image: "url('/images/album/album3.webp')", subTitle: 'Zing mp3', isLike: true },
+    {
+        name: 'Playlist này chill phết',
+        image: "url('/images/album/album1.webp')",
+        subTitle: 'Zing mp3',
+        isLike: true,
+        path: 'mymusic/playlist-chill',
+    },
+    {
+        name: 'Rap việt nghe là nghiền',
+        image: "url('/images/album/album2.webp')",
+        subTitle: 'Zing mp3',
+        isLike: true,
+        path: 'mymusic/rap-viet',
+    },
+    {
+        name: 'chill hits',
+        image: "url('/images/album/album3.webp')",
+        subTitle: 'Zing mp3',
+        isLike: true,
+        path: 'mymusic/chill-hits',
+    },
 ];
 
 const LIST = [
@@ -94,7 +113,7 @@ const Home = () => {
                 <div className={cx('playlists')}>
                     {PLAYLIST.map((item, id) => (
                         <div key={id} className={cx('playlist-item')}>
-                            <div style={{ backgroundImage: item.image }} className={cx('card')}>
+                            <Link to={item.path} style={{ backgroundImage: item.image }} className={cx('card')}>
                                 <div className={cx('layout')}>
                                     <Button
                                         icon={item.isLike ? <AiFillHeart /> : <AiOutlineHeart />}
@@ -104,7 +123,7 @@ const Home = () => {
                                     <Button icon={<BsPlayFill />} rounded className={cx('icon', 'icon-play')} />
                                     <Button icon={<MdMoreHoriz />} rounded className={cx('icon')} />
                                 </div>
-                            </div>
+                            </Link>
                             <h4 className={cx('name')}>{item.name}</h4>
                         </div>
                     ))}

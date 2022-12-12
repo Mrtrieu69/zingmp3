@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { NavLink } from 'react-router-dom';
 
 import styles from './SideBar.module.scss';
-import { mainRoutes } from '../../routes';
+import { mainLinks } from '../../routes';
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +13,7 @@ const MainLinks = () => {
     };
     return (
         <div className={cx('links')}>
-            {mainRoutes.map((item, id) => (
+            {mainLinks.map((item, id) => (
                 <NavLink
                     onClick={handleChangeLink}
                     key={id}

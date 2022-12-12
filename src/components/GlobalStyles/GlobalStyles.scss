@@ -28,6 +28,9 @@
 html {
     font-family: Inter, sans-serif;
     font-size: 62.5%;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {

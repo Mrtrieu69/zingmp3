@@ -4,15 +4,33 @@ import { BsPlayFill } from 'react-icons/bs';
 
 import styles from './MyMusic.module.scss';
 import { Button } from '../../components';
-import PlayList from './PlaylistItem';
+import PlayListItem from './PlaylistItem';
 import { Song, MV, Podcast, Album } from './components';
 
 const cx = classNames.bind(styles);
 
 const PLAYLIST = [
-    { name: 'Playlist này chill phết', image: "url('/images/album/album1.webp')", subTitle: 'Zing mp3', isLike: true },
-    { name: 'Rap việt nghe là nghiền', image: "url('/images/album/album2.webp')", subTitle: 'Zing mp3', isLike: true },
-    { name: 'chill hits', image: "url('/images/album/album3.webp')", subTitle: 'Zing mp3', isLike: true },
+    {
+        name: 'Playlist này chill phết',
+        image: "url('/images/album/album1.webp')",
+        subTitle: 'Zing mp3',
+        isLike: true,
+        path: 'playlist-chill',
+    },
+    {
+        name: 'Rap việt nghe là nghiền',
+        image: "url('/images/album/album2.webp')",
+        subTitle: 'Zing mp3',
+        isLike: true,
+        path: 'rap-viet',
+    },
+    {
+        name: 'chill hits',
+        image: "url('/images/album/album3.webp')",
+        subTitle: 'Zing mp3',
+        isLike: true,
+        path: 'chill hits',
+    },
 ];
 
 const NAVBAR_LIST = [
@@ -44,7 +62,7 @@ const MyMusic = () => {
                 <h3 className={cx('title')}>PLAYLIST</h3>
                 <div className={cx('playlists')}>
                     {PLAYLIST.map((item, id) => (
-                        <PlayList key={id} {...item} />
+                        <PlayListItem key={id} {...item} />
                     ))}
                 </div>
             </div>

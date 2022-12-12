@@ -7,7 +7,7 @@ import classNames from 'classnames/bind';
 import styles from './ThemeModal.module.scss';
 import { Button } from '../../../components';
 import { displayThemes } from '../../../data/themes';
-import themes from '../../../utils/themes';
+import themes from '../../../data/themes/themes';
 
 const cx = classNames.bind(styles);
 

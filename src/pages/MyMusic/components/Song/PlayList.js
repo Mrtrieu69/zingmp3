@@ -7,9 +7,9 @@ import { MdMoreHoriz } from 'react-icons/md';
 import { BsMusicNoteBeamed, BsFillPlayFill } from 'react-icons/bs';
 import { BiLoader } from 'react-icons/bi';
 
-import styles from './Playlist.module.scss';
-import { setSong, pause, play, startApp } from '../../features/music/musicSlice';
-import Button from '../Button';
+import styles from './Song.module.scss';
+import { setSong, pause, play, startApp } from '../../../../features/music/musicSlice';
+import { Button } from '../../../../components';
 
 const cx = classNames.bind(styles);
 

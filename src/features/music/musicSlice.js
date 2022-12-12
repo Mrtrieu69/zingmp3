@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import FAVORITE_SONGS from '../../data/favoriteSongs';
+import { FAVORITE_SONGS } from '../../data/playlists';
 
 const currentSong = FAVORITE_SONGS[0];
 
@@ -11,8 +11,8 @@ const initialState = {
     isFirstStartApp: true,
     isPlaying: false,
     currentSong,
-    currentList: FAVORITE_SONGS,
-    favoriteSongs: FAVORITE_SONGS,
+    currentList: 'favorite-songs',
+    'favorite-songs': FAVORITE_SONGS,
 };
 
 export const musicSlice = createSlice({
@@ -27,11 +27,11 @@ export const musicSlice = createSlice({
         },
         setSong: (state, action) => {
             if (action.payload <= -1) {
-                state.currentSong = state.currentList[state.currentList.length - 1];
-            } else if (action.payload >= state.currentList.length) {
-                state.currentSong = state.currentList[0];
+                state.currentSong = state[state.currentList][state[state.currentList].length - 1];
+            } else if (action.payload >= state[state.currentList].length) {
+                state.currentSong = state[state.currentList][0];
             } else {
-                state.currentSong = state.currentList.find((song) => song.id === action.payload);
+                state.currentSong = state[state.currentList].find((song) => song.id === action.payload);
             }
         },
         togglePlay: (state) => {

@@ -1,5 +1,5 @@
 // Pages
-import { Home, MyMusic, Radio, ZingChart, Following } from '../pages';
+import { Home, MyMusic, Radio, ZingChart, Following, MyPlayList } from '../pages';
 
 // icons
 import {
@@ -17,12 +17,21 @@ import { BiCategoryAlt } from 'react-icons/bi';
 import { IconSong, IconPlaylist, IconRecently } from '../components/Icons';
 
 // main routes
-export const mainRoutes = [
+export const mainLinks = [
     { path: '/mymusic', component: MyMusic, title: 'Personal', iconLeft: <BsMusicPlayer /> },
     { path: '/', component: Home, title: 'Explore', iconLeft: <BsPlayCircle /> },
     { path: '/zingchart', component: ZingChart, title: '#zingchart', iconLeft: <AiOutlineLineChart /> },
     { path: '/radio', component: Radio, title: 'Radio', iconLeft: <VscRadioTower />, separate: 'Live' },
     { path: '/following', component: Following, title: 'Following', iconLeft: <BsReverseLayoutTextWindowReverse /> },
+];
+
+export const mainRoutes = [
+    { path: '/mymusic', component: MyMusic },
+    { path: '/mymusic/:idList', component: MyPlayList },
+    { path: '/', component: Home },
+    { path: '/zingchart', component: ZingChart },
+    { path: '/radio', component: Radio },
+    { path: '/following', component: Following },
 ];
 
 // Secondary routes

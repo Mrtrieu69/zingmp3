@@ -26,6 +26,7 @@
     &.disabled {
         opacity: 0.3;
         user-select: none;
+        pointer-events: none;
         cursor: default;
     }
 }

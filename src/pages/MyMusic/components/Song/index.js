@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import { useSelector } from 'react-redux';
 
-import { EmptyContent } from '../../../../components';
+import { EmptyContent, Playlist } from '../../../../components';
 import styles from './Song.module.scss';
-import { Playlist } from '../../../../components';
 
 const cx = classNames.bind(styles);
 
@@ -12,7 +11,7 @@ const NAVS = [{ title: 'favorite' }, { title: 'uploaded' }];
 
 const Song = () => {
     const [nav, setNav] = useState('favorite');
-    const { favoriteSongs } = useSelector((state) => state.music);
+    const favoriteSongs = useSelector((state) => state.music['favorite-songs']);
 
     return (
         <div>

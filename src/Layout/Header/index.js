@@ -12,14 +12,22 @@ import ThemeModal from './ThemeModal';
 const cx = classNames.bind(styles);
 
 const Header = () => {
+    const history = window.history;
+
     return (
         <>
             <div className={cx('wrapper')}>
                 <div className={cx('level')}>
-                    <button className={cx('level-left')}>
+                    <button
+                        onClick={() => history.back()}
+                        className={cx('level-left', { disabled: history.state.idx === 0 })}
+                    >
                         <BsArrowLeft />
                     </button>
-                    <button className={cx('level-right', 'disabled')}>
+                    <button
+                        onClick={() => history.forward()}
+                        className={cx('level-right', { disabled: history.state.idx === history.length - 2 })}
+                    >
                         <BsArrowRight />
                     </button>
                     <Search />
