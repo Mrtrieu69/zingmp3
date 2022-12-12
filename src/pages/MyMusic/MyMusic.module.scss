@@ -105,6 +105,10 @@
             color: var(--purple-primary);
         }
     }
+
+    &.active {
+        display: flex;
+    }
 }
 
 .content {
@@ -112,7 +116,8 @@
     flex-direction: column;
 }
 
-.name-card {
+a.name-card {
+    font-weight: 600;
     margin: 8px 0 4px 0;
     font-size: 1.4rem;
     cursor: pointer;
@@ -120,6 +125,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-transform: capitalize;
+    color: white;
 
     &:hover {
         color: var(--link-text-hover);
@@ -170,4 +176,22 @@
     &.active {
         color: var(--purple-primary);
     }
+}
+
+.pause {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.pause-icon {
+    width: 18px;
+    height: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }

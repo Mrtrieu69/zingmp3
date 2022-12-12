@@ -16,6 +16,7 @@ const PLAYLIST = [
         subTitle: 'Zing mp3',
         isLike: true,
         path: 'playlist-chill',
+        type: 'playlist-chill',
     },
     {
         name: 'Rap việt nghe là nghiền',
@@ -23,13 +24,15 @@ const PLAYLIST = [
         subTitle: 'Zing mp3',
         isLike: true,
         path: 'rap-viet',
+        type: 'rap-viet',
     },
     {
         name: 'chill hits',
         image: "url('/images/album/album3.webp')",
         subTitle: 'Zing mp3',
         isLike: true,
-        path: 'chill hits',
+        path: 'chill-hits',
+        type: 'chill-hits',
     },
 ];
 

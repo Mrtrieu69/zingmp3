@@ -1,19 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
+import styles from './Home.module.scss';
 import { Button } from '../../components';
-import styles from './MyMusic.module.scss';
 import { setCurrentList, setSong, play, startApp, pause } from '../../features/music/musicSlice';
 
-import { MdMoreHoriz } from 'react-icons/md';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BsPlayFill } from 'react-icons/bs';
+import { MdMoreHoriz } from 'react-icons/md';
 
 const cx = classNames.bind(styles);
 
-const PlaylistItem = ({ children, ...item }) => {
+const PlaylistItem = ({ ...item }) => {
     const { isPlaying, currentList, isFirstStartApp, idCurrentSong } = useSelector((state) => state.music);
     const dispatch = useDispatch();
 
@@ -39,9 +39,9 @@ const PlaylistItem = ({ children, ...item }) => {
     };
 
     return (
-        <div className={cx('item')}>
+        <div className={cx('playlist-item')}>
             <Link to={item.path} style={{ backgroundImage: item.image }} className={cx('card')}>
-                <div className={cx('controls', { active: isPlaying && currentList === item.type })}>
+                <div className={cx('layout', { active: isPlaying && currentList === item.type })}>
                     <Button
                         onClick={(e) => handleEvent(e)}
                         icon={item.isLike ? <AiFillHeart /> : <AiOutlineHeart />}
@@ -66,12 +66,9 @@ const PlaylistItem = ({ children, ...item }) => {
                     <Button onClick={(e) => handleEvent(e)} icon={<MdMoreHoriz />} rounded className={cx('icon')} />
                 </div>
             </Link>
-            <div className={cx('content')}>
-                <Link to={item.path} className={cx('name-card')}>
-                    {item.name}
-                </Link>
-                <span className={cx('subtitle')}>{item.subTitle}</span>
-            </div>
+            <h4 className={cx('name')}>
+                <Link to={item.path}>{item.name}</Link>
+            </h4>
         </div>
     );
 };

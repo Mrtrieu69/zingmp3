@@ -5,6 +5,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 var(--padding-section);
+
+    @media (max-width: 1024px) {
+        padding: 0 30px;
+    }
 }
 
 .level {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { MdMoreHoriz } from 'react-icons/md';
@@ -8,17 +9,23 @@ import { BsMusicNoteBeamed, BsFillPlayFill } from 'react-icons/bs';
 import { BiLoader } from 'react-icons/bi';
 
 import styles from './Playlist.module.scss';
-import { setSong, pause, play, startApp } from '../../features/music/musicSlice';
+import { setSong, pause, play, startApp, setCurrentList } from '../../features/music/musicSlice';
 import Button from '../Button';
 
 const cx = classNames.bind(styles);
 
 const Playlist = ({ songs, onLike = () => {} }) => {
     const [idCurrentSong, setIdCurrentSong] = useState(null);
-    const { currentSong, isPlaying, isFirstStartApp, isLoadingData } = useSelector((state) => state.music);
+    const { currentSong, isPlaying, isFirstStartApp, isLoadingData, currentList } = useSelector((state) => state.music);
     const dispatch = useDispatch();
+    let { idList } = useParams();
 
-    const handlePlay = (index) => {
+    if (!idList) {
+        idList = 'favorite-songs';
+    }
+
+    const handlePlay = (index, type) => {
+        dispatch(setCurrentList(type));
         dispatch(setSong(index));
         dispatch(play());
         if (isFirstStartApp) {
@@ -41,7 +48,7 @@ const Playlist = ({ songs, onLike = () => {} }) => {
                 <span className={cx('list-time')}>Time</span>
             </div>
             {songs.map((song, id) => (
-                <div key={id} className={cx('media', { active: song.id === idCurrentSong })}>
+                <div key={id} className={cx('media', { active: song.id === idCurrentSong && currentList === idList })}>
                     <div className={cx('media-left')}>
                         <span className={cx('icon-music')}>
                             <BsMusicNoteBeamed />
@@ -53,7 +60,7 @@ const Playlist = ({ songs, onLike = () => {} }) => {
                                     <span className={cx('loader-icon')}>
                                         <BiLoader />
                                     </span>
-                                ) : isPlaying && song.id === idCurrentSong ? (
+                                ) : isPlaying && song.id === idCurrentSong && currentList === idList ? (
                                     <span onClick={handlePause} className={cx('btn-pause')}>
                                         <span
                                             className={cx('pause-icon')}
@@ -61,7 +68,7 @@ const Playlist = ({ songs, onLike = () => {} }) => {
                                         ></span>
                                     </span>
                                 ) : (
-                                    <span onClick={() => handlePlay(song.id)} className={cx('btn-play')}>
+                                    <span onClick={() => handlePlay(song.id, song.type)} className={cx('btn-play')}>
                                         <BsFillPlayFill />
                                     </span>
                                 )}

@@ -46,11 +46,6 @@ const Player = ({ audioEl }) => {
     };
 
     const handlePlayMusic = () => {
-        if (isPlaying) {
-            audioEl.pause();
-        } else {
-            audioEl.play();
-        }
         dispatch(togglePlay());
     };
 

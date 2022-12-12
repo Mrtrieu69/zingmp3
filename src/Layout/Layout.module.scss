@@ -53,4 +53,8 @@
 .content {
     margin-top: var(--header-height);
     padding: 0 var(--padding-section);
+
+    @media (max-width: 1024px) {
+        padding: 0 30px;
+    }
 }
