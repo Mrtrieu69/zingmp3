@@ -8,6 +8,7 @@ import styles from './MyPlayList.module.scss';
 import { Button, Playlist } from '../../components';
 import { useTransitionShow } from '../../hooks';
 import { play, pause, startApp, setCurrentList, setSong } from '../../features/music/musicSlice';
+import { PLAYLISTS } from '../../data/playlists/index';
 
 import { BsPlayFill, BsPauseFill } from 'react-icons/bs';
 import { AiFillHeart } from 'react-icons/ai';
@@ -20,6 +21,8 @@ const MyPlayList = () => {
     const listSongs = useSelector((state) => state.music[idList]);
     const { isPlaying, isFirstStartApp, currentList, idCurrentSong } = useSelector((state) => state.music);
     const dispatch = useDispatch();
+
+    const infoList = PLAYLISTS[idList];
 
     const { isTransition, isShow, setIsShow } = useTransitionShow(300);
 
@@ -52,7 +55,7 @@ const MyPlayList = () => {
                                 'spin-off': isTransition && !isShow,
                             })}
                         >
-                            <img src="/images/album/album1.webp" className={cx('image')} alt="" />
+                            <img src={infoList.image} className={cx('image')} alt="" />
                             {isPlaying && idList === currentList ? (
                                 <div onClick={handlePause} className={cx('mask')}>
                                     <span className={cx('play')}>
@@ -72,10 +75,10 @@ const MyPlayList = () => {
                         </figure>
                         <div className={cx('media-right')}>
                             <div className={cx('info')}>
-                                <h3 className={cx('title')}>Playlist này chill phết</h3>
-                                <p className={cx('desc')}>Updated: 25/10/2022</p>
-                                <p className={cx('desc')}>Kha, 14 Casper, GREY</p>
-                                <p className={cx('desc')}>64k người yêu thích</p>
+                                <h3 className={cx('title')}>{infoList.name}</h3>
+                                <p className={cx('desc')}>Updated: {infoList.updated}</p>
+                                <p className={cx('desc')}>{infoList.artists}</p>
+                                <p className={cx('desc')}>{infoList.likes} likes</p>
                             </div>
                             <div className={cx('controls')}>
                                 {isPlaying && idList === currentList ? (

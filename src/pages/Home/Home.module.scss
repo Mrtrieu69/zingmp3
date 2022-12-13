@@ -162,6 +162,7 @@
     background-repeat: no-repeat;
     cursor: pointer;
     transition: background-size ease 0.5s;
+    overflow: hidden;
 
     &:hover {
         background-size: 110%;
