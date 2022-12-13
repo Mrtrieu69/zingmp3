@@ -16,6 +16,7 @@ const initialState = {
     'favorite-songs': FAVORITE_SONGS,
     'playlist-chill': PLAYLISTS['playlist-chill'].list,
     'chill-hits': PLAYLISTS['chill-hits'].list,
+    'world-music': PLAYLISTS['world-music'].list,
 };
 
 export const musicSlice = createSlice({

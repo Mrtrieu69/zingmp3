@@ -19,12 +19,12 @@ const cx = classNames.bind(styles);
 
 const PLAYLIST = [
     {
-        name: 'Rap việt nghe là nghiền',
-        image: "url('/images/album/album2.webp')",
+        name: 'World',
+        image: "url('/images/album/album2.jpg')",
         subTitle: 'Zing mp3',
         isLike: true,
-        path: 'mymusic/rap-viet',
-        type: 'rap-viet',
+        path: 'mymusic/world-music',
+        type: 'world-music',
     },
     {
         name: 'Playlist này chill phết',

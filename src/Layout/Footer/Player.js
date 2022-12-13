@@ -26,9 +26,12 @@ const Player = ({ audioEl }) => {
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
 
-    const { currentSong, isPlaying, isRepeat, isRandom, currentList, listPlayed, isLoadingData } = useSelector(
+    const { currentSong, isPlaying, isRepeat, isRandom, listPlayed, isLoadingData } = useSelector(
         (state) => state.music,
     );
+
+    const currentList = useSelector((state) => state.music[state.music.currentList]);
+
     const dispatch = useDispatch();
 
     const inputProgress = useRef();
