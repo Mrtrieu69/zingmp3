@@ -5,13 +5,13 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './MyPlayList.module.scss';
-import { Button, Playlist } from '../../components';
+import { Button, Playlist, AlbumItem } from '../../components';
 import { useTransitionShow } from '../../hooks';
 import { play, pause, startApp, setCurrentList, setSong } from '../../features/music/musicSlice';
-import { PLAYLISTS } from '../../data/playlists/index';
+import { PLAYLISTS } from '../../data/playlists';
 
 import { BsPlayFill, BsPauseFill } from 'react-icons/bs';
-import { AiFillHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineUserAdd } from 'react-icons/ai';
 import { FiMoreHorizontal } from 'react-icons/fi';
 
 const cx = classNames.bind(styles);
@@ -23,6 +23,8 @@ const MyPlayList = () => {
     const dispatch = useDispatch();
 
     const infoList = PLAYLISTS[idList];
+
+    const recommendedList = Object.entries(PLAYLISTS).filter(([type, _]) => type !== idList);
 
     const { isTransition, isShow, setIsShow } = useTransitionShow(300);
 
@@ -55,7 +57,7 @@ const MyPlayList = () => {
                                 'spin-off': isTransition && !isShow,
                             })}
                         >
-                            <img src={infoList.image} className={cx('image')} alt="" />
+                            <img src={infoList.bgImage} className={cx('image')} alt="" />
                             {isPlaying && idList === currentList ? (
                                 <div onClick={handlePause} className={cx('mask')}>
                                     <span className={cx('play')}>
@@ -74,10 +76,10 @@ const MyPlayList = () => {
                             )}
                         </figure>
                         <div className={cx('media-right')}>
-                            <div className={cx('info')}>
+                            <div>
                                 <h3 className={cx('title')}>{infoList.name}</h3>
                                 <p className={cx('desc')}>Updated: {infoList.updated}</p>
-                                <p className={cx('desc')}>{infoList.artists}</p>
+                                <p className={cx('desc')}>{infoList.subTitle}</p>
                                 <p className={cx('desc')}>{infoList.likes} likes</p>
                             </div>
                             <div className={cx('controls')}>
@@ -106,6 +108,36 @@ const MyPlayList = () => {
                 </div>
                 <div className={cx('playlist')}>
                     <Playlist songs={listSongs} />
+                </div>
+            </div>
+            <div className={cx('section')}>
+                <h3 className={cx('title')}>Participating artists</h3>
+                <div className={cx('list')}>
+                    {infoList.participants.map((participant, index) => (
+                        <div key={index} className={cx('item')}>
+                            <div className={cx('card')}>
+                                <a href="#1" className={cx('avatar')}>
+                                    <img src={participant.image} alt="Phuc Du" />
+                                </a>
+                                <p className={cx('name')}>{participant.name}</p>
+                                <p className={cx('followers')}>{participant.followers} followers</p>
+                                <div className={cx('follow')}>
+                                    <span className={cx('add')}>
+                                        <AiOutlineUserAdd />
+                                    </span>
+                                    Follow
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className={cx('section')}>
+                <h3 className={cx('title')}>Recommended for you </h3>
+                <div className={cx('list')}>
+                    {recommendedList.map(([_, item], index) => (
+                        <AlbumItem showArtists key={index} {...item} />
+                    ))}
                 </div>
             </div>
         </div>

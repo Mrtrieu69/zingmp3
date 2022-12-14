@@ -141,16 +141,6 @@
     }
 }
 
-.playlist-item {
-    width: 20%;
-    padding: 0 12px;
-
-    @media (min-width: 1224px) {
-        padding: 0 14px;
-        width: 16.66667%;
-    }
-}
-
 .card {
     display: block;
     position: relative;
@@ -211,37 +201,6 @@
     &.like {
         color: var(--purple-primary);
     }
-}
-
-.playlist-item .name a {
-    display: block;
-    font-size: 1.4rem;
-    margin: 6px 0;
-    text-transform: capitalize;
-    cursor: pointer;
-    color: white;
-
-    &:hover {
-        color: var(--link-text-hover);
-    }
-}
-
-.pause {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 1px solid white;
-}
-
-.pause-icon {
-    width: 18px;
-    height: 18px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 // list

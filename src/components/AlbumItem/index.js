@@ -1,19 +1,19 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 
-import styles from './Home.module.scss';
-import { Button } from '../../components';
+import Button from '../Button';
+import styles from './AlbumItem.module.scss';
 import { setCurrentList, setSong, play, startApp, pause } from '../../features/music/musicSlice';
 
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import { BsPlayFill } from 'react-icons/bs';
 import { MdMoreHoriz } from 'react-icons/md';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { BsPlayFill } from 'react-icons/bs';
 
 const cx = classNames.bind(styles);
 
-const PlaylistItem = ({ ...item }) => {
+const AlbumItem = ({ children, small, showSubtitle, showArtists, ...item }) => {
     const { isPlaying, currentList, isFirstStartApp, idCurrentSong } = useSelector((state) => state.music);
     const dispatch = useDispatch();
 
@@ -25,23 +25,35 @@ const PlaylistItem = ({ ...item }) => {
             dispatch(startApp());
         }
 
+        e.stopPropagation();
         e.preventDefault();
     };
 
     const handlePause = (e) => {
         dispatch(pause());
 
+        e.stopPropagation();
         e.preventDefault();
     };
 
     const handleEvent = (e) => {
+        e.stopPropagation();
         e.preventDefault();
     };
 
+    const handleChangeLink = () => {
+        document.querySelector('#main').scrollTop = 0;
+    };
+
     return (
-        <div className={cx('playlist-item')}>
-            <Link to={item.path} style={{ backgroundImage: item.image }} className={cx('card')}>
-                <div className={cx('layout', { active: isPlaying && currentList === item.type })}>
+        <div className={cx('item', { small })}>
+            <Link
+                to={item.path}
+                onClick={handleChangeLink}
+                style={{ backgroundImage: item.image }}
+                className={cx('card')}
+            >
+                <div className={cx('controls', { active: isPlaying && currentList === item.type })}>
                     <Button
                         onClick={(e) => handleEvent(e)}
                         icon={item.isLike ? <AiFillHeart /> : <AiOutlineHeart />}
@@ -66,11 +78,15 @@ const PlaylistItem = ({ ...item }) => {
                     <Button onClick={(e) => handleEvent(e)} icon={<MdMoreHoriz />} rounded className={cx('icon')} />
                 </div>
             </Link>
-            <h4 className={cx('name')}>
-                <Link to={item.path}>{item.name}</Link>
-            </h4>
+            <div className={cx('content')}>
+                <Link onClick={handleChangeLink} to={item.path} className={cx('name-card')}>
+                    {item.name}
+                </Link>
+                {showSubtitle && <span className={cx('subtitle')}>{item.subTitle}</span>}
+                {showArtists && <span className={cx('subtitle')}>{item.artists}</span>}
+            </div>
         </div>
     );
 };
 
-export default PlaylistItem;
+export default AlbumItem;

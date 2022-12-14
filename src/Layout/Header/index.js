@@ -20,13 +20,13 @@ const Header = () => {
                 <div className={cx('level')}>
                     <button
                         onClick={() => history.back()}
-                        className={cx('level-left', { disabled: history.state.idx <= 0 })}
+                        className={cx('level-left', { disabled: history.state?.idx <= 0 })}
                     >
                         <BsArrowLeft />
                     </button>
                     <button
                         onClick={() => history.forward()}
-                        className={cx('level-right', { disabled: history.state.idx >= history.length - 2 })}
+                        className={cx('level-right', { disabled: history.state?.idx >= history.length - 2 })}
                     >
                         <BsArrowRight />
                     </button>

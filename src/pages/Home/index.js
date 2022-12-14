@@ -6,43 +6,16 @@ import { MdMoreHoriz } from 'react-icons/md';
 
 import styles from './Home.module.scss';
 import Slider from './Slider';
-import { Button } from '../../components';
+import { Button, AlbumItem } from '../../components';
+import { PLAYLISTS } from '../../data/playlists';
 import ZingChart from './ZingChart';
 import TypeSongs from './TypeSongs';
 import SliderArtists from './SliderArtists';
 import Mixtape from './Mixtape';
 import Event from './Event';
 import Partner from './Partner';
-import PlaylistItem from './PlaylistItem';
 
 const cx = classNames.bind(styles);
-
-const PLAYLIST = [
-    {
-        name: 'World',
-        image: "url('/images/album/album2.jpg')",
-        subTitle: 'Zing mp3',
-        isLike: true,
-        path: 'mymusic/world-music',
-        type: 'world-music',
-    },
-    {
-        name: 'Playlist này chill phết',
-        image: "url('/images/album/album1.webp')",
-        subTitle: 'Zing mp3',
-        isLike: true,
-        path: 'mymusic/playlist-chill',
-        type: 'playlist-chill',
-    },
-    {
-        name: 'chill hits',
-        image: "url('/images/album/album3.webp')",
-        subTitle: 'Zing mp3',
-        isLike: true,
-        path: 'mymusic/chill-hits',
-        type: 'chill-hits',
-    },
-];
 
 const LIST = [
     {
@@ -114,8 +87,8 @@ const Home = () => {
             <div className={cx('container', 'separate')}>
                 <div className={cx('title')}>Recently</div>
                 <div className={cx('playlists')}>
-                    {PLAYLIST.map((item, id) => (
-                        <PlaylistItem key={id} {...item} />
+                    {Object.entries(PLAYLISTS).map(([_, item], id) => (
+                        <AlbumItem showSubtitle small key={id} {...item} />
                     ))}
                 </div>
             </div>
