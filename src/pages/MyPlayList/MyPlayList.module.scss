@@ -109,6 +109,16 @@
     background-size: contain;
 }
 
+.loading {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 7px;
+    color: white !important;
+}
+
 .media-right {
     display: flex;
     justify-content: space-between;

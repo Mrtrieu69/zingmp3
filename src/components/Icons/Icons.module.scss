@@ -4,22 +4,29 @@
     position: relative;
     width: 40px;
     height: 40px;
+
+    div {
+        transform-origin: 20px 20px;
+        animation: lds-spinner 1.2s linear infinite;
+    }
+
+    div:after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 1.5px;
+        left: 18.5px;
+        width: 3px;
+        height: 9px;
+        border-radius: 20%;
+        background: var(--text-primary);
+    }
+
+    &.white div:after {
+        background: white;
+    }
 }
-.lds-spinner div {
-    transform-origin: 20px 20px;
-    animation: lds-spinner 1.2s linear infinite;
-}
-.lds-spinner div:after {
-    content: ' ';
-    display: block;
-    position: absolute;
-    top: 1.5px;
-    left: 18.5px;
-    width: 3px;
-    height: 9px;
-    border-radius: 20%;
-    background: var(--text-primary);
-}
+
 .lds-spinner div:nth-child(1) {
     transform: rotate(0deg);
     animation-delay: -1.1s;

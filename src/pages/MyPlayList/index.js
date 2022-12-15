@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 
 import styles from './MyPlayList.module.scss';
 import { Button, Playlist, AlbumItem } from '../../components';
+import { Loader } from '../../components/Icons';
 import { useTransitionShow } from '../../hooks';
 import { play, pause, startApp, setCurrentList, setSong } from '../../features/music/musicSlice';
 import { PLAYLISTS } from '../../data/playlists';
@@ -20,7 +21,9 @@ const cx = classNames.bind(styles);
 const MyPlayList = () => {
     const { idList } = useParams();
     const listSongs = useSelector((state) => state.music[idList]);
-    const { isPlaying, isFirstStartApp, currentList, idCurrentSong } = useSelector((state) => state.music);
+    const { isPlaying, isFirstStartApp, currentList, idCurrentSong, isLoadingData } = useSelector(
+        (state) => state.music,
+    );
     const dispatch = useDispatch();
 
     const infoList = PLAYLISTS[idList];
@@ -59,12 +62,18 @@ const MyPlayList = () => {
                         <div className={cx('sticky')}>
                             <figure
                                 className={cx('media-left', {
-                                    active: isPlaying && idList === currentList,
+                                    active: isPlaying && !isLoadingData && idList === currentList,
                                     'spin-off': isTransition && !isShow,
                                 })}
                             >
                                 <img src={infoList.bgImage} className={cx('image')} alt="" />
-                                {isPlaying && idList === currentList ? (
+                                {isLoadingData && idList === currentList ? (
+                                    <div className={cx('mask')}>
+                                        <div className={cx('loading')}>
+                                            <Loader white />
+                                        </div>
+                                    </div>
+                                ) : isPlaying && idList === currentList ? (
                                     <div onClick={handlePause} className={cx('mask')}>
                                         <span className={cx('play')}>
                                             <span

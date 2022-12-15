@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Button from '../Button';
+import { Loader } from '../Icons';
 import styles from './AlbumItem.module.scss';
 import { setCurrentList, setSong, play, startApp, pause } from '../../features/music/musicSlice';
 
@@ -14,7 +15,9 @@ import { BsPlayFill } from 'react-icons/bs';
 const cx = classNames.bind(styles);
 
 const AlbumItem = ({ children, small, showSubtitle, showArtists, ...item }) => {
-    const { isPlaying, currentList, isFirstStartApp, idCurrentSong } = useSelector((state) => state.music);
+    const { isPlaying, currentList, isFirstStartApp, idCurrentSong, isLoadingData } = useSelector(
+        (state) => state.music,
+    );
     const dispatch = useDispatch();
 
     const handlePlay = (e) => {
@@ -60,7 +63,11 @@ const AlbumItem = ({ children, small, showSubtitle, showArtists, ...item }) => {
                         rounded
                         className={cx('icon', { like: item.isLike })}
                     />
-                    {isPlaying && currentList === item.type ? (
+                    {isLoadingData && currentList === item.type ? (
+                        <div className={cx('loading')}>
+                            <Loader white />
+                        </div>
+                    ) : isPlaying && currentList === item.type ? (
                         <span onClick={(e) => handlePause(e)} className={cx('pause')}>
                             <span
                                 style={{ backgroundImage: 'url("/images/gif/icon-playing.gif")' }}

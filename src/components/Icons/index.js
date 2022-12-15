@@ -4,8 +4,8 @@ import styles from './Icons.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const Loader = () => (
-    <div className={cx('lds-spinner')}>
+export const Loader = ({ white }) => (
+    <div className={cx('lds-spinner', { white })}>
         <div></div>
         <div></div>
         <div></div>

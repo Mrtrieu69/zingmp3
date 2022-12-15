@@ -35,7 +35,9 @@ const Media = () => {
             </div>
             <div className={cx('media-right')}>
                 <button className={cx('btn')}>
-                    <span className={cx('icon', { active: true })}>{true ? <AiFillHeart /> : <AiOutlineHeart />}</span>
+                    <span className={cx('icon', { active: currentSong.isLike })}>
+                        {currentSong.isLike ? <AiFillHeart /> : <AiOutlineHeart />}
+                    </span>
                 </button>
                 <button className={cx('btn', 'large')}>
                     <span className={cx('icon')}>

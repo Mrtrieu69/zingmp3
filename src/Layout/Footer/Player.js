@@ -5,9 +5,9 @@ import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 import { BsPlayCircle, BsPauseCircle } from 'react-icons/bs';
 import { BiShuffle } from 'react-icons/bi';
 import { TbRepeat } from 'react-icons/tb';
-import { Loader } from '../../components/Icons';
 
 import styles from './Footer.module.scss';
+import { Loader } from '../../components/Icons';
 import {
     setSong,
     togglePlay,
