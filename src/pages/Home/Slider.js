@@ -7,12 +7,12 @@ import styles from './Home.module.scss';
 const cx = classNames.bind(styles);
 
 const IMAGES = [
-    { image: '/images/slider/0cc1db16659fb828bbee0784a2d43fc3.jpg' },
-    { image: '/images/slider/7a870933fff21d555a4295d734df860a.jpg' },
-    { image: '/images/slider/7d0356d6396046217231ad90888bc63e.jpg' },
-    { image: '/images/slider/91926d3bf9503f49322f5950d91fcd71.jpg' },
-    { image: '/images/slider/699664c5f32c456007c69eb19deb9e6a.jpg' },
-    { image: '/images/slider/a34565642e37252696a4b04674200f11.jpg' },
+    { image: '/images/home/slider/0cc1db16659fb828bbee0784a2d43fc3.jpg' },
+    { image: '/images/home/slider/7a870933fff21d555a4295d734df860a.jpg' },
+    { image: '/images/home/slider/7d0356d6396046217231ad90888bc63e.jpg' },
+    { image: '/images/home/slider/91926d3bf9503f49322f5950d91fcd71.jpg' },
+    { image: '/images/home/slider/699664c5f32c456007c69eb19deb9e6a.jpg' },
+    { image: '/images/home/slider/a34565642e37252696a4b04674200f11.jpg' },
 ];
 
 const Slider = () => {

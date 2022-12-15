@@ -5,3 +5,7 @@ export const formatTime = (time) => {
 
     return `0${min}:${sec < 10 ? `0${sec}` : sec}`;
 };
+
+export const getRandom = (length) => {
+    return Math.floor(Math.random() * length);
+};

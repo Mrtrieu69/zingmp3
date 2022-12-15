@@ -3,23 +3,23 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import { GlobalStyles } from './components';
-import Modal from 'react-modal';
 import { ToastContainer } from 'react-toastify';
 import { store } from './store';
 import { Provider } from 'react-redux';
-
-Modal.setAppElement('#root');
+import { HelmetProvider } from 'react-helmet-async';
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <Router>
-                <GlobalStyles>
-                    <App />
-                    <ToastContainer autoClose={4000} closeButton={false} />
-                </GlobalStyles>
-            </Router>
-        </Provider>
+        <HelmetProvider>
+            <Provider store={store}>
+                <Router>
+                    <GlobalStyles>
+                        <App />
+                        <ToastContainer autoClose={4000} closeButton={false} />
+                    </GlobalStyles>
+                </Router>
+            </Provider>
+        </HelmetProvider>
     </React.StrictMode>,
     document.getElementById('root'),
 );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRef, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
@@ -16,6 +17,8 @@ const PlayerQueueItem = ({ name, artists, image, isLike, id }) => {
     const { isPlaying, currentSong, isLoadingData } = useSelector((state) => state.music);
     const dispatch = useDispatch();
 
+    const songRef = useRef();
+
     const handleTogglePlay = () => {
         if (currentSong.id === id) {
             if (isPlaying) {
@@ -31,8 +34,14 @@ const PlayerQueueItem = ({ name, artists, image, isLike, id }) => {
         dispatch(play());
     };
 
+    useEffect(() => {
+        if (currentSong.id === id) {
+            songRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }, [currentSong, id]);
+
     return (
-        <div className={cx('song', { active: currentSong.id === id, prev: currentSong.id > id })}>
+        <div ref={songRef} className={cx('song', { active: currentSong.id === id, prev: currentSong.id > id })}>
             <div className={cx('main')}>
                 <div className={cx('block')}>
                     <img className={cx('image')} src={image} alt="song" />

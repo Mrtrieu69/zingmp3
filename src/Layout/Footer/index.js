@@ -14,27 +14,10 @@ import { Button } from '../../components';
 const cx = classNames.bind(styles);
 
 const Footer = () => {
-    const [volume, setVolume] = useState(50);
+    const [volume, setVolume] = useState(30);
     const [isMute, setIsMute] = useState(false);
     const [audioEl, setAudioEl] = useState(null);
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
-
-    useEffect(() => {
-        function removeClickListener() {
-            window.removeEventListener('click', outsideClickListener);
-        }
-
-        function outsideClickListener(e) {
-            if (!e.target.closest(`.${cx('player-queue')}`) && !e.target.closest(`#footer`)) {
-                setIsShowPlayerQueue(false);
-                removeClickListener();
-            }
-        }
-        if (isShowPlayerQueue) {
-            setTimeout(() => window.addEventListener('click', outsideClickListener), 0);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isShowPlayerQueue]);
 
     const volumeRef = useRef();
 
@@ -66,6 +49,23 @@ const Footer = () => {
     useEffect(() => {
         setAudioEl(document.querySelector('#audio'));
     }, []);
+
+    useEffect(() => {
+        function removeClickListener() {
+            window.removeEventListener('click', outsideClickListener);
+        }
+
+        function outsideClickListener(e) {
+            if (!e.target.closest(`.${cx('player-queue')}`) && !e.target.closest(`#footer`)) {
+                setIsShowPlayerQueue(false);
+                removeClickListener();
+            }
+        }
+        if (isShowPlayerQueue) {
+            setTimeout(() => window.addEventListener('click', outsideClickListener), 0);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isShowPlayerQueue]);
 
     return (
         <>

@@ -8,35 +8,35 @@ const cx = classNames.bind(styles);
 const Mixtapes = [
     {
         label: 'Mixtape tình yêu ngủ quên',
-        image1: '/images/mixtape/tinh-yeu-ngu-quen.jpg',
-        image2: '/images/mixtape/thang-dien.jpg',
+        image1: '/images/home/mixtape/tinh-yeu-ngu-quen.jpg',
+        image2: '/images/home/mixtape/thang-dien.jpg',
     },
     {
         label: 'Mixtape bông hoa đẹp nhất',
-        image1: '/images/mixtape/bao-lau-ta-lai-quen-mot-nguoi.jpg',
-        image2: '/images/mixtape/bong-hoa-dep-nhat.jpg',
+        image1: '/images/home/mixtape/bao-lau-ta-lai-quen-mot-nguoi.jpg',
+        image2: '/images/home/mixtape/bong-hoa-dep-nhat.jpg',
     },
     {
         label: 'Mixtape tâm sự với người lạ',
-        image1: '/images/mixtape/tell-ur-mom.jpg',
-        image2: '/images/mixtape/tam-su-voi-nguoi-la.jpg',
+        image1: '/images/home/mixtape/tell-ur-mom.jpg',
+        image2: '/images/home/mixtape/tam-su-voi-nguoi-la.jpg',
     },
     {
         label: 'Mixtape chưa bao giờ em quên',
-        image1: '/images/mixtape/chi-la-khong-cung-nhau.jpg',
-        image2: '/images/mixtape/chua-bao-gio-em-quen.jpg',
+        image1: '/images/home/mixtape/chi-la-khong-cung-nhau.jpg',
+        image2: '/images/home/mixtape/chua-bao-gio-em-quen.jpg',
     },
     {
         label: 'Mixtape phố cũ còn anh',
-        image1: '/images/mixtape/pho-cu-con-anh.jpg',
-        image2: '/images/mixtape/chi-con-ta-va-ta-giua-troi.jpg',
+        image1: '/images/home/mixtape/pho-cu-con-anh.jpg',
+        image2: '/images/home/mixtape/chi-con-ta-va-ta-giua-troi.jpg',
     },
 ];
 
 const Mixtape = () => {
     return (
         <div className={cx('container')}>
-            <h3 className={cx('title')}>Mixtape yêu thích</h3>
+            <h3 className={cx('title')}>Favorite Mixtape</h3>
             <div className={cx('list')}>
                 {Mixtapes.map((item, id) => (
                     <div key={id} className={cx('item')}>

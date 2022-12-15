@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import { Helmet } from 'react-helmet-async';
 import { BsPlayFill } from 'react-icons/bs';
 
 import styles from './ZingChart.module.scss';
@@ -16,39 +17,49 @@ const LIST_SONGS = [
 
 const ZingChart = () => {
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('chart-title')}>
-                <h3 className={cx('title')}>#zingchart</h3>
-                <Button className={cx('btn-play')} size="medium" rounded icon={<BsPlayFill />} />
-            </div>
-            <ChartSong SONGS={SONGS} />
-            <div className={cx('more')}>
-                <button>Xem top 100</button>
-            </div>
-            <div className={cx('container')}>
-                <div id="week-chart" className={cx('background')}></div>
-                <div className={cx('blur')}></div>
-                <div className={cx('content')}>
-                    <h3 className={cx('ranking')}>Bảng xếp hạng tuần</h3>
-                    <div className={cx('row')}>
-                        {LIST_SONGS.map((list, id) => (
-                            <div key={id} className={cx('columns')}>
-                                <div className={cx('chart-box')}>
-                                    <div className={cx('chart-title', 'separate')}>
-                                        <h3 className={cx('sub-title')}>{list.title}</h3>
-                                        <Button className={cx('btn-play')} size="small" rounded icon={<BsPlayFill />} />
-                                    </div>
-                                    <ChartSong week SONGS={list.songs} />
-                                    <div className={cx('more')}>
-                                        <button>Xem thêm</button>
+        <>
+            <Helmet>
+                <title>#zingchart | See the hottest song and album right now</title>
+            </Helmet>
+            <div className={cx('wrapper')}>
+                <div className={cx('chart-title')}>
+                    <h3 className={cx('title')}>#zingchart</h3>
+                    <Button className={cx('btn-play')} size="medium" rounded icon={<BsPlayFill />} />
+                </div>
+                <ChartSong SONGS={SONGS} />
+                <div className={cx('more')}>
+                    <button>Xem top 100</button>
+                </div>
+                <div className={cx('container')}>
+                    <div id="week-chart" className={cx('background')}></div>
+                    <div className={cx('blur')}></div>
+                    <div className={cx('content')}>
+                        <h3 className={cx('ranking')}>Weekly chart</h3>
+                        <div className={cx('row')}>
+                            {LIST_SONGS.map((list, id) => (
+                                <div key={id} className={cx('columns')}>
+                                    <div className={cx('chart-box')}>
+                                        <div className={cx('chart-title', 'separate')}>
+                                            <h3 className={cx('sub-title')}>{list.title}</h3>
+                                            <Button
+                                                className={cx('btn-play')}
+                                                size="small"
+                                                rounded
+                                                icon={<BsPlayFill />}
+                                            />
+                                        </div>
+                                        <ChartSong week SONGS={list.songs} />
+                                        <div className={cx('more')}>
+                                            <button>Xem thêm</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

@@ -9,17 +9,17 @@ import styles from './Home.module.scss';
 const cx = classNames.bind(styles);
 
 const ARTISTS = [
-    { image: '/images/artists/chi-dan.png' },
-    { image: '/images/artists/duc-phuc.png' },
-    { image: '/images/artists/erik.png' },
-    { image: '/images/artists/hoa-minzy.png' },
-    { image: '/images/artists/huong-ly.png' },
-    { image: '/images/artists/jack.png' },
-    { image: '/images/artists/justatee.png' },
-    { image: '/images/artists/karik.png' },
-    { image: '/images/artists/mr-siro.png' },
-    { image: '/images/artists/onlyc.png' },
-    { image: '/images/artists/trinh-thanh-binh.png' },
+    { image: '/images/home/artists/chi-dan.png' },
+    { image: '/images/home/artists/duc-phuc.png' },
+    { image: '/images/home/artists/erik.png' },
+    { image: '/images/home/artists/hoa-minzy.png' },
+    { image: '/images/home/artists/huong-ly.png' },
+    { image: '/images/home/artists/jack.png' },
+    { image: '/images/home/artists/justatee.png' },
+    { image: '/images/home/artists/karik.png' },
+    { image: '/images/home/artists/mr-siro.png' },
+    { image: '/images/home/artists/onlyc.png' },
+    { image: '/images/home/artists/trinh-thanh-binh.png' },
 ];
 
 const SliderArtists = () => {

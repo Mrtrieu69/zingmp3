@@ -16,7 +16,7 @@ const ZingChart = () => {
     return (
         <div
             style={{
-                backgroundImage: "url('/images/chart/bg-chart.jpg'), linear-gradient(to bottom, #740091, #2d1a4c)",
+                backgroundImage: "url('/images/home/chart/bg-chart.jpg'), linear-gradient(to bottom, #740091, #2d1a4c)",
             }}
             className={cx('zing-chart')}
         >
