@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, memo } from 'react';
 import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
@@ -8,29 +8,18 @@ import { TbRepeat } from 'react-icons/tb';
 
 import styles from './Footer.module.scss';
 import { Loader } from '../../components/Icons';
-import {
-    setSong,
-    togglePlay,
-    toggleIsRepeat,
-    toggleIsRandom,
-    setListPlayed,
-    setIsLoadingData,
-} from '../../features/music/musicSlice';
+import { setSong, togglePlay, toggleIsRepeat, toggleIsRandom, setIsLoadingData } from '../../features/music/musicSlice';
 import { InputProgress } from '../../components';
 import { Button } from '../../components';
 import { formatTime } from '../../utils';
 
 const cx = classNames.bind(styles);
 
-const Player = ({ audioEl }) => {
+const Player = ({ audioEl, onNext }) => {
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
 
-    const { currentSong, isPlaying, isRepeat, isRandom, listPlayed, isLoadingData } = useSelector(
-        (state) => state.music,
-    );
-
-    const currentList = useSelector((state) => state.music[state.music.currentList]);
+    const { currentSong, isPlaying, isRepeat, isRandom, isLoadingData } = useSelector((state) => state.music);
 
     const dispatch = useDispatch();
 
@@ -50,27 +39,6 @@ const Player = ({ audioEl }) => {
 
     const handlePlayMusic = () => {
         dispatch(togglePlay());
-    };
-
-    const getRandomSong = () => {
-        const length = currentList.length;
-        const copyList = listPlayed.length === length - 1 ? [] : [...listPlayed];
-        let random;
-
-        do {
-            random = Math.floor(Math.random() * length);
-        } while (copyList.includes(random) || random === currentList.id);
-        dispatch(setListPlayed(random));
-        return random;
-    };
-
-    const handleNext = () => {
-        if (isRandom) {
-            const index = getRandomSong();
-            dispatch(setSong(index));
-        } else {
-            dispatch(setSong(currentSong.id + 1));
-        }
     };
 
     const handlePrev = () => {
@@ -94,7 +62,7 @@ const Player = ({ audioEl }) => {
             if (isRepeat) {
                 audioEl.play();
             } else {
-                handleNext();
+                onNext();
             }
         };
 
@@ -177,7 +145,7 @@ const Player = ({ audioEl }) => {
                         icon={isPlaying ? <BsPauseCircle /> : <BsPlayCircle />}
                     />
                 )}
-                <Button size="medium" onClick={handleNext} rounded className={cx('btn-player')} icon={<MdSkipNext />} />
+                <Button size="medium" onClick={onNext} rounded className={cx('btn-player')} icon={<MdSkipNext />} />
                 <Button
                     size="medium"
                     onClick={() => dispatch(toggleIsRepeat())}
@@ -203,4 +171,4 @@ const Player = ({ audioEl }) => {
     );
 };
 
-export default Player;
+export default memo(Player);

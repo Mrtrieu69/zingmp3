@@ -7,7 +7,7 @@ import { MdNavigateNext } from 'react-icons/md';
 
 const cx = classNames.bind(styles);
 
-const Menu = ({ children, menu, bgImage, icon }) => {
+const Menu = ({ children, menu, bgImage, icon, className }) => {
     const [showMenu, setShowMenu] = useState(false);
 
     const handleShowMenu = (e, selector) => {
@@ -29,7 +29,7 @@ const Menu = ({ children, menu, bgImage, icon }) => {
     };
 
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', { [className]: className })}>
             {children}
             {icon && (
                 <button className={cx('btn-action')} onClick={(e) => handleShowMenu(e, cx('btn-action'))}>

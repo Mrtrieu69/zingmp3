@@ -26,6 +26,10 @@
     &::-webkit-scrollbar-thumb {
         background: rgba(0, 0, 0, 0.05);
     }
+
+    @media (max-width: 740px) {
+        min-height: 400px;
+    }
 }
 
 .display {
@@ -51,12 +55,16 @@
     flex-direction: column;
     margin-bottom: 20px;
 
-    @media (max-width: 1224px) {
+    @media (min-width: 1024px) and (max-width: 1224px) {
         width: 25%;
     }
 
     @media (max-width: 1024px) {
         width: 33.33333%;
+    }
+
+    @media (max-width: 740px) {
+        width: 50%;
     }
 }
 

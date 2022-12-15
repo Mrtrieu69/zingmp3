@@ -1,15 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import classNames from 'classnames/bind';
-import { BsCameraVideo, BsVolumeUp, BsVolumeMute, BsMusicNoteList } from 'react-icons/bs';
-import { BiMicrophone } from 'react-icons/bi';
+import { useSelector, useDispatch } from 'react-redux';
+import { BsCameraVideo, BsVolumeUp, BsVolumeMute, BsMusicNoteList, BsPauseFill, BsPlayFill } from 'react-icons/bs';
+import { BiMicrophone, BiLoader } from 'react-icons/bi';
+import { MdSkipNext } from 'react-icons/md';
 
 import Player from './Player';
 import Media from './Media';
 import styles from './Footer.module.scss';
-import { InputProgress } from '../../components';
 import PlayerQueue from './PlayerQueue';
 import { useTransitionShow } from '../../hooks';
-import { Button } from '../../components';
+import { Button, InputProgress } from '../../components';
+import { togglePlay, setListPlayed, setSong } from '../../features/music/musicSlice';
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +19,13 @@ const Footer = () => {
     const [volume, setVolume] = useState(30);
     const [isMute, setIsMute] = useState(false);
     const [audioEl, setAudioEl] = useState(null);
+
+    const { isLoadingData, isPlaying, isRandom, currentSong, listPlayed } = useSelector((state) => state.music);
+
+    const currentList = useSelector((state) => state.music[state.music.currentList]);
+
+    const dispatch = useDispatch();
+
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
 
     const volumeRef = useRef();
@@ -46,6 +55,32 @@ const Footer = () => {
         setIsMute(!isMute);
     };
 
+    const handlePlayMusic = () => {
+        dispatch(togglePlay());
+    };
+
+    const getRandomSong = () => {
+        const length = currentList.length;
+        const copyList = listPlayed.length === length - 1 ? [] : [...listPlayed];
+        let random;
+
+        do {
+            random = Math.floor(Math.random() * length);
+        } while (copyList.includes(random) || random === currentList.id);
+        dispatch(setListPlayed(random));
+        return random;
+    };
+
+    const handleNext = useCallback(() => {
+        if (isRandom) {
+            const index = getRandomSong();
+            dispatch(setSong(index));
+        } else {
+            dispatch(setSong(currentSong.id + 1));
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentSong, isRandom, getRandomSong]);
+
     useEffect(() => {
         setAudioEl(document.querySelector('#audio'));
     }, []);
@@ -72,7 +107,7 @@ const Footer = () => {
             <div id="footer" className={cx('wrapper-bg')}>
                 <div id="mini-player" className={cx('wrapper')}>
                     <Media />
-                    <Player audioEl={audioEl} />
+                    <Player audioEl={audioEl} onNext={handleNext} />
                     <div className={cx('controls')}>
                         <Button rounded size="medium" className={cx('btn-control')} icon={<BsCameraVideo />} />
                         <Button rounded size="medium" className={cx('btn-control')} icon={<BiMicrophone />} />
@@ -99,6 +134,28 @@ const Footer = () => {
                                 <BsMusicNoteList />
                             </span>
                         </button>
+                    </div>
+                    <div className={cx('controls-mobile')}>
+                        {isLoadingData ? (
+                            <span className={cx('loader-icon')}>
+                                <BiLoader />
+                            </span>
+                        ) : (
+                            <Button
+                                onClick={handlePlayMusic}
+                                size="medium"
+                                rounded
+                                className={cx('btn-player')}
+                                icon={isPlaying ? <BsPauseFill /> : <BsPlayFill />}
+                            />
+                        )}
+                        <Button
+                            size="medium"
+                            onClick={handleNext}
+                            rounded
+                            className={cx('btn-player')}
+                            icon={<MdSkipNext />}
+                        />
                     </div>
                 </div>
             </div>

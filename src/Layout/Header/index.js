@@ -34,7 +34,7 @@ const Header = () => {
                 </div>
                 <div className={cx('actions')}>
                     <ThemeModal />
-                    <Menu menu={MENU_SETTING} icon={<AiOutlineSetting />} />
+                    <Menu menu={MENU_SETTING} className={cx('action-setting')} icon={<AiOutlineSetting />} />
                     <Menu menu={MENU_ACCOUNT} bgImage></Menu>
                 </div>
             </div>

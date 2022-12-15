@@ -17,6 +17,10 @@
     height: var(--footer-height);
     background-position: center;
     background-size: 1920px auto;
+
+    @media (max-width: 740px) {
+        padding: 0 10px;
+    }
 }
 
 .media {
@@ -30,10 +34,18 @@
     &.active {
         left: 24px;
 
+        @media (max-width: 740px) {
+            margin-left: -10px;
+        }
+
         .image {
             border-radius: 50%;
             animation: spin 10s linear infinite;
         }
+    }
+
+    @media (max-width: 740px) {
+        height: 50px;
     }
 }
 
@@ -57,6 +69,11 @@
     width: 64px;
     height: 64px;
     animation: spin-off 0.3s ease;
+
+    @media (max-width: 740px) {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .name-song {
@@ -92,6 +109,10 @@
     display: flex;
     justify-content: center;
     align-content: center;
+
+    @media (max-width: 740px) {
+        display: none;
+    }
 }
 
 .btn {
@@ -133,6 +154,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 740px) {
+        display: none;
+    }
+}
+
+.controls-mobile {
+    display: none;
+
+    @media (max-width: 740px) {
+        display: flex;
+    }
 }
 
 .volume {
@@ -176,6 +209,10 @@
     width: 100%;
     flex-direction: column;
     margin-right: 10px;
+
+    @media (max-width: 740px) {
+        display: none;
+    }
 }
 
 .progress,
@@ -215,14 +252,18 @@
         }
     }
 
-    &:hover {
-        background-color: hsla(0, 0%, 100%, 0.1);
-    }
-
     &.active {
         span {
             color: var(--purple-primary) !important;
         }
+    }
+
+    @media (max-width: 740px) {
+        &:hover {
+            background-color: unset;
+        }
+
+        margin: 0 !important;
     }
 }
 
@@ -250,31 +291,71 @@
     }
 }
 
+.loader-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    animation: spinner 2s linear infinite;
+}
+
 .note {
     position: absolute;
     left: calc(50% - 5px);
     top: calc(50% - 5px);
     opacity: 0;
     color: var(--text-primary);
+
+    @media (max-width: 740px) {
+        left: calc(100% - 5px);
+        top: calc(25% - 5px);
+    }
 }
 
 .note-1-spin {
     animation: note-1-spin 4.8s linear infinite;
+
+    @media (max-width: 740px) {
+        animation: note-1-spin-mobile 4.8s linear infinite;
+    }
 }
 
 .note-2-spin {
     animation: note-2-spin 4.8s 1.2s linear infinite;
+
+    @media (max-width: 740px) {
+        animation: note-2-spin-mobile 4.8s 1.2s linear infinite;
+    }
 }
 
 .note-3-spin {
     animation: note-1-spin 4.8s 2.4s linear infinite;
+
+    @media (max-width: 740px) {
+        animation: note-1-spin-mobile 4.8s 2.4s linear infinite;
+    }
 }
 
 .note-4-spin {
     animation: note-2-spin 4.8s 3.6s linear infinite;
+
+    @media (max-width: 740px) {
+        animation: note-2-spin-mobile 4.8s 3.6s linear infinite;
+    }
 }
 
 // Animations
+@keyframes spinner {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes run-to-left {
     0% {
         transform: translateX(0);
@@ -332,5 +413,35 @@
     100% {
         opacity: 0;
         transform: rotate(260deg) translate(75px) rotate(-260deg) scale(1.7) rotate(45deg) rotate(-50deg);
+    }
+}
+
+@keyframes note-1-spin-mobile {
+    0% {
+        opacity: 0;
+        transform: rotate(100deg) translateX(30px) rotate(-90deg) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(180deg) translateX(55px) rotate(-180deg) scale(1.3);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(260deg) translate(30px) rotate(-260deg) scale(1.7) rotate(45deg) rotate(50deg);
+    }
+}
+
+@keyframes note-2-spin-mobile {
+    0% {
+        opacity: 0;
+        transform: rotate(100deg) translateX(30px) rotate(-90deg) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(175deg) translateX(57.5px) rotate(-175deg) scale(1.3);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(260deg) translate(30px) rotate(-260deg) scale(1.7) rotate(45deg) rotate(-50deg);
     }
 }

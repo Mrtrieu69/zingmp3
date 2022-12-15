@@ -9,6 +9,7 @@
     // default
     --header-height: 70px;
     --footer-height: 90px;
+    --sidebar-height-mobile: 44px;
     --sidebar-width: 240px;
     --sidebar-popup-width: 70px;
     --padding-section: 60px;
@@ -17,6 +18,10 @@
     --dark-alpha-50: rgba(0, 0, 0, 0.5);
     --dark-alpha-70: rgba(0, 0, 0, 0.7);
     --dark-alpha-80: rgba(0, 0, 0, 0.8);
+
+    @media (max-width: 740px) {
+        --footer-height: 50px;
+    }
 }
 
 * {
@@ -122,6 +127,10 @@ img {
 .has-player {
     #footer {
         bottom: 0;
+
+        @media (max-width: 740px) {
+            bottom: calc(0px + var(--sidebar-height-mobile));
+        }
     }
 
     #sidebar {
@@ -130,5 +139,9 @@ img {
 
     #main {
         max-height: calc(100vh - var(--footer-height));
+
+        @media (max-width: 740px) {
+            max-height: calc(100vh - var(--footer-height) - var(--sidebar-height-mobile));
+        }
     }
 }

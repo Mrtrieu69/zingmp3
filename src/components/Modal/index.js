@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import styles from './Modal.module.scss';
 
 // icons
-import { GrFormClose } from 'react-icons/gr';
+import { MdOutlineClose } from 'react-icons/md';
 
 const cx = classNames.bind(styles);
 
@@ -40,7 +40,7 @@ const Modal = ({ onClose, children }) => {
             <div onClick={onClose} className={cx('layout')}></div>
             <div className={cx('content')}>
                 <span onClick={onClose} className={cx('close')}>
-                    <GrFormClose />
+                    <MdOutlineClose />
                 </span>
                 {children}
             </div>

@@ -33,6 +33,10 @@
     @media (min-width: 740px) {
         width: 70%;
     }
+
+    @media (max-width: 740px) {
+        height: 496px;
+    }
 }
 
 .close {
@@ -50,6 +54,7 @@
     align-items: center;
     font-size: 3rem;
     cursor: pointer;
+    color: var(--text-primary);
 
     @media (min-width: 740px) {
         display: none;

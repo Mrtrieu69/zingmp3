@@ -10,7 +10,8 @@ import logo from '../../assets/images/logo/logo-dark.svg';
 import logoMini from '../../assets/images/logo/logo-mini.svg';
 import MainLinks from './MainLinks';
 import SecondaryLinks from './SecondaryLinks';
-import Button from '../../components/Button';
+import { Button } from '../../components';
+import SidebarMobile from './SidebarMobile';
 
 const cx = classNames.bind(styles);
 
@@ -33,34 +34,39 @@ const SideBar = () => {
 
     return (
         <>
-            <div id="sidebar" className={cx('wrapper', { active: show })}>
-                <div className={cx('brand')}>
-                    <Link to="/" className={cx('link-brand')}>
-                        <img className={cx('logo')} src={logo} alt="logo" />
-                        <img className={cx('logo-mini')} src={logoMini} alt="logo-mini" />
-                    </Link>
-                </div>
-                <MainLinks />
-                <SecondaryLinks />
-                <Button
-                    onClick={() => toast.warning('Feature is being updated!', { className: cx('toast') })}
-                    iconLeft={<AiOutlinePlus />}
-                    link
-                    className={cx('new')}
-                >
-                    New Playlist
-                </Button>
-                <div className={cx('btn')}>
+            <div className={cx('sidebar-pc')}>
+                <div id="sidebar" className={cx('wrapper', { active: show })}>
+                    <div className={cx('brand')}>
+                        <Link to="/" className={cx('link-brand')}>
+                            <img className={cx('logo')} src={logo} alt="logo" />
+                            <img className={cx('logo-mini')} src={logoMini} alt="logo-mini" />
+                        </Link>
+                    </div>
+                    <MainLinks />
+                    <SecondaryLinks />
                     <Button
-                        onClick={() => setShow(!show)}
-                        rounded
-                        size="medium"
-                        icon={show ? <BiLeftArrowAlt /> : <BiRightArrowAlt />}
-                        className={cx('show')}
-                    />
+                        onClick={() => toast.warning('Feature is being updated!', { className: cx('toast') })}
+                        iconLeft={<AiOutlinePlus />}
+                        link
+                        className={cx('new')}
+                    >
+                        New Playlist
+                    </Button>
+                    <div className={cx('btn')}>
+                        <Button
+                            onClick={() => setShow(!show)}
+                            rounded
+                            size="medium"
+                            icon={show ? <BiLeftArrowAlt /> : <BiRightArrowAlt />}
+                            className={cx('show')}
+                        />
+                    </div>
                 </div>
+                {show && <div onClick={() => setShow(false)} className={cx('layout')}></div>}
             </div>
-            {show && <div onClick={() => setShow(false)} className={cx('layout')}></div>}
+            <div className={cx('sidebar-mobile')}>
+                <SidebarMobile />
+            </div>
         </>
     );
 };
