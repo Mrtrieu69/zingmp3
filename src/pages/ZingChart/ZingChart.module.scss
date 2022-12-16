@@ -101,6 +101,10 @@
         cursor: pointer;
         font-size: 1.4rem;
 
+        @media (max-width: 740px) {
+            padding: 6px 25px;
+        }
+
         &:hover {
             background-color: var(--alpha-bg);
         }

@@ -27,9 +27,6 @@ const AlbumItem = ({ children, small, showSubtitle, showArtists, ...item }) => {
         if (isFirstStartApp) {
             dispatch(startApp());
         }
-
-        e.stopPropagation();
-        e.preventDefault();
     };
 
     const handlePause = (e) => {
@@ -39,10 +36,7 @@ const AlbumItem = ({ children, small, showSubtitle, showArtists, ...item }) => {
         e.preventDefault();
     };
 
-    const handleEvent = (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-    };
+    const handleEvent = (e) => {};
 
     const handleChangeLink = () => {
         document.querySelector('#main').scrollTop = 0;

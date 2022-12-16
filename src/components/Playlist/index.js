@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createRef } from 'react';
 import classNames from 'classnames/bind';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -16,6 +15,7 @@ const cx = classNames.bind(styles);
 
 const Playlist = ({ songs, onLike = () => {} }) => {
     const [idCurrentSong, setIdCurrentSong] = useState(null);
+    const [songRefs, setSongRefs] = useState([]);
     const { currentSong, isPlaying, isFirstStartApp, isLoadingData, currentList } = useSelector((state) => state.music);
     const dispatch = useDispatch();
     let { idList } = useParams();
@@ -41,6 +41,20 @@ const Playlist = ({ songs, onLike = () => {} }) => {
         setIdCurrentSong(currentSong.id);
     }, [currentSong]);
 
+    useEffect(() => {
+        setSongRefs((refs) =>
+            Array(songs?.length)
+                .fill()
+                .map((_, id) => refs[id] || createRef()),
+        );
+    }, [songs]);
+
+    useEffect(() => {
+        if (songRefs.length > 0 && idList === currentList) {
+            songRefs[currentSong.id]?.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }, [currentSong, songRefs, idList, currentList]);
+
     return (
         <div className={cx('list')}>
             <div className={cx('list-header')}>
@@ -48,7 +62,11 @@ const Playlist = ({ songs, onLike = () => {} }) => {
                 <span className={cx('list-time')}>Time</span>
             </div>
             {songs.map((song, id) => (
-                <div key={id} className={cx('media', { active: song.id === idCurrentSong && currentList === idList })}>
+                <div
+                    key={id}
+                    ref={songRefs[id]}
+                    className={cx('media', { active: song.id === idCurrentSong && currentList === idList })}
+                >
                     <div className={cx('media-left')}>
                         <span className={cx('icon-music')}>
                             <BsMusicNoteBeamed />

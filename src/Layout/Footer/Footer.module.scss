@@ -9,6 +9,7 @@
 }
 
 .wrapper {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +25,8 @@
 }
 
 .media {
-    height: 64px;
+    cursor: pointer;
+    height: 90px;
     display: flex;
     align-items: center;
     position: relative;
@@ -360,6 +362,33 @@
 
     @media (max-width: 740px) {
         animation: note-2-spin-mobile 4.8s 3.6s linear infinite;
+    }
+}
+
+// Player Popup
+.has-player {
+    .player-popup {
+        bottom: var(--footer-height);
+
+        @media (max-width: 740px) {
+            bottom: calc(var(--footer-height) + var(--sidebar-height-mobile));
+        }
+    }
+}
+
+.player-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(167, 167, 255);
+    z-index: 999;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+
+    &.active {
+        transform: translateY(0);
     }
 }
 

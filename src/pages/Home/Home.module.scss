@@ -1,3 +1,7 @@
+.wrapper {
+    padding-bottom: 70px;
+}
+
 // Slider
 .slider {
     padding-top: 20px;
@@ -24,6 +28,15 @@
 
     @media (max-width: 740px) {
         height: calc(30vw - 80px);
+        min-height: 170px;
+        margin: 0 -5px;
+    }
+
+    @media (max-width: 560px) {
+        min-height: 150px;
+    }
+
+    @media (max-width: 420px) {
         min-height: 120px;
     }
 }

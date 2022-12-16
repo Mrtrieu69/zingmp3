@@ -11,6 +11,11 @@ const cx = classNames.bind(styles);
 
 const Media = () => {
     const { currentSong, isPlaying } = useSelector((state) => state.music);
+
+    const handleLike = (e) => {
+        e.stopPropagation();
+    };
+
     return (
         <div className={cx('media', { active: isPlaying })}>
             <div className={cx('media-left')}>
@@ -34,12 +39,12 @@ const Media = () => {
                 <h3 className={cx('author')}>{currentSong.artists}</h3>
             </div>
             <div className={cx('media-right')}>
-                <button className={cx('btn')}>
+                <button onClick={handleLike} className={cx('btn')}>
                     <span className={cx('icon', { active: currentSong.isLike })}>
                         {currentSong.isLike ? <AiFillHeart /> : <AiOutlineHeart />}
                     </span>
                 </button>
-                <button className={cx('btn', 'large', 'more')}>
+                <button onClick={(e) => e.stopPropagation()} className={cx('btn', 'large', 'more')}>
                     <span className={cx('icon')}>
                         <MdMoreHoriz />
                     </span>

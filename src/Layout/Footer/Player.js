@@ -154,7 +154,7 @@ const Player = ({ audioEl, onNext }) => {
                     icon={<TbRepeat />}
                 />
             </div>
-            <div className={cx('progress')}>
+            <div onClick={(e) => e.stopPropagation()} className={cx('progress')}>
                 <span className={cx('time', 'left')}>{formatTime(currentTime)}</span>
                 <InputProgress
                     ref={inputProgress}

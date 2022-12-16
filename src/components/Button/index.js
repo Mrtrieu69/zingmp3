@@ -16,7 +16,7 @@ const Button = ({
     icon,
     iconLeft,
     iconRight,
-    onClick,
+    onClick: onClickBtn = () => {},
     children,
     rounded,
     size,
@@ -25,6 +25,13 @@ const Button = ({
     ...passProps
 }) => {
     let Wrap = 'button';
+
+    const onClick = (e) => {
+        onClickBtn();
+
+        e.preventDefault();
+        e.stopPropagation();
+    };
 
     const props = {
         onClick,

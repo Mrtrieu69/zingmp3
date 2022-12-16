@@ -15,6 +15,10 @@
 .title {
     padding: 20px 30px;
     font-size: 24px;
+
+    @media (max-width: 740px) {
+        padding: 20px;
+    }
 }
 
 .content {
@@ -29,6 +33,7 @@
 
     @media (max-width: 740px) {
         min-height: 400px;
+        padding: 0 20px;
     }
 }
 

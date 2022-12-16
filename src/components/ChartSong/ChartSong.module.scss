@@ -90,7 +90,6 @@
     justify-content: center;
     font-size: 1.4rem;
     color: white;
-    white-space: nowrap;
     text-transform: capitalize;
 }
 
@@ -154,6 +153,10 @@
     .time {
         color: var(--text-secondary);
     }
+
+    @media (max-width: 740px) {
+        padding: 12px 8px;
+    }
 }
 
 .song.full:nth-child(1) {
@@ -161,8 +164,6 @@
 }
 
 .song.full.week {
-    border: 0;
-
     .rank {
         margin-right: 0;
     }
@@ -178,11 +179,19 @@
     @media (min-width: 1224px) and (max-width: 1624px) {
         .name,
         .artists {
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
             width: 80px;
         }
+    }
+}
+
+.name,
+.artists {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    @media (max-width: 400px) {
+        width: 150px;
     }
 }
 

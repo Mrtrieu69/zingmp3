@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import classNames from 'classnames/bind';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsCameraVideo, BsVolumeUp, BsVolumeMute, BsMusicNoteList, BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import { BiLoader } from 'react-icons/bi';
@@ -19,11 +20,12 @@ const Footer = () => {
     const [volume, setVolume] = useState(30);
     const [isMute, setIsMute] = useState(false);
     const [audioEl, setAudioEl] = useState(null);
+    const navigate = useNavigate();
 
-    const { isLoadingData, isPlaying, isRandom, currentSong, listPlayed } = useSelector((state) => state.music);
-
-    const currentList = useSelector((state) => state.music[state.music.currentList]);
-
+    const { isLoadingData, isPlaying, isRandom, currentSong, listPlayed, currentList } = useSelector(
+        (state) => state.music,
+    );
+    const listSongs = useSelector((state) => state.music[state.music.currentList]);
     const dispatch = useDispatch();
 
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
@@ -60,13 +62,13 @@ const Footer = () => {
     };
 
     const getRandomSong = () => {
-        const length = currentList.length;
+        const length = listSongs.length;
         const copyList = listPlayed.length === length - 1 ? [] : [...listPlayed];
         let random;
 
         do {
             random = Math.floor(Math.random() * length);
-        } while (copyList.includes(random) || random === currentList.id);
+        } while (copyList.includes(random) || random === listSongs.id);
         dispatch(setListPlayed(random));
         return random;
     };
@@ -80,6 +82,19 @@ const Footer = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentSong, isRandom, getRandomSong]);
+
+    const handleRedirect = () => {
+        if (currentList === 'favorite-songs') {
+            navigate(`/mymusic`);
+        } else {
+            navigate(`/mymusic/${currentList}`);
+        }
+    };
+
+    const handleShowPlayerQueue = (e) => {
+        setIsShowPlayerQueue(!isShowPlayerQueue);
+        e.stopPropagation();
+    };
 
     useEffect(() => {
         setAudioEl(document.querySelector('#audio'));
@@ -105,7 +120,7 @@ const Footer = () => {
     return (
         <>
             <div id="footer" className={cx('wrapper-bg')}>
-                <div id="mini-player" className={cx('wrapper')}>
+                <div id="mini-player" onClick={handleRedirect} className={cx('wrapper')}>
                     <Media />
                     <Player audioEl={audioEl} onNext={handleNext} />
                     <div className={cx('controls')}>
@@ -117,23 +132,24 @@ const Footer = () => {
                             onClick={handleMute}
                             icon={isMute ? <BsVolumeMute /> : <BsVolumeUp />}
                         />
-                        <InputProgress
-                            ref={volumeRef}
-                            className={cx('volume')}
-                            onChange={handleChange}
-                            value={isMute ? 0 : volume}
-                            initialValue={isMute ? 0 : volume}
-                        />
+                        <div onClick={(e) => e.stopPropagation()}>
+                            <InputProgress
+                                ref={volumeRef}
+                                className={cx('volume')}
+                                onChange={handleChange}
+                                value={isMute ? 0 : volume}
+                                initialValue={isMute ? 0 : volume}
+                            />
+                        </div>
                         <div className={cx('narrow')}></div>
-                        <button
-                            onClick={() => setIsShowPlayerQueue(!isShowPlayerQueue)}
-                            className={cx('list', { active: isShowPlayerQueue })}
-                        >
+                        <button onClick={handleShowPlayerQueue} className={cx('list', { active: isShowPlayerQueue })}>
                             <span className={cx('icon')}>
                                 <BsMusicNoteList />
                             </span>
                         </button>
                     </div>
+
+                    {/* Mobile */}
                     <div className={cx('controls-mobile')}>
                         {isLoadingData ? (
                             <span className={cx('loader-icon')}>
@@ -142,14 +158,14 @@ const Footer = () => {
                         ) : (
                             <Button
                                 onClick={handlePlayMusic}
-                                size="medium"
+                                size="mobile"
                                 rounded
                                 className={cx('btn-player')}
                                 icon={isPlaying ? <BsPauseFill /> : <BsPlayFill />}
                             />
                         )}
                         <Button
-                            size="medium"
+                            size="mobile"
                             onClick={handleNext}
                             rounded
                             className={cx('btn-player')}

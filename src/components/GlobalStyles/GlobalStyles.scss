@@ -46,6 +46,10 @@ body {
     text-rendering: optimizespeed;
     background-size: 1920px auto;
     background-repeat: repeat;
+
+    @media (max-width: 740px) {
+        background-position: 25% 0;
+    }
 }
 
 button,
