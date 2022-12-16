@@ -113,6 +113,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 740px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .text {
@@ -153,10 +158,22 @@
     color: var(--text-secondary);
 }
 
+.right {
+    @media (max-width: 740px) {
+        margin-top: 12px;
+        width: 100%;
+    }
+}
+
 .btn-follow {
     color: white;
     &:hover {
         opacity: 0.9;
         background-color: var(--purple-primary);
+    }
+
+    @media (max-width: 740px) {
+        width: 100%;
+        padding: 7px 24px;
     }
 }

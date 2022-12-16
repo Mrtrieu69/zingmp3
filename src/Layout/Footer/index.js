@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsCameraVideo, BsVolumeUp, BsVolumeMute, BsMusicNoteList, BsPauseFill, BsPlayFill } from 'react-icons/bs';
-import { BiMicrophone, BiLoader } from 'react-icons/bi';
+import { BiLoader } from 'react-icons/bi';
 import { MdSkipNext } from 'react-icons/md';
 
 import Player from './Player';
@@ -110,7 +110,6 @@ const Footer = () => {
                     <Player audioEl={audioEl} onNext={handleNext} />
                     <div className={cx('controls')}>
                         <Button rounded size="medium" className={cx('btn-control')} icon={<BsCameraVideo />} />
-                        <Button rounded size="medium" className={cx('btn-control')} icon={<BiMicrophone />} />
                         <Button
                             rounded
                             size="medium"

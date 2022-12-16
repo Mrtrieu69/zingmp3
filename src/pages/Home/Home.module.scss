@@ -6,7 +6,6 @@
     transform: perspective(500px);
     transform-style: preserve-3d;
     height: calc(20vw - 66px);
-    min-width: 640px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +20,11 @@
     @media (max-width: 1024px) {
         height: calc(30vw - 80px);
         min-height: 180px;
+    }
+
+    @media (max-width: 740px) {
+        height: calc(30vw - 80px);
+        min-height: 120px;
     }
 }
 
@@ -39,6 +43,10 @@
     @media (max-width: 1024px) {
         width: 50%;
         left: 50%;
+    }
+
+    @media (max-width: 740px) {
+        padding: 5px;
     }
 }
 
@@ -91,6 +99,10 @@
     &:hover {
         filter: brightness(0.9);
     }
+
+    @media (max-width: 740px) {
+        display: none !important;
+    }
 }
 
 .btn-next {
@@ -113,15 +125,22 @@
     &:hover {
         filter: brightness(0.9);
     }
+
+    @media (max-width: 740px) {
+        display: none !important;
+    }
 }
 
 // play list
 .container {
-    min-width: 640px;
     margin-top: 48px;
 
     &.separate {
         margin-top: 0;
+    }
+
+    @media (max-width: 740px) {
+        margin-top: 24px;
     }
 }
 
@@ -138,6 +157,10 @@
 
     @media (min-width: 1224px) {
         margin: 0 -14px;
+    }
+
+    @media (max-width: 740px) {
+        margin: 0 -8px;
     }
 }
 
@@ -196,6 +219,12 @@
         &:hover {
             background-color: transparent !important;
         }
+
+        @media (max-width: 740px) {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+        }
     }
 
     &.like {
@@ -211,14 +240,31 @@
     @media (max-width: 1024px) {
         margin: 0 -14px;
     }
+
+    @media (max-width: 740px) {
+        margin: 0 -8px;
+    }
 }
 
 .item {
-    width: 25%;
-    padding: 0 12px;
+    width: 33.3333%;
+    padding: 0 8px;
+
+    &:nth-child(4) {
+        display: none;
+    }
 
     &:nth-child(5) {
         display: none;
+    }
+
+    @media (min-width: 740px) {
+        width: 25%;
+        padding: 0 12px;
+
+        &:nth-child(4) {
+            display: block;
+        }
     }
 
     @media (min-width: 1024px) {
@@ -234,6 +280,13 @@
     }
 }
 
+.name {
+    margin: 8px 0 4px;
+    @media (max-width: 740px) {
+        font-size: 1.4rem;
+    }
+}
+
 .artists {
     color: var(--text-secondary);
     font-size: 1.4rem;
@@ -243,6 +296,10 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+
+    @media (max-width: 740px) {
+        font-size: 1.2rem;
+    }
 }
 
 // zing chart
@@ -313,6 +370,10 @@
 .types {
     display: flex;
     margin: 20px -12px 30px;
+
+    @media (max-width: 740px) {
+        display: none;
+    }
 }
 
 .type {
@@ -336,6 +397,10 @@
 }
 
 // artists
+
+.artists-slider {
+    margin-top: 24px;
+}
 .artist-item {
     padding: 0 14px;
 }
@@ -351,10 +416,18 @@
 
 .arrow-next {
     right: 0 !important;
+
+    @media (max-width: 740px) {
+        right: 7px !important;
+    }
 }
 
 .arrow-prev {
     left: -25px !important;
+
+    @media (max-width: 740px) {
+        left: -18px !important;
+    }
 }
 
 .arrow-prev::before,
@@ -414,6 +487,10 @@
     padding: 12px;
     font-weight: 700;
     text-transform: capitalize;
+
+    @media (max-width: 740px) {
+        padding: 8px;
+    }
 }
 
 .zm-label {
@@ -423,6 +500,10 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     color: white;
+
+    @media (max-width: 740px) {
+        font-size: 14px;
+    }
 }
 
 // partner
@@ -435,6 +516,10 @@
     @media (max-width: 1224px) {
         margin: 0 -12px;
     }
+
+    @media (max-width: 740px) {
+        margin: 0 -8px;
+    }
 }
 
 .col {
@@ -444,6 +529,11 @@
     @media (max-width: 1224px) {
         padding: 0 12px;
         width: 25%;
+    }
+
+    @media (max-width: 740px) {
+        width: 33.33333%;
+        padding: 0 8px;
     }
 }
 
@@ -467,6 +557,10 @@
 
     @media (max-width: 1224px) {
         margin-bottom: 24px;
+    }
+
+    @media (max-width: 740px) {
+        margin-bottom: 16px;
     }
 }
 

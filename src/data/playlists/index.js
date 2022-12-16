@@ -482,7 +482,7 @@ export const PLAYLISTS = {
             {
                 id: 2,
                 type: 'playlist-chill',
-                name: 'vaicaunoicokhiennguoithaydoi',
+                name: 'Vài câu nói có khiến người thay đổi',
                 artists: 'GREY D, tlinh',
                 duration: 226,
                 time: '3:46',

@@ -16,6 +16,10 @@
     @media (min-width: 740px) and (max-width: 1024px) {
         margin-left: 70px;
     }
+
+    @media (max-width: 740px) {
+        max-height: calc(100vh - var(--sidebar-height-mobile));
+    }
 }
 
 .main::-webkit-scrollbar {

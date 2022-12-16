@@ -94,7 +94,7 @@ const MyPlayList = () => {
                                 <div>
                                     <h3 className={cx('title')}>{infoList.name}</h3>
                                     <p className={cx('desc')}>Updated: {infoList.updated}</p>
-                                    <p className={cx('desc')}>{infoList.subTitle}</p>
+                                    <p className={cx('desc')}>{infoList.artists}</p>
                                     <p className={cx('desc')}>{infoList.likes} likes</p>
                                 </div>
                                 <div className={cx('controls')}>

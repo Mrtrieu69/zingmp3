@@ -49,12 +49,19 @@ const SliderArtists = () => {
                     slidesToScroll: 5,
                 },
             },
+            {
+                breakpoint: 740,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                },
+            },
         ],
     };
 
     return (
         <div>
-            <Slider {...settings}>
+            <Slider className={cx('artists-slider')} {...settings}>
                 {ARTISTS.map((artist, id) => (
                     <div key={id}>
                         <div className={cx('artist-item')}>

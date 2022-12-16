@@ -7,6 +7,11 @@
         width: 25%;
     }
 
+    @media (max-width: 740px) {
+        width: 33.33333%;
+        padding: 0 8px;
+    }
+
     &.small {
         width: 20%;
         padding: 0 12px;
@@ -14,6 +19,11 @@
         @media (min-width: 1224px) {
             padding: 0 14px;
             width: 16.66667%;
+        }
+
+        @media (max-width: 740px) {
+            width: 33.33333%;
+            padding: 0 8px;
         }
     }
 }
@@ -70,10 +80,22 @@
             &:hover {
                 background-color: transparent;
             }
+
+            @media (max-width: 740px) {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
         }
 
         &.like {
             color: var(--purple-primary);
+        }
+
+        @media (max-width: 740px) {
+            width: 24px;
+            height: 24px;
+            font-size: 16px;
         }
     }
 
@@ -116,6 +138,12 @@ a.name-card {
     height: 45px;
     border-radius: 50%;
     border: 1px solid white;
+
+    @media (max-width: 740px) {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
 }
 
 .pause-icon {
@@ -134,4 +162,11 @@ a.name-card {
     align-items: center;
     margin: 0 7px;
     color: white !important;
+
+    @media (max-width: 740px) {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin: 0;
+    }
 }

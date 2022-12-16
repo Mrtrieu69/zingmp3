@@ -116,7 +116,7 @@ const Player = ({ audioEl, onNext }) => {
     }, [currentSong, isPlaying]);
 
     return (
-        <div className={cx('player')}>
+        <div className={cx('player', { playing: isPlaying })}>
             <div className={cx('actions')}>
                 <Button
                     size="medium"

@@ -39,7 +39,7 @@ const Media = () => {
                         {currentSong.isLike ? <AiFillHeart /> : <AiOutlineHeart />}
                     </span>
                 </button>
-                <button className={cx('btn', 'large')}>
+                <button className={cx('btn', 'large', 'more')}>
                     <span className={cx('icon')}>
                         <MdMoreHoriz />
                     </span>

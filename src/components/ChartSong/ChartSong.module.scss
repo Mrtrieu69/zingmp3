@@ -27,6 +27,12 @@
     align-items: center;
 }
 
+.song-right {
+    @media (max-width: 740px) {
+        display: none;
+    }
+}
+
 .rank {
     min-width: 22px;
     font-size: 32px;
@@ -106,6 +112,10 @@
     display: flex;
     font-size: 24px;
     color: gray;
+
+    @media (max-width: 740px) {
+        margin-right: 10px;
+    }
 }
 
 .song.full {
@@ -120,12 +130,20 @@
 
     .song-left {
         margin-left: 10px;
+
+        @media (max-width: 740px) {
+            margin-left: 0;
+        }
     }
 
     .rank {
         width: 36px;
         display: flex;
         justify-content: center;
+
+        @media (max-width: 740px) {
+            margin: 0;
+        }
     }
 
     .details {
@@ -173,6 +191,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media (max-width: 740px) {
+        margin-right: 10px;
+    }
 }
 
 .arrow {
