@@ -1,10 +1,13 @@
 .wrapper {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     margin-left: 10px;
     position: relative;
 }
 
 .menu-blog {
+    -webkit-box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
     width: 240px;
     position: absolute;
@@ -52,17 +55,26 @@
     width: 40px;
     height: 40px;
     border-radius: 999px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     background-color: var(--alpha-bg);
     cursor: pointer;
 
     &:hover {
+        -webkit-filter: brightness(0.9);
         filter: brightness(0.9);
     }
 
     .icon {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
         display: inline-flex;
         font-size: 20px;
         color: var(--text-primary);
@@ -79,14 +91,21 @@
     background-position: 15% 50%;
 
     &:hover {
+        -webkit-filter: brightness(0.9);
         filter: brightness(0.9);
     }
 }
 
 .menu-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 12px 20px 12px 17px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     cursor: pointer;
 
@@ -105,6 +124,8 @@
 }
 
 .more {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     font-size: 20px;
     color: var(--navigation-text);

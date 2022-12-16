@@ -8,6 +8,7 @@
     background-color: var(--alpha-bg);
 
     &:hover {
+        -webkit-filter: brightness(0.9);
         filter: brightness(0.9);
     }
 }
@@ -38,7 +39,12 @@
 }
 
 .display {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -49,14 +55,22 @@
 
 .themes {
     margin: 0 -7px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
 .body {
     width: 16.66667%;
     padding: 0 7px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 20px;
 
@@ -81,6 +95,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 101%;
+    -webkit-transition: background-size 0.5s ease;
+    -o-transition: background-size 0.5s ease;
     transition: background-size 0.5s ease;
     border-radius: 5px;
     overflow: hidden;
@@ -89,12 +105,16 @@
         background-size: 110%;
 
         .action {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
         }
     }
 
     &.active {
         .current {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
         }
 
@@ -113,7 +133,11 @@
     display: none;
     background-color: var(--purple-primary);
     font-size: 16px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-radius: 50%;
     color: white;
@@ -138,14 +162,22 @@
     bottom: 0;
     background-color: var(--dark-alpha-50);
     display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 
     .apply {
         color: white;
         &:hover {
             background-color: var(--purple-primary);
+            -webkit-filter: brightness(0.9);
             filter: brightness(0.9);
         }
     }
@@ -158,6 +190,7 @@
         margin-top: 10px;
 
         &:hover {
+            -webkit-filter: brightness(0.9);
             filter: brightness(0.9);
         }
     }

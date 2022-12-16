@@ -4,12 +4,21 @@
 
 .song {
     padding: 12px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     height: 80px;
     background-color: hsla(0, 0%, 100%, 0.07);
     border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     margin-bottom: 10px;
 
@@ -17,13 +26,19 @@
         background-color: var(--alpha-bg) !important;
 
         .layout {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
         }
     }
 }
 
 .song-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -73,20 +88,33 @@
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 .icon {
     font-size: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     color: white;
 }
 
 .details {
     font-weight: 500;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 1.4rem;
     color: white;
@@ -108,6 +136,8 @@
 
 .dash {
     margin-right: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     font-size: 24px;
     color: gray;
@@ -137,7 +167,11 @@
 
     .rank {
         width: 36px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
 
         @media (max-width: 740px) {
@@ -186,6 +220,7 @@
 
 .name,
 .artists {
+    -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -197,8 +232,15 @@
 
 .sort {
     margin-right: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 
     @media (max-width: 740px) {
@@ -210,7 +252,11 @@
     width: 24px;
     height: 20px;
     font-size: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 
     &.up {
@@ -226,7 +272,11 @@
     font-weight: 700;
     width: 24px;
     height: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 1.2rem;
 }

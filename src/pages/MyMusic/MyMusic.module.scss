@@ -1,6 +1,6 @@
 .wrapper {
     padding-top: 70px;
-    padding-bottom: 70px;
+    padding-bottom: 100px;
 
     @media (max-width: 740px) {
         padding-top: 40px;
@@ -11,7 +11,11 @@
     font-size: 40px;
     line-height: 48px;
     font-weight: 700;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 
     .btn-play {
@@ -41,7 +45,10 @@
 }
 
 .playlists {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: 0 -12px;
 
@@ -57,7 +64,11 @@
 .navbar {
     position: relative;
     margin: 30px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-bottom: 1px solid var(--border-primary);
 }
@@ -69,12 +80,20 @@
     bottom: 0;
     height: 2px;
     background-color: var(--purple-primary);
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
 .navbarItem {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     text-transform: uppercase;
     padding: 15px;

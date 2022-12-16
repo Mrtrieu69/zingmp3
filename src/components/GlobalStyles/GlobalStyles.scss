@@ -1,12 +1,10 @@
 :root {
-    // text
     --text-primary: #fff;
     --text-secondary: hsla(0, 0%, 100%, 0.5);
     --text-hover: #fff;
     --text-placeholder: #dadada;
     --navigation-text: #dadada;
 
-    // default
     --header-height: 70px;
     --footer-height: 90px;
     --sidebar-height-mobile: 50px;
@@ -27,6 +25,7 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 

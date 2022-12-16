@@ -1,9 +1,14 @@
 .wrapper {
     padding-top: 40px;
+    padding-bottom: 70px;
 }
 
 .chart-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-bottom: 20px;
     color: var(--text-item-hover);
@@ -37,6 +42,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    -webkit-filter: grayscale(1);
     filter: grayscale(1);
 }
 
@@ -57,8 +63,11 @@
 }
 
 .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: -14px;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -88,7 +97,11 @@
 }
 
 .more {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin-top: 16px;
 

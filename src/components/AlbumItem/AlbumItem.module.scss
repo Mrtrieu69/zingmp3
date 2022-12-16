@@ -38,12 +38,16 @@
     background-size: 101%;
     background-position: center;
     background-repeat: no-repeat;
+    -webkit-transition: background-size 0.5s ease;
+    -o-transition: background-size 0.5s ease;
     transition: background-size 0.5s ease;
 
     &:hover {
         background-size: 110%;
 
         .controls {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
         }
     }
@@ -58,7 +62,11 @@
     background-color: var(--dark-alpha-50);
     border-radius: 5px;
     display: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
 
     .icon {
@@ -101,12 +109,19 @@
     }
 
     &.active {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
 }
 
 .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -115,6 +130,7 @@ a.name-card {
     margin: 8px 0 4px 0;
     font-size: 1.4rem;
     cursor: pointer;
+    -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -136,8 +152,14 @@ a.name-card {
 }
 
 .pause {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 45px;
     height: 45px;
@@ -162,8 +184,14 @@ a.name-card {
 .loading {
     width: 45px;
     height: 45px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 0 7px;
     color: white !important;

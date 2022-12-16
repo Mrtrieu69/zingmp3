@@ -12,8 +12,17 @@
     height: 100vh;
     background-color: var(--sidebar-bg);
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-transition: width 0.15s ease;
+    -o-transition: width 0.15s ease;
     transition: width 0.15s ease;
 
     button.new {
@@ -42,7 +51,11 @@
 .brand {
     height: var(--header-height);
     padding: 0 25px 0 28px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 
     .logo {
@@ -64,11 +77,15 @@
 
     @media (max-width: 1024px) {
         padding: 0;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 }
 
 .link-brand {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -86,6 +103,8 @@
 
     &.scroll {
         margin-top: 16px;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
         flex: 1;
         overflow-y: overlay;
 
@@ -109,6 +128,15 @@
         }
 
         &.scrolling {
+            -webkit-mask-image: -webkit-gradient(
+                linear,
+                left top,
+                left bottom,
+                from(hsla(0, 0%, 100%, 0)),
+                color-stop(10%, hsla(0, 0%, 100%, 0.8)),
+                color-stop(25%, #fff),
+                to(#fff)
+            );
             -webkit-mask-image: linear-gradient(
                 180deg,
                 hsla(0, 0%, 100%, 0),
@@ -123,18 +151,28 @@
 .link {
     position: relative;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 7px 25px;
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--navigation-text);
     border-left: 3px solid transparent;
+    -webkit-transition: padding 0.15s ease;
+    -o-transition: padding 0.15s ease;
     transition: padding 0.15s ease;
 
     .icon {
         font-size: 24px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         margin-right: 10px;
 
@@ -159,6 +197,8 @@
 
     @media (max-width: 1024px) {
         padding: 15px 0;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         border-left: 0;
     }
@@ -173,6 +213,8 @@
         top: 50%;
         font-size: 1rem;
         line-height: 1rem;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
         transform: translateY(-50%);
         padding: 3px 7px;
         border-radius: 5px;
@@ -204,16 +246,23 @@
 .btn {
     display: none;
     padding-bottom: 14px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 
     @media (max-width: 1024px) {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
 }
 
 .wrapper.active {
     width: var(--sidebar-width) !important;
+    -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 30%);
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 30%);
     z-index: 20;
 
@@ -222,6 +271,8 @@
     }
 
     .btn {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
         justify-content: flex-end;
 
         .show {
@@ -239,12 +290,16 @@
 
     .brand {
         padding: 0 25px 0 28px;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
         justify-content: flex-start;
     }
 
     .link {
         padding: 7px 25px !important;
         border-left: 3px solid transparent !important;
+        -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
         justify-content: flex-start !important;
 
         &.active {
@@ -274,6 +329,7 @@
 .ad {
     margin: 4px 20px;
     padding: 15px 8px;
+    background: -o-linear-gradient(333deg, #5a4be7, #c86dd7 102%);
     background: linear-gradient(117deg, #5a4be7, #c86dd7 102%);
     border-radius: 10px;
     text-align: center;
@@ -321,6 +377,8 @@
 
 .links-mobile {
     background-color: var(--player-bg);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 100%;
 }
@@ -328,9 +386,18 @@
 .link-mobile {
     width: 20%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 
     &.active {
@@ -339,6 +406,8 @@
 }
 
 .icon-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     color: var(--text-item-hover);
 }
