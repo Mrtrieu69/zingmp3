@@ -47,6 +47,11 @@
         }
     }
 
+    &.dragging {
+        background-color: hsla(0, 0%, 100%, 0.3);
+        box-shadow: 0 0 10px rgba(0 0 0 / 0.3);
+    }
+
     &:first-child {
         border-top: 1px solid var(--border-secondary);
     }

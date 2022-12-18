@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { FAVORITE_SONGS, PLAYLISTS } from '../../data/playlists';
 
-const currentSong = FAVORITE_SONGS[0];
+const currentSong = PLAYLISTS['world-music'].list[0];
 
 const initialState = {
     listPlayed: [],
@@ -36,15 +36,17 @@ export const musicSlice = createSlice({
             state.isPlaying = false;
         },
         setSong: (state, action) => {
+            const currentList = state.currentList;
+
             if (action.payload <= -1) {
-                state.idCurrentSong = state[state.currentList].length - 1;
-                state.currentSong = state[state.currentList][state[state.currentList].length - 1];
-            } else if (action.payload >= state[state.currentList].length) {
+                state.idCurrentSong = state[currentList].length - 1;
+                state.currentSong = state[currentList][state[currentList].length - 1];
+            } else if (action.payload >= state[currentList].length) {
                 state.idCurrentSong = 0;
-                state.currentSong = state[state.currentList][0];
+                state.currentSong = state[currentList][0];
             } else {
-                state.idCurrentSong = state[state.currentList].findIndex((song) => song.id === action.payload);
-                state.currentSong = state[state.currentList].find((song) => song.id === action.payload);
+                state.idCurrentSong = action.payload;
+                state.currentSong = state[currentList].find((_, id) => id === action.payload);
             }
 
             saveToLocalStorage(state);
@@ -81,6 +83,48 @@ export const musicSlice = createSlice({
 
             saveToLocalStorage(state);
         },
+        changePositionSong: (state, action) => {
+            const { source, destination } = action.payload;
+
+            const currentList = source.droppableId;
+            const [removed] = state[currentList].splice(source.index, 1);
+            state[currentList].splice(destination.index, 0, removed);
+
+            saveToLocalStorage(state);
+        },
+        likeSong: (state, action) => {
+            const song = action.payload;
+            state[song.type] = state[song.type].map((item) => {
+                if (item.id === song.id) {
+                    item.isLike = true;
+                }
+                return item;
+            });
+            state['favorite-songs'].push({ ...song, isLike: true, type: 'favorite-songs', from: song.type });
+
+            saveToLocalStorage(state);
+        },
+        unlikeSong: (state, action) => {
+            const song = action.payload;
+            if (song.from) {
+                state[song.from] = state[song.from].map((item) => {
+                    if (item.id === song.id) {
+                        item.isLike = false;
+                    }
+                    return item;
+                });
+            } else {
+                state[song.type] = state[song.type].map((item) => {
+                    if (item.id === song.id) {
+                        item.isLike = false;
+                    }
+                    return item;
+                });
+            }
+            state['favorite-songs'] = state['favorite-songs'].filter((item) => item.id !== song.id);
+
+            saveToLocalStorage(state);
+        },
     },
 });
 
@@ -95,6 +139,9 @@ export const {
     setListPlayed,
     setIsLoadingData,
     setCurrentList,
+    changePositionSong,
+    likeSong,
+    unlikeSong,
 } = musicSlice.actions;
 
 export default musicSlice.reducer;

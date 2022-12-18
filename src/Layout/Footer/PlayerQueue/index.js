@@ -10,10 +10,10 @@ import PlayerQueueItem from './PlayerQueueItem';
 const cx = classNames.bind(styles);
 
 const PlayerQueue = ({ close, className }) => {
-    const { currentSong } = useSelector((state) => state.music);
+    const { idCurrentSong } = useSelector((state) => state.music);
     const currentList = useSelector((state) => state.music[state.music['currentList']]);
 
-    const nextList = [...currentList].splice(currentSong.id + 1);
+    const nextList = [...currentList].splice(idCurrentSong + 1);
 
     return (
         <div className={cx('wrapper', { close: close, [className]: className })}>
@@ -31,12 +31,12 @@ const PlayerQueue = ({ close, className }) => {
             </div>
             <div className={cx('body')}>
                 <div className={cx('playlist')}>
-                    {currentList.slice(0, currentSong.id + 1).map((item, id) => (
-                        <PlayerQueueItem key={id} {...item} />
+                    {currentList.slice(0, idCurrentSong + 1).map((item, index) => (
+                        <PlayerQueueItem key={item.id} index={index} {...item} />
                     ))}
                     {nextList.length !== 0 && <div className={cx('next-songs')}>Next songs</div>}
-                    {nextList.map((item, id) => (
-                        <PlayerQueueItem key={id} {...item} />
+                    {nextList.map((item, index) => (
+                        <PlayerQueueItem key={item.id} index={idCurrentSong + 1 + index} {...item} />
                     ))}
                 </div>
             </div>

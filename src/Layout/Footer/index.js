@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,7 +12,7 @@ import styles from './Footer.module.scss';
 import PlayerQueue from './PlayerQueue';
 import { useTransitionShow } from '../../hooks';
 import { Button, InputProgress } from '../../components';
-import { togglePlay, setListPlayed, setSong } from '../../features/music/musicSlice';
+import { togglePlay, setListPlayed, setSong, play, pause } from '../../features/music/musicSlice';
 
 const cx = classNames.bind(styles);
 
@@ -22,10 +22,11 @@ const Footer = () => {
     const [audioEl, setAudioEl] = useState(null);
     const navigate = useNavigate();
 
-    const { isLoadingData, isPlaying, isRandom, currentSong, listPlayed, currentList } = useSelector(
+    const { isLoadingData, isPlaying, isRandom, listPlayed, currentList, idCurrentSong } = useSelector(
         (state) => state.music,
     );
     const listSongs = useSelector((state) => state.music[state.music.currentList]);
+
     const dispatch = useDispatch();
 
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
@@ -69,19 +70,24 @@ const Footer = () => {
         do {
             random = Math.floor(Math.random() * length);
         } while (copyList.includes(random) || random === listSongs.id);
+
         dispatch(setListPlayed(random));
         return random;
     };
 
-    const handleNext = useCallback(() => {
+    const handleNext = () => {
+        if (listSongs.length <= 1) {
+            dispatch(pause());
+            dispatch(play());
+            return;
+        }
         if (isRandom) {
             const index = getRandomSong();
             dispatch(setSong(index));
         } else {
-            dispatch(setSong(currentSong.id + 1));
+            dispatch(setSong(idCurrentSong + 1));
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentSong, isRandom, getRandomSong]);
+    };
 
     const handleRedirect = () => {
         if (currentList === 'favorite-songs') {

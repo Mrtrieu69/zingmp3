@@ -2,21 +2,59 @@ import { useState, useEffect, createRef } from 'react';
 import classNames from 'classnames/bind';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { toast } from 'react-toastify';
+
+import styles from './Playlist.module.scss';
+import {
+    setSong,
+    pause,
+    play,
+    startApp,
+    setCurrentList,
+    changePositionSong,
+    likeSong,
+    unlikeSong,
+} from '../../features/music/musicSlice';
+import Button from '../Button';
+
+// icons
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { MdMoreHoriz } from 'react-icons/md';
 import { BsMusicNoteBeamed, BsFillPlayFill } from 'react-icons/bs';
 import { BiLoader } from 'react-icons/bi';
 
-import styles from './Playlist.module.scss';
-import { setSong, pause, play, startApp, setCurrentList } from '../../features/music/musicSlice';
-import Button from '../Button';
-
 const cx = classNames.bind(styles);
 
-const Playlist = ({ songs, onLike = () => {} }) => {
-    const [idCurrentSong, setIdCurrentSong] = useState(null);
+const onDragEnd = (result, dispatch, idCurrentSong, idList, currentSong) => {
+    if (!result.destination) return;
+    const { source, destination } = result;
+
+    if (source.index === destination.index) return;
+
+    dispatch(changePositionSong({ source, destination }));
+
+    if (currentSong.type === idList) {
+        if (source.index === idCurrentSong) {
+            dispatch(setSong(destination.index));
+        } else if (source.index < idCurrentSong && destination.index > idCurrentSong) {
+            dispatch(setSong(idCurrentSong - 1));
+        } else if (source.index > idCurrentSong && destination.index < idCurrentSong) {
+            dispatch(setSong(idCurrentSong + 1));
+        } else {
+            dispatch(setSong(idCurrentSong));
+        }
+    }
+};
+
+const Playlist = ({ songs }) => {
+    const [forceRender, setForceRender] = useState(false);
     const [songRefs, setSongRefs] = useState([]);
-    const { currentSong, isPlaying, isFirstStartApp, isLoadingData, currentList } = useSelector((state) => state.music);
+    const { currentSong, isPlaying, isFirstStartApp, isLoadingData, currentList, idCurrentSong } = useSelector(
+        (state) => state.music,
+    );
+
+    const favoriteSongs = useSelector((state) => state.music['favorite-songs']);
     const dispatch = useDispatch();
     let { idList } = useParams();
 
@@ -37,9 +75,30 @@ const Playlist = ({ songs, onLike = () => {} }) => {
         dispatch(pause());
     };
 
+    const handleLike = (song) => {
+        dispatch(likeSong(song));
+        dispatch(setSong(idCurrentSong));
+        setForceRender(false);
+        toast.success('Added to favorite songs!');
+    };
+
+    const handleUnlike = (song, index) => {
+        if (currentList === 'favorite-songs' && favoriteSongs.length <= 1) {
+            dispatch(setCurrentList('world-music'));
+        }
+        dispatch(unlikeSong(song));
+        if (currentList === 'favorite-songs' && index < idCurrentSong) {
+            dispatch(setSong(idCurrentSong - 1));
+        } else {
+            dispatch(setSong(idCurrentSong));
+        }
+        setForceRender(false);
+        toast.success('Removed from favorite songs!');
+    };
+
     useEffect(() => {
-        setIdCurrentSong(currentSong.id);
-    }, [currentSong]);
+        setForceRender(true);
+    }, []);
 
     useEffect(() => {
         setSongRefs((refs) =>
@@ -50,10 +109,10 @@ const Playlist = ({ songs, onLike = () => {} }) => {
     }, [songs]);
 
     useEffect(() => {
-        if (songRefs.length > 0 && idList === currentList) {
-            songRefs[currentSong.id]?.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (songRefs.length > 0 && idList === currentList && forceRender) {
+            songRefs[idCurrentSong]?.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-    }, [currentSong, songRefs, idList, currentList]);
+    }, [idCurrentSong, songRefs, idList, currentList, forceRender]);
 
     return (
         <div className={cx('list')}>
@@ -61,54 +120,116 @@ const Playlist = ({ songs, onLike = () => {} }) => {
                 <span className={cx('list-text')}>Song</span>
                 <span className={cx('list-time')}>Time</span>
             </div>
-            {songs.map((song, id) => (
-                <div
-                    key={id}
-                    ref={songRefs[id]}
-                    className={cx('media', { active: song.id === idCurrentSong && currentList === idList })}
-                >
-                    <div className={cx('media-left')}>
-                        <span className={cx('icon-music')}>
-                            <BsMusicNoteBeamed />
-                        </span>
-                        <div className={cx('block')}>
-                            <img src={song.image} className={cx('song-thumb')} alt={song.name} />
-                            <div className={cx('mask')}>
-                                {song.id === idCurrentSong && isLoadingData ? (
-                                    <span className={cx('loader-icon')}>
-                                        <BiLoader />
-                                    </span>
-                                ) : isPlaying && song.id === idCurrentSong && currentList === idList ? (
-                                    <span onClick={handlePause} className={cx('btn-pause')}>
-                                        <span
-                                            className={cx('pause-icon')}
-                                            style={{ backgroundImage: "url('/images/gif/icon-playing.gif')" }}
-                                        ></span>
-                                    </span>
-                                ) : (
-                                    <span onClick={() => handlePlay(song.id, song.type)} className={cx('btn-play')}>
-                                        <BsFillPlayFill />
-                                    </span>
-                                )}
+            <DragDropContext onDragEnd={(result) => onDragEnd(result, dispatch, idCurrentSong, idList, currentSong)}>
+                <Droppable droppableId={idList} key={idList}>
+                    {(provided) => {
+                        return (
+                            <div {...provided.droppableProps} ref={provided.innerRef}>
+                                {songs.map((song, index) => (
+                                    <Draggable key={song.id} draggableId={song.id} index={index}>
+                                        {(provided, snapshot) => {
+                                            return (
+                                                <div
+                                                    ref={provided.innerRef}
+                                                    {...provided.draggableProps}
+                                                    {...provided.dragHandleProps}
+                                                    style={{
+                                                        userSelect: 'none',
+                                                        ...provided.draggableProps.style,
+                                                    }}
+                                                >
+                                                    <div
+                                                        key={song.id}
+                                                        ref={songRefs[index]}
+                                                        className={cx('media', {
+                                                            active: index === idCurrentSong && currentList === idList,
+                                                            dragging: snapshot.isDragging,
+                                                        })}
+                                                    >
+                                                        <div className={cx('media-left')}>
+                                                            <span className={cx('icon-music')}>
+                                                                <BsMusicNoteBeamed />
+                                                            </span>
+                                                            <div className={cx('block')}>
+                                                                <img
+                                                                    src={song.image}
+                                                                    className={cx('song-thumb')}
+                                                                    alt={song.name}
+                                                                />
+                                                                <div className={cx('mask')}>
+                                                                    {index === idCurrentSong && isLoadingData ? (
+                                                                        <span className={cx('loader-icon')}>
+                                                                            <BiLoader />
+                                                                        </span>
+                                                                    ) : isPlaying &&
+                                                                      index === idCurrentSong &&
+                                                                      currentList === idList ? (
+                                                                        <span
+                                                                            onClick={handlePause}
+                                                                            className={cx('btn-pause')}
+                                                                        >
+                                                                            <span
+                                                                                className={cx('pause-icon')}
+                                                                                style={{
+                                                                                    backgroundImage:
+                                                                                        "url('/images/gif/icon-playing.gif')",
+                                                                                }}
+                                                                            ></span>
+                                                                        </span>
+                                                                    ) : (
+                                                                        <span
+                                                                            onClick={() => handlePlay(index, song.type)}
+                                                                            className={cx('btn-play')}
+                                                                        >
+                                                                            <BsFillPlayFill />
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                            <div className={cx('song-info')}>
+                                                                <span className={cx('song-name', 'line-clamp')}>
+                                                                    {song.name}
+                                                                </span>
+                                                                <h3 className={cx('artists', 'line-clamp')}>
+                                                                    {song.artists}
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                        <div className={cx('media-time')}>{song.time}</div>
+                                                        <div className={cx('controls')}>
+                                                            {song.isLike ? (
+                                                                <Button
+                                                                    onClick={() => handleUnlike(song, index)}
+                                                                    rounded
+                                                                    icon={<AiFillHeart />}
+                                                                    className={cx('icon', 'like')}
+                                                                />
+                                                            ) : (
+                                                                <Button
+                                                                    onClick={() => handleLike(song)}
+                                                                    rounded
+                                                                    icon={<AiOutlineHeart />}
+                                                                    className={cx('icon')}
+                                                                />
+                                                            )}
+                                                            <Button
+                                                                rounded
+                                                                icon={<MdMoreHoriz />}
+                                                                className={cx('icon')}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }}
+                                    </Draggable>
+                                ))}
+                                {provided.placeholder}
                             </div>
-                        </div>
-                        <div className={cx('song-info')}>
-                            <span className={cx('song-name', 'line-clamp')}>{song.name}</span>
-                            <h3 className={cx('artists', 'line-clamp')}>{song.artists}</h3>
-                        </div>
-                    </div>
-                    <div className={cx('media-time')}>{song.time}</div>
-                    <div className={cx('controls')}>
-                        <Button
-                            onClick={onLike}
-                            rounded
-                            icon={song.isLike ? <AiFillHeart /> : <AiOutlineHeart />}
-                            className={cx('icon', { like: song.isLike })}
-                        />
-                        <Button rounded icon={<MdMoreHoriz />} className={cx('icon')} />
-                    </div>
-                </div>
-            ))}
+                        );
+                    }}
+                </Droppable>
+            </DragDropContext>
         </div>
     );
 };

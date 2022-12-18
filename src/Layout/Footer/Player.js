@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, memo } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
@@ -19,7 +19,9 @@ const Player = ({ audioEl, onNext }) => {
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
 
-    const { currentSong, isPlaying, isRepeat, isRandom, isLoadingData } = useSelector((state) => state.music);
+    const { currentSong, isPlaying, isRepeat, isRandom, isLoadingData, idCurrentSong } = useSelector(
+        (state) => state.music,
+    );
 
     const dispatch = useDispatch();
 
@@ -42,7 +44,7 @@ const Player = ({ audioEl, onNext }) => {
     };
 
     const handlePrev = () => {
-        dispatch(setSong(currentSong.id - 1));
+        dispatch(setSong(idCurrentSong - 1));
     };
 
     const handleMouseDown = () => {
@@ -99,9 +101,8 @@ const Player = ({ audioEl, onNext }) => {
                 audioEl.removeEventListener('loadeddata', handleLoadeddata);
             }
         };
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [audioEl, currentSong, isRepeat, isRandom]);
+    }, [audioEl, isRepeat, isRandom, idCurrentSong, onNext]);
 
     useEffect(() => {
         if (audioEl) {
@@ -171,4 +172,4 @@ const Player = ({ audioEl, onNext }) => {
     );
 };
 
-export default memo(Player);
+export default Player;

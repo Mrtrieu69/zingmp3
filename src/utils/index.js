@@ -9,3 +9,7 @@ export const formatTime = (time) => {
 export const getRandom = (length) => {
     return Math.floor(Math.random() * length);
 };
+
+export const getRandomId = () => {
+    return Math.floor(Math.random() * 10e10).toString(16);
+};
