@@ -63,7 +63,7 @@ const MyPlayList = () => {
                             <figure
                                 className={cx('media-left', {
                                     active: isPlaying && !isLoadingData && idList === currentList,
-                                    'spin-off': isTransition && !isShow,
+                                    'spin-off': isTransition && !isShow && idList === currentList,
                                 })}
                             >
                                 <img src={infoList.bgImage} className={cx('image')} alt="" />

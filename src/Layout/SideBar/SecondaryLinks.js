@@ -24,7 +24,7 @@ const SecondaryLinks = () => {
             {secondaryRoutes.map((item, id) => (
                 <div
                     key={id}
-                    onClick={() => toast.warning('Feature is being updated!', { className: cx('toast') })}
+                    onClick={() => toast.warning('Feature is being updated!', { className: 'toast' })}
                     className={cx('link')}
                 >
                     <span className={cx('icon')}>{item.iconLeft}</span>
@@ -34,7 +34,7 @@ const SecondaryLinks = () => {
             <div className={cx('ad')}>
                 <p className={cx('desc')}>Listen to music without ads with PRIMARY</p>
                 <Button
-                    onClick={() => toast.warning('Feature is being updated!', { className: cx('toast') })}
+                    onClick={() => toast.warning('Feature is being updated!', { className: 'toast' })}
                     className={cx('primary')}
                     primary
                 >
@@ -45,7 +45,7 @@ const SecondaryLinks = () => {
             {libraries.map((item, id) => (
                 <div
                     key={id}
-                    onClick={() => toast.warning('Feature is being updated!', { className: cx('toast') })}
+                    onClick={() => toast.warning('Feature is being updated!', { className: 'toast' })}
                     className={cx('link')}
                 >
                     <span className={cx('icon')}>{item.iconLeft}</span>

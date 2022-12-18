@@ -36,7 +36,7 @@ const Media = () => {
                         {currentSong.name.length > 16 && <span className={cx('text')}>{currentSong.name}</span>}
                     </div>
                 </div>
-                <h3 className={cx('author')}>{currentSong.artists}</h3>
+                <h3 className={cx('author', 'line-clamp')}>{currentSong.artists}</h3>
             </div>
             <div className={cx('media-right')}>
                 <button onClick={handleLike} className={cx('btn')}>
@@ -44,7 +44,7 @@ const Media = () => {
                         {currentSong.isLike ? <AiFillHeart /> : <AiOutlineHeart />}
                     </span>
                 </button>
-                <button onClick={(e) => e.stopPropagation()} className={cx('btn', 'large', 'more')}>
+                <button onClick={(e) => e.stopPropagation()} className={cx('btn', 'large')}>
                     <span className={cx('icon')}>
                         <MdMoreHoriz />
                     </span>

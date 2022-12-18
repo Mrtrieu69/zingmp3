@@ -146,6 +146,7 @@
 }
 
 .song-name {
+    --line-clamp: 1;
     display: inline-block;
     font-size: 1.4rem;
     font-weight: 500;
@@ -155,9 +156,10 @@
 }
 
 .artists {
+    --line-clamp: 1;
     font-size: 1.2rem;
     font-weight: 500;
-    line-height: 1.2rem;
+    line-height: 1.2;
     text-transform: capitalize;
     color: var(--text-secondary);
 }

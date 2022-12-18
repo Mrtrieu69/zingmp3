@@ -19,9 +19,15 @@ const initialState = {
     'world-music': PLAYLISTS['world-music'].list,
 };
 
+const stateFromLocalStorage = JSON.parse(localStorage.getItem('music'));
+
+const saveToLocalStorage = (state) => {
+    localStorage.setItem('music', JSON.stringify({ ...state, isPlaying: false, isLoadingData: false, listPlayed: [] }));
+};
+
 export const musicSlice = createSlice({
     name: 'music',
-    initialState,
+    initialState: stateFromLocalStorage || initialState,
     reducers: {
         play: (state) => {
             state.isPlaying = true;
@@ -40,18 +46,26 @@ export const musicSlice = createSlice({
                 state.idCurrentSong = state[state.currentList].findIndex((song) => song.id === action.payload);
                 state.currentSong = state[state.currentList].find((song) => song.id === action.payload);
             }
+
+            saveToLocalStorage(state);
         },
         togglePlay: (state) => {
             state.isPlaying = !state.isPlaying;
         },
         toggleIsRepeat: (state) => {
             state.isRepeat = !state.isRepeat;
+
+            saveToLocalStorage(state);
         },
         toggleIsRandom: (state) => {
             state.isRandom = !state.isRandom;
+
+            saveToLocalStorage(state);
         },
         startApp: (state) => {
             state.isFirstStartApp = false;
+
+            saveToLocalStorage(state);
         },
         setListPlayed: (state, action) => {
             if (state.listPlayed.includes(action.payload)) {
@@ -64,6 +78,8 @@ export const musicSlice = createSlice({
         },
         setCurrentList: (state, action) => {
             state.currentList = action.payload;
+
+            saveToLocalStorage(state);
         },
     },
 });

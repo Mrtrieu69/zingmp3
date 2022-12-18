@@ -93,8 +93,8 @@ const Playlist = ({ songs, onLike = () => {} }) => {
                             </div>
                         </div>
                         <div className={cx('song-info')}>
-                            <span className={cx('song-name')}>{song.name}</span>
-                            <h3 className={cx('artists')}>{song.artists}</h3>
+                            <span className={cx('song-name', 'line-clamp')}>{song.name}</span>
+                            <h3 className={cx('artists', 'line-clamp')}>{song.artists}</h3>
                         </div>
                     </div>
                     <div className={cx('media-time')}>{song.time}</div>
