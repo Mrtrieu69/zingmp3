@@ -18,6 +18,10 @@ const cx = classNames.bind(styles);
 const SideBar = () => {
     const [show, setShow] = useState(false);
 
+    const handleRedirect = () => {
+        document.querySelector('#main').scrollTop = 0;
+    };
+
     useEffect(() => {
         const handleShow = () => {
             if (window.innerWidth > 1024) {
@@ -37,7 +41,7 @@ const SideBar = () => {
             <div className={cx('sidebar-pc')}>
                 <div id="sidebar" className={cx('wrapper', { active: show })}>
                     <div className={cx('brand')}>
-                        <Link to="/" className={cx('link-brand')}>
+                        <Link to="/" onClick={handleRedirect} className={cx('link-brand')}>
                             <img className={cx('logo')} src={logo} alt="logo" />
                             <img className={cx('logo-mini')} src={logoMini} alt="logo-mini" />
                         </Link>

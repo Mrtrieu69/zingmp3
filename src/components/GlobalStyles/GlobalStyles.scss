@@ -38,6 +38,11 @@ html {
 }
 
 body {
+    // prevent default scroll on IOS
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+
     background-color: var(--layout-bg);
     color: var(--text-primary);
     font-size: 1.6rem;
@@ -115,7 +120,7 @@ body *::-webkit-scrollbar {
 
 // Custom toastify
 body {
-    .toast {
+    .Toastify__toast {
         background-color: var(--primary-bg);
         color: var(--text-primary);
     }

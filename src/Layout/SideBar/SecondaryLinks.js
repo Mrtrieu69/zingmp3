@@ -22,32 +22,20 @@ const SecondaryLinks = () => {
     return (
         <div ref={linkScroll} className={cx('links', 'scroll', { scrolling: scroll })}>
             {secondaryRoutes.map((item, id) => (
-                <div
-                    key={id}
-                    onClick={() => toast.warning('Feature is being updated!', { className: 'toast' })}
-                    className={cx('link')}
-                >
+                <div key={id} onClick={() => toast.warning('Feature is being updated!')} className={cx('link')}>
                     <span className={cx('icon')}>{item.iconLeft}</span>
                     <span className={cx('title')}>{item.title}</span>
                 </div>
             ))}
             <div className={cx('ad')}>
                 <p className={cx('desc')}>Listen to music without ads with PRIMARY</p>
-                <Button
-                    onClick={() => toast.warning('Feature is being updated!', { className: 'toast' })}
-                    className={cx('primary')}
-                    primary
-                >
+                <Button onClick={() => toast.warning('Feature is being updated!')} className={cx('primary')} primary>
                     PRIMARY
                 </Button>
             </div>
             <div className={cx('library')}>Libraries</div>
             {libraries.map((item, id) => (
-                <div
-                    key={id}
-                    onClick={() => toast.warning('Feature is being updated!', { className: 'toast' })}
-                    className={cx('link')}
-                >
+                <div key={id} onClick={() => toast.warning('Feature is being updated!')} className={cx('link')}>
                     <span className={cx('icon')}>{item.iconLeft}</span>
                     <span className={cx('title')}>{item.title}</span>
                 </div>

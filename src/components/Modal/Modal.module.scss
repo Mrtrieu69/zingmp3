@@ -17,8 +17,6 @@
     position: absolute;
     inset: 0;
     background: rgba(0 0 0 / 0.6);
-    -webkit-animation: fade 0.3s ease;
-    animation: fade 0.3s ease;
     z-index: -1;
 }
 
@@ -57,33 +55,5 @@
 
     @media (min-width: 740px) {
         display: none;
-    }
-}
-
-// animations
-@-webkit-keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
     }
 }

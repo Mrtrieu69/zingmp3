@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import classNames from 'classnames/bind';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,6 +13,7 @@ import PlayerQueue from './PlayerQueue';
 import { useTransitionShow } from '../../hooks';
 import { Button, InputProgress } from '../../components';
 import { togglePlay, setListPlayed, setSong, play, pause } from '../../features/music/musicSlice';
+import { Context } from '../../context';
 
 const cx = classNames.bind(styles);
 
@@ -22,11 +23,12 @@ const Footer = () => {
     const [audioEl, setAudioEl] = useState(null);
     const navigate = useNavigate();
 
+    const { setForceRerender } = useContext(Context);
+
     const { isLoadingData, isPlaying, isRandom, listPlayed, currentList, idCurrentSong } = useSelector(
         (state) => state.music,
     );
     const listSongs = useSelector((state) => state.music[state.music.currentList]);
-
     const dispatch = useDispatch();
 
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
@@ -95,6 +97,10 @@ const Footer = () => {
         } else {
             navigate(`/mymusic/${currentList}`);
         }
+
+        // force rerender to scroll to current song
+        setForceRerender(false);
+        setTimeout(() => setForceRerender(true), 0);
     };
 
     const handleShowPlayerQueue = (e) => {
@@ -104,7 +110,13 @@ const Footer = () => {
 
     useEffect(() => {
         setAudioEl(document.querySelector('#audio'));
-    }, []);
+
+        if (audioEl) {
+            audioEl.volume = volume / 100;
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [audioEl]);
 
     useEffect(() => {
         function removeClickListener() {
@@ -120,8 +132,7 @@ const Footer = () => {
         if (isShowPlayerQueue) {
             setTimeout(() => window.addEventListener('click', outsideClickListener), 0);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isShowPlayerQueue]);
+    }, [isShowPlayerQueue, setIsShowPlayerQueue]);
 
     return (
         <>

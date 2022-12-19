@@ -1,4 +1,4 @@
-import { useState, useEffect, createRef } from 'react';
+import { useState, useEffect, createRef, useContext } from 'react';
 import classNames from 'classnames/bind';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,6 +17,7 @@ import {
     unlikeSong,
 } from '../../features/music/musicSlice';
 import Button from '../Button';
+import { Context } from '../../context';
 
 // icons
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
@@ -26,7 +27,7 @@ import { BiLoader } from 'react-icons/bi';
 
 const cx = classNames.bind(styles);
 
-const onDragEnd = (result, dispatch, idCurrentSong, idList, currentSong) => {
+const onDragEnd = (result, dispatch, idCurrentSong, idList, currentSong, setForceRerender) => {
     if (!result.destination) return;
     const { source, destination } = result;
 
@@ -37,23 +38,26 @@ const onDragEnd = (result, dispatch, idCurrentSong, idList, currentSong) => {
     if (currentSong.type === idList) {
         if (source.index === idCurrentSong) {
             dispatch(setSong(destination.index));
-        } else if (source.index < idCurrentSong && destination.index > idCurrentSong) {
+        } else if (source.index < idCurrentSong && destination.index >= idCurrentSong) {
             dispatch(setSong(idCurrentSong - 1));
-        } else if (source.index > idCurrentSong && destination.index < idCurrentSong) {
+        } else if (source.index > idCurrentSong && destination.index <= idCurrentSong) {
             dispatch(setSong(idCurrentSong + 1));
         } else {
             dispatch(setSong(idCurrentSong));
         }
     }
+
+    setForceRerender(false);
 };
 
 const Playlist = ({ songs }) => {
-    const [forceRender, setForceRender] = useState(false);
     const [songRefs, setSongRefs] = useState([]);
+
+    const { forceRerender, setForceRerender } = useContext(Context);
+
     const { currentSong, isPlaying, isFirstStartApp, isLoadingData, currentList, idCurrentSong } = useSelector(
         (state) => state.music,
     );
-
     const favoriteSongs = useSelector((state) => state.music['favorite-songs']);
     const dispatch = useDispatch();
     let { idList } = useParams();
@@ -78,7 +82,7 @@ const Playlist = ({ songs }) => {
     const handleLike = (song) => {
         dispatch(likeSong(song));
         dispatch(setSong(idCurrentSong));
-        setForceRender(false);
+        setForceRerender(false);
         toast.success('Added to favorite songs!');
     };
 
@@ -92,13 +96,14 @@ const Playlist = ({ songs }) => {
         } else {
             dispatch(setSong(idCurrentSong));
         }
-        setForceRender(false);
+        setForceRerender(false);
         toast.success('Removed from favorite songs!');
     };
 
     useEffect(() => {
-        setForceRender(true);
-    }, []);
+        setForceRerender(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoadingData]);
 
     useEffect(() => {
         setSongRefs((refs) =>
@@ -109,10 +114,10 @@ const Playlist = ({ songs }) => {
     }, [songs]);
 
     useEffect(() => {
-        if (songRefs.length > 0 && idList === currentList && forceRender) {
+        if (songRefs.length > 0 && idList === currentList && forceRerender) {
             songRefs[idCurrentSong]?.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-    }, [idCurrentSong, songRefs, idList, currentList, forceRender]);
+    }, [idCurrentSong, songRefs, idList, currentList, forceRerender, isLoadingData]);
 
     return (
         <div className={cx('list')}>
@@ -120,7 +125,11 @@ const Playlist = ({ songs }) => {
                 <span className={cx('list-text')}>Song</span>
                 <span className={cx('list-time')}>Time</span>
             </div>
-            <DragDropContext onDragEnd={(result) => onDragEnd(result, dispatch, idCurrentSong, idList, currentSong)}>
+            <DragDropContext
+                onDragEnd={(result) =>
+                    onDragEnd(result, dispatch, idCurrentSong, idList, currentSong, setForceRerender)
+                }
+            >
                 <Droppable droppableId={idList} key={idList}>
                     {(provided) => {
                         return (
