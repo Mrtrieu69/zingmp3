@@ -86,16 +86,20 @@ const Playlist = ({ songs }) => {
         toast.success('Added to favorite songs!');
     };
 
-    const handleUnlike = (song, index) => {
+    const handleUnlike = (song) => {
         if (currentList === 'favorite-songs' && favoriteSongs.length <= 1) {
             dispatch(setCurrentList('world-music'));
         }
         dispatch(unlikeSong(song));
-        if (currentList === 'favorite-songs' && index < idCurrentSong && song.type === 'favorite') {
+
+        // keep playing current song
+        const indexInFavoriteSongs = favoriteSongs.findIndex((item) => item.id === song.id);
+        if (currentList === 'favorite-songs' && indexInFavoriteSongs < idCurrentSong) {
             dispatch(setSong(idCurrentSong - 1));
         } else {
             dispatch(setSong(idCurrentSong));
         }
+
         setForceRerender(false);
         toast.success('Removed from favorite songs!');
     };
@@ -208,7 +212,7 @@ const Playlist = ({ songs }) => {
                                                         <div className={cx('controls')}>
                                                             {song.isLike ? (
                                                                 <Button
-                                                                    onClick={() => handleUnlike(song, index)}
+                                                                    onClick={() => handleUnlike(song)}
                                                                     rounded
                                                                     icon={<AiFillHeart />}
                                                                     className={cx('icon', 'like')}

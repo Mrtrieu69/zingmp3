@@ -23,12 +23,13 @@ const EmptyContent = ({ type = '', message }) => {
         <div className={cx('wrapper')}>
             <div onClick={handleClick} className={cx('icon', { [type]: type })}></div>
             <div className={cx('text')}>{message}</div>
-            {type !== 'upload' && (
+            {type === 'upload' ? (
+                <input ref={inputRef} type="file" className={cx('input')} accept="audio/mp3" />
+            ) : (
                 <Link to="/" onClick={handleChangeLink} className={cx('explore')}>
                     Explore now
                 </Link>
             )}
-            {type === 'upload' && <input ref={inputRef} type="file" className={cx('input')} accept="audio/mp3" />}
         </div>
     );
 };
