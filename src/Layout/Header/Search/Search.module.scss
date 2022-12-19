@@ -44,8 +44,7 @@
     flex-shrink: 0;
     background-color: transparent;
     &:hover {
-        -webkit-filter: brightness(1);
-        filter: brightness(1);
+        background-color: transparent;
     }
 }
 

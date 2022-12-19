@@ -23,13 +23,14 @@ const PlayerQueueItem = ({ index, children, ...song }) => {
 
     const songRef = useRef();
 
-    const handleTogglePlay = () => {
+    const handleTogglePlay = (e) => {
         if (idCurrentSong === index && isPlaying) {
             dispatch(pause());
             return;
         }
         dispatch(setSong(index));
         dispatch(play());
+        e.stopPropagation();
     };
 
     const handleLike = () => {

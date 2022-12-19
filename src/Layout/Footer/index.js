@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsCameraVideo, BsVolumeUp, BsVolumeMute, BsMusicNoteList, BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import { BiLoader } from 'react-icons/bi';
-import { MdSkipNext } from 'react-icons/md';
+import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 
 import Player from './Player';
 import Media from './Media';
@@ -91,6 +91,15 @@ const Footer = () => {
         }
     };
 
+    const handlePrev = () => {
+        if (listSongs.length <= 1) {
+            dispatch(pause());
+            dispatch(play());
+            return;
+        }
+        dispatch(setSong(idCurrentSong - 1));
+    };
+
     const handleRedirect = () => {
         if (currentList === 'favorite-songs') {
             navigate(`/mymusic`);
@@ -139,7 +148,7 @@ const Footer = () => {
             <div id="footer" className={cx('wrapper-bg')}>
                 <div id="mini-player" onClick={handleRedirect} className={cx('wrapper')}>
                     <Media />
-                    <Player audioEl={audioEl} onNext={handleNext} />
+                    <Player audioEl={audioEl} onNext={handleNext} onPrev={handlePrev} />
                     <div className={cx('controls')}>
                         <Button rounded size="medium" className={cx('btn-control')} icon={<BsCameraVideo />} />
                         <Button
@@ -168,6 +177,13 @@ const Footer = () => {
 
                     {/* Mobile */}
                     <div className={cx('controls-mobile')}>
+                        <Button
+                            size="mobile"
+                            onClick={handlePrev}
+                            rounded
+                            className={cx('btn-player')}
+                            icon={<MdSkipPrevious />}
+                        />
                         {isLoadingData ? (
                             <span className={cx('loader-icon')}>
                                 <BiLoader />

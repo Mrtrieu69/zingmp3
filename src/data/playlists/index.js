@@ -4,62 +4,98 @@ export const FAVORITE_SONGS = [
     {
         id: getRandomId(),
         type: 'favorite-songs',
-        name: 'Lose you',
-        artists: 'T.R.I, Rickie',
-        duration: 215,
-        time: '3:35',
+        from: 'world-music',
+        name: 'Bad guy',
+        artists: 'Billie Eilish',
+        duration: 194,
+        time: '3:14',
         isLike: true,
-        image: '/images/songs/favorite-songs/lose-you.webp',
-        url: '/music/favorite-songs/lose-you.mp3',
-        isActive: false,
+        image: '/images/songs/world-music/bad-guy.webp',
+        url: '/music/world-music/bad-guy.mp3',
     },
     {
         id: getRandomId(),
         type: 'favorite-songs',
-        name: 'Bông hoa chẳng thuộc về ta',
-        artists: 'Như Việt',
-        duration: 216,
-        time: '3:16',
-        isLike: true,
-        image: '/images/songs/favorite-songs/bong-hoa-chang-thuoc-ve-ta.webp',
-        url: '/music/favorite-songs/bong-hoa-chang-thuoc-ve-ta.mp3',
-        isActive: false,
-    },
-    {
-        id: getRandomId(),
-        type: 'favorite-songs',
-        name: 'Anh luôn là lí do',
-        artists: 'ERIk',
+        from: 'playlist-chill',
+        name: 'Replay trên con Guây',
+        artists: 'Phúc Du, Đan Ni',
         duration: 222,
         time: '3:42',
         isLike: true,
-        image: '/images/songs/favorite-songs/anh-luon-la-li-do.webp',
-        url: '/music/favorite-songs/anh-luon-la-li-do.mp3',
-        isActive: false,
+        image: '/images/songs/playlist-chill/replay-tren-con-guay.webp',
+        url: '/music/playlist-chill/replay-tren-con-guay.mp3',
     },
     {
         id: getRandomId(),
         type: 'favorite-songs',
-        name: 'Missing You',
-        artists: 'Phương Ly, TINLE',
-        duration: 243,
-        time: '4:03',
+        from: 'chill-hits',
+        name: 'Có em',
+        artists: 'Madihu, Low G',
+        duration: 219,
+        time: '3:39',
         isLike: true,
-        image: '/images/songs/favorite-songs/missing-you.webp',
-        url: '/music/favorite-songs/missing-you.mp3',
-        isActive: false,
+        image: '/images/songs/chill-hits/co-em.webp',
+        url: '/music/chill-hits/co-em.mp3',
     },
     {
         id: getRandomId(),
         type: 'favorite-songs',
-        name: 'Ánh sao và bầu trời',
-        artists: 'T.R.I',
-        duration: 261,
-        time: '4:21',
+        from: 'playlist-chill',
+        name: 'Lạc vào trong mơ',
+        artists: 'SimmonC, WUY',
+        duration: 173,
+        time: '2:53',
         isLike: true,
-        image: '/images/songs/favorite-songs/anh-sao-va-bau-troi.webp',
-        url: '/music/favorite-songs/anh-sao-va-bau-troi.mp3',
-        isActive: false,
+        image: '/images/songs/playlist-chill/lac-vao-trong-mo.webp',
+        url: '/music/playlist-chill/lac-vao-trong-mo.mp3',
+    },
+    {
+        id: getRandomId(),
+        type: 'favorite-songs',
+        from: 'world-music',
+        name: "Let's not fall in love",
+        artists: 'BIGBANG',
+        duration: 211,
+        time: '3:31',
+        isLike: true,
+        image: '/images/songs/world-music/let-is-not-fall-in-love.jfif',
+        url: '/music/world-music/let-is-not-fall-in-love.mp3',
+    },
+    {
+        id: getRandomId(),
+        type: 'favorite-songs',
+        from: 'world-music',
+        name: 'Улети',
+        artists: 'T-Fest',
+        duration: 209,
+        time: '3:29',
+        isLike: true,
+        image: '/images/songs/world-music/улети.jfif',
+        url: '/music/world-music/улети.mp3',
+    },
+    {
+        id: getRandomId(),
+        type: 'favorite-songs',
+        from: 'chill-hits',
+        name: 'Câu trả lời',
+        artists: 'Tiên Tiên, Trang',
+        duration: 167,
+        time: '2:47',
+        isLike: true,
+        image: '/images/songs/chill-hits/cau-tra-loi.webp',
+        url: '/music/chill-hits/cau-tra-loi.mp3',
+    },
+    {
+        id: getRandomId(),
+        type: 'favorite-songs',
+        from: 'playlist-chill',
+        name: 'Waiting for you',
+        artists: 'MONO, Onionn',
+        duration: 266,
+        time: '4:26',
+        isLike: true,
+        image: '/images/songs/playlist-chill/waiting-for-you.webp',
+        url: '/music/playlist-chill/waiting-for-you.mp3',
     },
 ];
 
@@ -69,7 +105,7 @@ export const PLAYLISTS = {
         image: 'url("/images/album/album2.webp")',
         bgImage: '/images/album/album2.webp',
         updated: '10/10/2022',
-        isLike: true,
+        isLike: false,
         artists: 'Dua Lipa, LISA, BIGBANG, Егор Крид',
         subTitle: 'Zing mp3',
         likes: '168k',
@@ -86,7 +122,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/new-rulers.webp',
                 url: '/music/world-music/new-rulers.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -95,10 +130,9 @@ export const PLAYLISTS = {
                 artists: 'Billie Eilish',
                 duration: 194,
                 time: '3:14',
-                isLike: false,
+                isLike: true,
                 image: '/images/songs/world-music/bad-guy.webp',
                 url: '/music/world-music/bad-guy.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -110,7 +144,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/idgaf.webp',
                 url: '/music/world-music/idgaf.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -122,7 +155,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/problem.webp',
                 url: '/music/world-music/problem.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -134,7 +166,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/7-rings.jfif',
                 url: '/music/world-music/7-rings.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -146,7 +177,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/do-not-let-me-down.jfif',
                 url: '/music/world-music/do-not-let-me-down.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -158,7 +188,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/friends.jfif',
                 url: '/music/world-music/friends.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -167,10 +196,9 @@ export const PLAYLISTS = {
                 artists: 'BIGBANG',
                 duration: 211,
                 time: '3:31',
-                isLike: false,
+                isLike: true,
                 image: '/images/songs/world-music/let-is-not-fall-in-love.jfif',
                 url: '/music/world-music/let-is-not-fall-in-love.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -182,7 +210,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/light-switch.jfif',
                 url: '/music/world-music/light-switch.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -194,7 +221,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/loser.jfif',
                 url: '/music/world-music/loser.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -206,7 +232,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/money.jfif',
                 url: '/music/world-music/money.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -218,7 +243,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/typa-girl.jfif',
                 url: '/music/world-music/typa-girl.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -230,7 +254,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/время-не-пришло.jfif',
                 url: '/music/world-music/время-не-пришло.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -242,7 +265,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/мокрые-кроссы.jfif',
                 url: '/music/world-music/мокрые-кроссы.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -251,10 +273,9 @@ export const PLAYLISTS = {
                 artists: 'T-Fest',
                 duration: 209,
                 time: '3:29',
-                isLike: false,
+                isLike: true,
                 image: '/images/songs/world-music/улети.jfif',
                 url: '/music/world-music/улети.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -266,7 +287,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/timber.jfif',
                 url: '/music/world-music/timber.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -278,7 +298,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/the-nights.jfif',
                 url: '/music/world-music/the-nights.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -290,7 +309,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/summer.jfif',
                 url: '/music/world-music/summer.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -302,7 +320,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/positions.jfif',
                 url: '/music/world-music/positions.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -314,7 +331,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/world-music/love-is-gone.jfif',
                 url: '/music/world-music/love-is-gone.mp3',
-                isActive: false,
             },
         ],
         participants: [
@@ -330,7 +346,7 @@ export const PLAYLISTS = {
         image: 'url("/images/album/album1.webp")',
         bgImage: '/images/album/album1.webp',
         updated: '25/10/2022',
-        isLike: true,
+        isLike: false,
         artists: 'Kha, 14 Casper, GREY',
         subTitle: 'Zing mp3',
         likes: '64k',
@@ -347,7 +363,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/vi-me-anh-bat-chia-tay.webp',
                 url: '/music/playlist-chill/vi-me-anh-bat-chia-tay.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -356,10 +371,9 @@ export const PLAYLISTS = {
                 artists: 'MONO, Onionn',
                 duration: 266,
                 time: '4:26',
-                isLike: false,
+                isLike: true,
                 image: '/images/songs/playlist-chill/waiting-for-you.webp',
                 url: '/music/playlist-chill/waiting-for-you.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -371,7 +385,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/tu-thich-thich-thanh-thuong-thuong.webp',
                 url: '/music/playlist-chill/tu-thich-thich-thanh-thuong-thuong.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -383,7 +396,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/mot-nguoi-nhe-nhang-hon.webp',
                 url: '/music/playlist-chill/mot-nguoi-nhe-nhang-hon.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -395,7 +407,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/em-bo-hut-thuoc-chua.webp',
                 url: '/music/playlist-chill/em-bo-hut-thuoc-chua.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -404,10 +415,9 @@ export const PLAYLISTS = {
                 artists: 'Phúc Du, Đan Ni',
                 duration: 222,
                 time: '3:42',
-                isLike: false,
+                isLike: true,
                 image: '/images/songs/playlist-chill/replay-tren-con-guay.webp',
                 url: '/music/playlist-chill/replay-tren-con-guay.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -419,7 +429,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/chuyen-rang.webp',
                 url: '/music/playlist-chill/chuyen-rang.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -431,7 +440,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/vaicaunoicokhiennguoithaydoi.webp',
                 url: '/music/playlist-chill/vaicaunoicokhiennguoithaydoi.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -443,7 +451,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/xich-them-chut-nua.webp',
                 url: '/music/playlist-chill/xich-them-chut-nua.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -455,7 +462,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/giac-mo-dep.webp',
                 url: '/music/playlist-chill/giac-mo-dep.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -467,7 +473,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/nga-tu-khong-den.webp',
                 url: '/music/playlist-chill/nga-tu-khong-den.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -479,7 +484,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/tinh-yeu-ngu-quen.webp',
                 url: '/music/playlist-chill/tinh-yeu-ngu-quen.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -491,7 +495,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/chay-khoi-the-gioi-nay.webp',
                 url: '/music/playlist-chill/chay-khoi-the-gioi-nay.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -503,7 +506,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/anh-sao-va-bau-troi.webp',
                 url: '/music/playlist-chill/anh-sao-va-bau-troi.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -515,7 +517,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/mat-moc.webp',
                 url: '/music/playlist-chill/mat-moc.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -527,7 +528,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/co-hen-voi-thanh-xuan.webp',
                 url: '/music/playlist-chill/co-hen-voi-thanh-xuan.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -539,7 +539,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/tim.webp',
                 url: '/music/playlist-chill/tim.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -548,10 +547,9 @@ export const PLAYLISTS = {
                 artists: 'SimmonC, WUY',
                 duration: 173,
                 time: '2:53',
-                isLike: false,
+                isLike: true,
                 image: '/images/songs/playlist-chill/lac-vao-trong-mo.webp',
                 url: '/music/playlist-chill/lac-vao-trong-mo.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -563,7 +561,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/phai-long-anh.webp',
                 url: '/music/playlist-chill/phai-long-anh.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -575,7 +572,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/doi-muoi.webp',
                 url: '/music/playlist-chill/doi-muoi.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -587,7 +583,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/dua-nao-lam-em-buon.webp',
                 url: '/music/playlist-chill/dua-nao-lam-em-buon.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -599,7 +594,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/nuoc-mat-em-lau-bang-tinh-yeu-moi.webp',
                 url: '/music/playlist-chill/nuoc-mat-em-lau-bang-tinh-yeu-moi.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -611,7 +605,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/khac-biet-to-lon-hon.webp',
                 url: '/music/playlist-chill/khac-biet-to-lon-hon.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -623,7 +616,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/thich-em-hoi-nhieu.webp',
                 url: '/music/playlist-chill/thich-em-hoi-nhieu.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -635,7 +627,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/playlist-chill/anh-mo.webp',
                 url: '/music/playlist-chill/anh-mo.mp3',
-                isActive: false,
             },
         ],
         participants: [
@@ -650,7 +641,7 @@ export const PLAYLISTS = {
         image: 'url("/images/album/album3.webp")',
         bgImage: '/images/album/album3.webp',
         updated: '29/10/2022',
-        isLike: true,
+        isLike: false,
         artists: 'Kha, Bích Phương, Phương Ly, Hoàng Dũng',
         subTitle: 'Zing mp3',
         likes: '102k',
@@ -667,7 +658,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/troi-dau-troi-mang-di.webp',
                 url: '/music/chill-hits/troi-giau-troi-mang-di.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -679,7 +669,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/em-la-hoang-hon.webp',
                 url: '/music/chill-hits/em-la-hoang-hon.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -691,7 +680,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/vi-yeu-cu-dam-dau.webp',
                 url: '/music/chill-hits/vi-yeu-cu-dam-dau.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -703,7 +691,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/anh-a.webp',
                 url: '/music/chill-hits/anh-a.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -715,7 +702,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/can-gi-hon.webp',
                 url: '/music/chill-hits/can-gi-hon.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -727,7 +713,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/co-em-cho.webp',
                 url: '/music/chill-hits/co-em-cho.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -739,7 +724,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/em-tam-di-vang-khi-anh-thuc-giac.webp',
                 url: '/music/chill-hits/em-tam-di-vang-khi-anh-thuc-giac.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -748,10 +732,9 @@ export const PLAYLISTS = {
                 artists: 'Madihu, Low G',
                 duration: 219,
                 time: '3:39',
-                isLike: false,
+                isLike: true,
                 image: '/images/songs/chill-hits/co-em.webp',
                 url: '/music/chill-hits/co-em.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -763,7 +746,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/tiny-love.webp',
                 url: '/music/chill-hits/tiny-love.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -775,7 +757,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/chuyen-doi-ta.webp',
                 url: '/music/chill-hits/chuyen-doi-ta.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -787,7 +768,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/chiec-hop.webp',
                 url: '/music/chill-hits/chiec-hop.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -799,7 +779,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/da-lo-yeu-em-nhieu.webp',
                 url: '/music/chill-hits/da-lo-yeu-em-nhieu.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -811,7 +790,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/minh-anh-noi-nay.webp',
                 url: '/music/chill-hits/minh-anh-noi-nay.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -823,7 +801,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/missing-you.webp',
                 url: '/music/chill-hits/missing-you.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -835,7 +812,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/nem-cau-yeu-vao-trong-khong-trung.webp',
                 url: '/music/chill-hits/nem-cau-yeu-vao-trong-khong-trung.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -847,7 +823,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/chay-khoi-the-gioi-nay.webp',
                 url: '/music/chill-hits/chay-khoi-the-gioi-nay.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -856,10 +831,9 @@ export const PLAYLISTS = {
                 artists: 'Tiên Tiên, Trang',
                 duration: 167,
                 time: '2:47',
-                isLike: false,
+                isLike: true,
                 image: '/images/songs/chill-hits/cau-tra-loi.webp',
                 url: '/music/chill-hits/cau-tra-loi.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -871,7 +845,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/em-thich.webp',
                 url: '/music/chill-hits/em-thich.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -883,7 +856,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/tu-choi-nhe-nhang-thoi.webp',
                 url: '/music/chill-hits/tu-choi-nhe-nhang-thoi.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -895,7 +867,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/van-nho.webp',
                 url: '/music/chill-hits/van-nho.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -907,7 +878,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/nam-ngu-em-ru.webp',
                 url: '/music/chill-hits/nam-ngu-em-ru.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -919,7 +889,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/hong-kong.webp',
                 url: '/music/chill-hits/hong-kong.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -931,7 +900,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/anh-la-ai.webp',
                 url: '/music/chill-hits/anh-la-ai.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -943,7 +911,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/pho-cu-con-anh.webp',
                 url: '/music/chill-hits/pho-cu-con-anh.mp3',
-                isActive: false,
             },
             {
                 id: getRandomId(),
@@ -955,7 +922,6 @@ export const PLAYLISTS = {
                 isLike: false,
                 image: '/images/songs/chill-hits/tinh-dep-den-may-cung-tan.webp',
                 url: '/music/chill-hits/tinh-dep-den-may-cung-tan.mp3',
-                isActive: false,
             },
         ],
         participants: [

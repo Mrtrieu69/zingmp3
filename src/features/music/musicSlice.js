@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { FAVORITE_SONGS, PLAYLISTS } from '../../data/playlists';
+import { PLAYLISTS, FAVORITE_SONGS } from '../../data/playlists';
 
 const currentSong = PLAYLISTS['world-music'].list[0];
 
@@ -22,7 +22,7 @@ const initialState = {
 const stateFromLocalStorage = JSON.parse(localStorage.getItem('music'));
 
 const saveToLocalStorage = (state) => {
-    localStorage.setItem('music', JSON.stringify({ ...state, isPlaying: false, isLoadingData: false, listPlayed: [] }));
+    localStorage.setItem('music', JSON.stringify({ ...state, isPlaying: false, isLoadingData: true, listPlayed: [] }));
 };
 
 export const musicSlice = createSlice({

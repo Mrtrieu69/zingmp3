@@ -91,7 +91,7 @@ const Playlist = ({ songs }) => {
             dispatch(setCurrentList('world-music'));
         }
         dispatch(unlikeSong(song));
-        if (currentList === 'favorite-songs' && index < idCurrentSong) {
+        if (currentList === 'favorite-songs' && index < idCurrentSong && song.type === 'favorite') {
             dispatch(setSong(idCurrentSong - 1));
         } else {
             dispatch(setSong(idCurrentSong));

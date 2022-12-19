@@ -15,7 +15,7 @@ import { formatTime } from '../../utils';
 
 const cx = classNames.bind(styles);
 
-const Player = ({ audioEl, onNext }) => {
+const Player = ({ audioEl, onNext, onPrev }) => {
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
 
@@ -41,10 +41,6 @@ const Player = ({ audioEl, onNext }) => {
 
     const handlePlayMusic = () => {
         dispatch(togglePlay());
-    };
-
-    const handlePrev = () => {
-        dispatch(setSong(idCurrentSong - 1));
     };
 
     const handleMouseDown = () => {
@@ -126,13 +122,7 @@ const Player = ({ audioEl, onNext }) => {
                     className={cx('btn-player', { active: isRandom })}
                     icon={<BiShuffle />}
                 />
-                <Button
-                    size="medium"
-                    onClick={handlePrev}
-                    rounded
-                    className={cx('btn-player')}
-                    icon={<MdSkipPrevious />}
-                />
+                <Button size="medium" onClick={onPrev} rounded className={cx('btn-player')} icon={<MdSkipPrevious />} />
                 {isLoadingData ? (
                     <div className={cx('loading')}>
                         <Loader />

@@ -13,8 +13,8 @@ const cx = classNames.bind(styles);
 
 const ThemeModal = () => {
     const [showModal, setShowModal] = useState(false);
-    const [currentTheme, setCurrentTheme] = useState(JSON.parse(localStorage.getItem('theme')) || 'zing');
-    const [reviewTheme, setReviewTheme] = useState(JSON.parse(localStorage.getItem('theme')) || 'zing');
+    const [currentTheme, setCurrentTheme] = useState(JSON.parse(localStorage.getItem('theme')) || 'xone');
+    const [reviewTheme, setReviewTheme] = useState(JSON.parse(localStorage.getItem('theme')) || 'xone');
 
     const colors = themes[reviewTheme];
 

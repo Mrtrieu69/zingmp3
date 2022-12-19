@@ -33,6 +33,7 @@
 }
 
 .upload {
+    cursor: pointer;
     background-image: var(--empty-upload-icon);
 }
 
@@ -61,4 +62,8 @@
         -webkit-filter: brightness(0.9);
         filter: brightness(0.9);
     }
+}
+
+.input {
+    display: none;
 }
