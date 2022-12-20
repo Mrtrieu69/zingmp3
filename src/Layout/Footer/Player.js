@@ -8,14 +8,14 @@ import { TbRepeat } from 'react-icons/tb';
 
 import styles from './Footer.module.scss';
 import { Loader } from '../../components/Icons';
-import { setSong, togglePlay, toggleIsRepeat, toggleIsRandom, setIsLoadingData } from '../../features/music/musicSlice';
+import { togglePlay, toggleIsRepeat, toggleIsRandom, setIsLoadingData } from '../../features/music/musicSlice';
 import { InputProgress } from '../../components';
 import { Button } from '../../components';
 import { formatTime } from '../../utils';
 
 const cx = classNames.bind(styles);
 
-const Player = ({ audioEl, onNext, onPrev }) => {
+const Player = ({ audioEl, onNext, onPrev, active }) => {
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
 
@@ -113,7 +113,7 @@ const Player = ({ audioEl, onNext, onPrev }) => {
     }, [currentSong, isPlaying]);
 
     return (
-        <div className={cx('player', { playing: isPlaying })}>
+        <div className={cx('player', { active })}>
             <div className={cx('actions')}>
                 <Button
                     size="medium"

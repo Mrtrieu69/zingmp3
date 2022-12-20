@@ -44,6 +44,7 @@
     -webkit-transition: left 0.3s linear;
     -o-transition: left 0.3s linear;
     transition: left 0.3s linear;
+    width: 30%;
 
     &.active {
         left: 24px;
@@ -217,12 +218,13 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    -webkit-box-pack: flex-end;
+    -ms-flex-pack: flex-end;
+    justify-content: flex-end;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    width: 30%;
 
     @media (max-width: 740px) {
         display: none;
@@ -276,27 +278,41 @@
 }
 
 .player {
+    position: relative;
+    z-index: 1002;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    max-width: 40vw;
-    width: 100%;
+    width: 40%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin-right: 10px;
-    -webkit-transition: margin 0.5s ease;
-    -o-transition: margin 0.5s ease;
-    transition: margin 0.5s ease;
 
     @media (max-width: 740px) {
         display: none;
     }
 
-    &.playing {
-        @media (min-width: 740px) and (max-width: 1024px) {
-            margin-left: 24px;
+    &.active {
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+        width: 60%;
+        max-width: 500px;
+        --progressbar-player-bg: rgba(255, 255, 255, 0.1);
+
+        .progress {
+            color: white !important;
+        }
+        .actions {
+            span {
+                color: white !important;
+            }
+
+            button {
+                &:hover {
+                    background-color: hsla(0, 0%, 100%, 0.1);
+                }
+            }
         }
     }
 }
@@ -341,7 +357,7 @@
         height: 50px;
 
         &:hover {
-            background-color: transparent;
+            background-color: transparent !important;
             opacity: 1;
 
             span {

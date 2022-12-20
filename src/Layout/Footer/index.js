@@ -10,6 +10,7 @@ import Player from './Player';
 import Media from './Media';
 import styles from './Footer.module.scss';
 import PlayerQueue from './PlayerQueue';
+import NowPlaying from './NowPlaying';
 import { useTransitionShow } from '../../hooks';
 import { Button, InputProgress } from '../../components';
 import { togglePlay, setListPlayed, setSong, play, pause } from '../../features/music/musicSlice';
@@ -32,6 +33,11 @@ const Footer = () => {
     const dispatch = useDispatch();
 
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
+    const {
+        isShow: showNowPlaying,
+        isTransition: transitionNowPlaying,
+        setIsShow: setShowNowPlaying,
+    } = useTransitionShow(500);
 
     const volumeRef = useRef();
 
@@ -117,6 +123,10 @@ const Footer = () => {
         e.stopPropagation();
     };
 
+    const handleShowNowPlaying = () => {
+        setShowNowPlaying(true);
+    };
+
     useEffect(() => {
         setAudioEl(document.querySelector('#audio'));
 
@@ -148,9 +158,15 @@ const Footer = () => {
             <div id="footer" className={cx('wrapper-bg')}>
                 <div id="mini-player" onClick={handleRedirect} className={cx('wrapper')}>
                     <Media />
-                    <Player audioEl={audioEl} onNext={handleNext} onPrev={handlePrev} />
+                    <Player audioEl={audioEl} onNext={handleNext} onPrev={handlePrev} active={transitionNowPlaying} />
                     <div className={cx('controls')}>
-                        <Button rounded size="medium" className={cx('btn-control')} icon={<BsCameraVideo />} />
+                        <Button
+                            rounded
+                            size="medium"
+                            onClick={handleShowNowPlaying}
+                            className={cx('btn-control')}
+                            icon={<BsCameraVideo />}
+                        />
                         <Button
                             rounded
                             size="medium"
@@ -206,6 +222,7 @@ const Footer = () => {
                         />
                     </div>
                 </div>
+                {transitionNowPlaying && <NowPlaying setShowNowPlaying={setShowNowPlaying} close={!showNowPlaying} />}
             </div>
             {isTransition && <PlayerQueue className={cx('player-queue')} close={!isShowPlayerQueue} />}
         </>
