@@ -6,15 +6,13 @@ export const PLAYLISTS = {
     'world-music': {
         name: 'World music',
         image: 'url("/images/album/album2.webp")',
-        thumb: 'url("/images/album/album2.w-480x480ebp")',
         bgImage: '/images/album/album2.webp',
-        thumb: '/images/album/album2-480x480.webp',
         updated: '10/10/2022',
-        isLike: false,
+        isLike: true,
         artists: 'Dua Lipa, LISA, BIGBANG, Егор Крид',
         subTitle: 'Zing mp3',
         likes: '168k',
-        path: '/mymusic/world-music',
+        path: '/album/world-music',
         type: 'world-music',
         list: [
             {
@@ -271,11 +269,11 @@ export const PLAYLISTS = {
         image: 'url("/images/album/album1.webp")',
         bgImage: '/images/album/album1.webp',
         updated: '25/10/2022',
-        isLike: false,
+        isLike: true,
         artists: 'Kha, 14 Casper, GREY',
         subTitle: 'Zing mp3',
         likes: '64k',
-        path: '/mymusic/playlist-chill',
+        path: '/album/playlist-chill',
         type: 'playlist-chill',
         list: [
             {
@@ -591,11 +589,11 @@ export const PLAYLISTS = {
         image: 'url("/images/album/album3.webp")',
         bgImage: '/images/album/album3.webp',
         updated: '29/10/2022',
-        isLike: false,
+        isLike: true,
         artists: 'Kha, Bích Phương, Phương Ly, Hoàng Dũng',
         subTitle: 'Zing mp3',
         likes: '102k',
-        path: '/mymusic/chill-hits',
+        path: '/album/chill-hits',
         type: 'chill-hits',
         list: [
             {

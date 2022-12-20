@@ -22,7 +22,7 @@ const initialState = {
 const stateFromLocalStorage = JSON.parse(localStorage.getItem('music'));
 
 const saveToLocalStorage = (state) => {
-    localStorage.setItem('music', JSON.stringify({ ...state, isPlaying: false, isLoadingData: true, listPlayed: [] }));
+    localStorage.setItem('music', JSON.stringify({ ...state, isPlaying: false, isLoadingData: false, listPlayed: [] }));
 };
 
 export const musicSlice = createSlice({

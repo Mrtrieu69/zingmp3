@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 
-import styles from './MyPlayList.module.scss';
+import styles from './Album.module.scss';
 import { Button, Playlist, AlbumItem } from '../../components';
 import { Loader } from '../../components/Icons';
 import { useTransitionShow } from '../../hooks';
@@ -18,7 +18,7 @@ import { FiMoreHorizontal } from 'react-icons/fi';
 
 const cx = classNames.bind(styles);
 
-const MyPlayList = () => {
+const Album = () => {
     const { idList } = useParams();
     const listSongs = useSelector((state) => state.music[idList]);
     const { isPlaying, isFirstStartApp, currentList, idCurrentSong, isLoadingData } = useSelector(
@@ -53,7 +53,7 @@ const MyPlayList = () => {
     return (
         <>
             <Helmet>
-                <title>Personal Music | {infoList.name}</title>
+                <title>Album | {infoList.name}</title>
             </Helmet>
 
             <div className={cx('wrapper')}>
@@ -160,4 +160,4 @@ const MyPlayList = () => {
     );
 };
 
-export default MyPlayList;
+export default Album;

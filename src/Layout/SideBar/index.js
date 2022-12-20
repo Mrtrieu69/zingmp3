@@ -6,8 +6,6 @@ import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
 import { toast } from 'react-toastify';
 
 import styles from './SideBar.module.scss';
-import logo from '../../assets/images/logo/logo-dark.svg';
-import logoMini from '../../assets/images/logo/logo-mini.svg';
 import MainLinks from './MainLinks';
 import SecondaryLinks from './SecondaryLinks';
 import { Button } from '../../components';
@@ -42,8 +40,7 @@ const SideBar = () => {
                 <div id="sidebar" className={cx('wrapper', { active: show })}>
                     <div className={cx('brand')}>
                         <Link to="/" onClick={handleRedirect} className={cx('link-brand')}>
-                            <img className={cx('logo')} src={logo} alt="logo" />
-                            <img className={cx('logo-mini')} src={logoMini} alt="logo-mini" />
+                            <div className={cx('logo')}></div>
                         </Link>
                     </div>
                     <MainLinks />

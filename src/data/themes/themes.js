@@ -40,6 +40,7 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#1b2f5a,#182e5d)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     xone: {
         '--mini-background-player': 'url("/images/miniBgThemes/xone-miniplayer.jpg")',
@@ -83,6 +84,7 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
     zing: {
         '--mini-background-player': 'url("/images/miniBgThemes/zma.png")',
@@ -126,6 +128,7 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
         '--linear-gradient-bg': 'linear-gradient(to bottom, #740091, #2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
     eiffel: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
@@ -169,8 +172,8 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
-
     iu: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
         '--chart-bg-img-alpha': 'none',
@@ -212,6 +215,7 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     jiChangWook: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
@@ -254,6 +258,7 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     lisa: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
@@ -296,6 +301,7 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     jennieKim: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
@@ -338,6 +344,7 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     jisoo: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
@@ -380,6 +387,7 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     rose: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
@@ -422,6 +430,7 @@ const themes = {
         '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#1b2f5a,#182e5d)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
     dark: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
@@ -466,6 +475,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
     purple: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
@@ -509,6 +519,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
     blueLight: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
@@ -552,6 +563,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#1b2f5a,#182e5d)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     green: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
@@ -595,6 +607,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#137555,#15533f)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
     brown: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
@@ -638,6 +651,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#7b5e58,#654943)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
     pink: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
@@ -681,6 +695,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#ad3994,#8f0f72)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
     red: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
@@ -724,6 +739,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#941c1c,#961919)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
+        '--img-logo': 'url("/images/logo/logo-dark.svg")',
     },
     light: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
@@ -767,6 +783,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     gray: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
@@ -810,6 +827,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     greenLight: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
@@ -853,6 +871,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
     pinkLight: {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
@@ -896,6 +915,7 @@ const themes = {
         '--linear-gradient-bg': 'linear-gradient(180deg,#740091,#2d1a4c)',
         '--has-week-chart-bg': 'url("/images/miniBgThemes/week-chart-bg.jpg")',
         '--empty-mv-icon': 'url("/images/empty/empty-mv.png")',
+        '--img-logo': 'url("/images/logo/logo-light.svg")',
     },
 };
 

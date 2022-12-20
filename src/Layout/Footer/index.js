@@ -104,7 +104,7 @@ const Footer = () => {
         if (currentList === 'favorite-songs') {
             navigate(`/mymusic`);
         } else {
-            navigate(`/mymusic/${currentList}`);
+            navigate(`/album/${currentList}`);
         }
 
         // force rerender to scroll to current song

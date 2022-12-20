@@ -1,5 +1,5 @@
 // Pages
-import { Home, MyMusic, Radio, ZingChart, Following, MyPlayList } from '../pages';
+import { Home, MyMusic, Radio, ZingChart, Following, Album } from '../pages';
 
 // icons
 import {
@@ -27,7 +27,7 @@ export const mainLinks = [
 
 export const mainRoutes = [
     { path: '/mymusic', component: MyMusic },
-    { path: '/mymusic/:idList', component: MyPlayList },
+    { path: '/album/:idList', component: Album },
     { path: '/', component: Home },
     { path: '/zingchart', component: ZingChart },
     { path: '/radio', component: Radio },

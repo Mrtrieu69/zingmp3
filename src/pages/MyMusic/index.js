@@ -43,7 +43,11 @@ const MyMusic = () => {
         if (isFirstStartApp) {
             dispatch(startApp());
         }
-        dispatch(setCurrentList('favorite-songs'));
+        if (favoriteSongs.length) {
+            dispatch(setCurrentList('favorite-songs'));
+        } else {
+            dispatch(setCurrentList('world-music'));
+        }
         dispatch(setSong(randomId));
         dispatch(play());
     };

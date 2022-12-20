@@ -15,7 +15,7 @@ ReactDOM.render(
                 <Router>
                     <GlobalStyles>
                         <App />
-                        <ToastContainer autoClose={3000} closeButton={false} />
+                        <ToastContainer autoClose={2000} closeButton={false} />
                     </GlobalStyles>
                 </Router>
             </Provider>
