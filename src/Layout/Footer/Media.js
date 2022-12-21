@@ -12,7 +12,7 @@ import { MdMoreHoriz } from 'react-icons/md';
 
 const cx = classNames.bind(styles);
 
-const Media = () => {
+const Media = ({ hide }) => {
     const { currentSong, isPlaying, idCurrentSong, currentList } = useSelector((state) => state.music);
     const favoriteSongs = useSelector((state) => state.music['favorite-songs']);
     const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const Media = () => {
     };
 
     return (
-        <div className={cx('media', { active: isPlaying })}>
+        <div className={cx('media', { active: isPlaying, hide })}>
             <div className={cx('media-left')}>
                 <img className={cx('image')} src={currentSong.image} alt="song" />
                 {isPlaying && (

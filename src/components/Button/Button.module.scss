@@ -15,10 +15,8 @@
         margin-left: 10px;
     }
 
-    @media (min-width: 740px) {
-        &:hover {
-            background-color: var(--alpha-bg);
-        }
+    &:hover {
+        background-color: var(--alpha-bg);
     }
 }
 
@@ -66,11 +64,9 @@
 .rounded {
     border-radius: 999px;
 
-    @media (min-width: 740px) {
-        &:hover {
-            -webkit-filter: brightness(0.9);
-            filter: brightness(0.9);
-        }
+    &:hover {
+        -webkit-filter: brightness(0.9);
+        filter: brightness(0.9);
     }
 }
 

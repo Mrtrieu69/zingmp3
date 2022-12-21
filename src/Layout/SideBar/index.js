@@ -17,6 +17,7 @@ const SideBar = () => {
     const [show, setShow] = useState(false);
 
     const handleRedirect = () => {
+        setShow(false);
         document.querySelector('#main').scrollTop = 0;
     };
 
@@ -43,7 +44,7 @@ const SideBar = () => {
                             <div className={cx('logo')}></div>
                         </Link>
                     </div>
-                    <MainLinks />
+                    <MainLinks setShow={setShow} />
                     <SecondaryLinks />
                     <Button
                         onClick={() => toast.warning('Feature is being updated!', { className: cx('toast') })}

@@ -316,7 +316,7 @@
     bottom: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 11;
+    z-index: 12;
 }
 
 .ad {
@@ -395,6 +395,11 @@
 
     &.active {
         background-color: var(--alpha-bg);
+
+        .icon-mobile,
+        .title-mobile {
+            color: var(--text-item-hover);
+        }
     }
 }
 
@@ -402,10 +407,10 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    color: var(--text-item-hover);
+    color: var(--text-primary);
 }
 
 .title-mobile {
     font-size: 1rem;
-    color: var(--text-item-hover);
+    color: var(--text-primary);
 }

@@ -1,6 +1,6 @@
 const themes = {
     london: {
-        '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.5)',
+        '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
         '--chart-bg-img-alpha': 'rgba(16,31,63,0.9)',
         '--hover-tooltip-opacity': 'hsla(0,0%,100%,0.3)',
         '--primary-bg': '#173b45',

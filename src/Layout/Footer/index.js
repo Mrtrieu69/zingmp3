@@ -37,7 +37,7 @@ const Footer = () => {
         isShow: showNowPlaying,
         isTransition: transitionNowPlaying,
         setIsShow: setShowNowPlaying,
-    } = useTransitionShow(500);
+    } = useTransitionShow(450);
 
     const volumeRef = useRef();
 
@@ -156,10 +156,10 @@ const Footer = () => {
     return (
         <>
             <div id="footer" className={cx('wrapper-bg')}>
-                <div id="mini-player" onClick={handleRedirect} className={cx('wrapper')}>
-                    <Media />
+                <div id="mini-player" onClick={handleRedirect} className={cx('wrapper', { active: showNowPlaying })}>
+                    <Media hide={showNowPlaying} />
                     <Player audioEl={audioEl} onNext={handleNext} onPrev={handlePrev} active={transitionNowPlaying} />
-                    <div className={cx('controls')}>
+                    <div className={cx('controls', { hide: showNowPlaying })}>
                         <Button
                             rounded
                             size="medium"

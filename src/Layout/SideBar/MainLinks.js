@@ -7,15 +7,16 @@ import { mainLinks } from '../../routes';
 
 const cx = classNames.bind(styles);
 
-const MainLinks = () => {
-    const handleChangeLink = () => {
+const MainLinks = ({ setShow }) => {
+    const handleRedirect = () => {
+        setShow(false);
         document.querySelector('#main').scrollTop = 0;
     };
     return (
         <div className={cx('links')}>
             {mainLinks.map((item, id) => (
                 <NavLink
-                    onClick={handleChangeLink}
+                    onClick={handleRedirect}
                     key={id}
                     to={item.path}
                     className={({ isActive }) => cx('link', { active: isActive })}

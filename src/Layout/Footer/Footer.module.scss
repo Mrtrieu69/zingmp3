@@ -25,6 +25,10 @@
     background-position: center;
     background-size: 1920px auto;
 
+    &.active {
+        justify-content: center;
+    }
+
     @media (max-width: 740px) {
         padding: 0 10px;
     }
@@ -58,6 +62,10 @@
             -webkit-animation: spin 10s linear infinite;
             animation: spin 10s linear infinite;
         }
+    }
+
+    &.hide {
+        display: none;
     }
 
     @media (max-width: 740px) {
@@ -229,6 +237,10 @@
     @media (max-width: 740px) {
         display: none;
     }
+
+    &.hide {
+        display: none;
+    }
 }
 
 .controls-mobile {
@@ -383,6 +395,7 @@
 
 .time {
     font-size: 1.2rem;
+    font-weight: 500;
 
     &.left {
         margin-right: 10px;

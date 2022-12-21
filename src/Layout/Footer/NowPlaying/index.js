@@ -9,6 +9,7 @@ import { Button } from '../../../components';
 import { IoIosArrowDown } from 'react-icons/io';
 import { MdOutlineOpenInFull, MdOutlineCloseFullscreen } from 'react-icons/md';
 import { useEffect } from 'react';
+import Lyric from './Lyric';
 
 const cx = classNames.bind(styles);
 
@@ -73,7 +74,9 @@ const NowPlaying = ({ close, setShowNowPlaying }) => {
                         />
                     </div>
                 </header>
-                <div className={cx('main')}>Test</div>
+                <div className={cx('main')}>
+                    <Lyric />
+                </div>
             </div>
         </div>
     );
