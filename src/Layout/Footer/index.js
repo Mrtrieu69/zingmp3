@@ -222,7 +222,9 @@ const Footer = () => {
                         />
                     </div>
                 </div>
-                {transitionNowPlaying && <NowPlaying setShowNowPlaying={setShowNowPlaying} close={!showNowPlaying} />}
+                {transitionNowPlaying && (
+                    <NowPlaying audioEl={audioEl} setShowNowPlaying={setShowNowPlaying} close={!showNowPlaying} />
+                )}
             </div>
             {isTransition && <PlayerQueue className={cx('player-queue')} close={!isShowPlayerQueue} />}
         </>

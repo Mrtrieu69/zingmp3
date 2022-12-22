@@ -13,7 +13,7 @@ import Lyric from './Lyric';
 
 const cx = classNames.bind(styles);
 
-const NowPlaying = ({ close, setShowNowPlaying }) => {
+const NowPlaying = ({ close, setShowNowPlaying, audioEl }) => {
     const [showFullScreen, setShowFullScreen] = useState(false);
 
     const { currentSong } = useSelector((state) => state.music);
@@ -54,7 +54,7 @@ const NowPlaying = ({ close, setShowNowPlaying }) => {
                     <div className={cx('logo')}></div>
                     <div className={cx('tabs')}>
                         <div className={cx('tab')}>Playlist</div>
-                        <div className={cx('tab')}>Karaoke</div>
+                        <div className={cx('tab', 'disable')}>Karaoke</div>
                         <div className={cx('tab', 'active')}>Lyric</div>
                     </div>
                     <div className={cx('controls')}>
@@ -75,7 +75,7 @@ const NowPlaying = ({ close, setShowNowPlaying }) => {
                     </div>
                 </header>
                 <div className={cx('main')}>
-                    <Lyric />
+                    <Lyric audioEl={audioEl} />
                 </div>
             </div>
         </div>

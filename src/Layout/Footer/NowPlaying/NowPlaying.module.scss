@@ -72,10 +72,16 @@
     padding: 7px 50px;
     border-radius: 999px;
     color: hsla(0, 0%, 100%, 0.5);
+    user-select: none;
 
     &.active {
         background: hsla(0, 0%, 100%, 0.1);
         color: white;
+    }
+
+    &.disable {
+        opacity: 0.5;
+        pointer-events: none;
     }
 }
 

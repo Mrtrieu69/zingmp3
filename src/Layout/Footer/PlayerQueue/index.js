@@ -22,7 +22,7 @@ const PlayerQueue = ({ close, className }) => {
                     <div className={cx('item', { active: true })}>
                         <h6 className={cx('title')}>Playlist</h6>
                     </div>
-                    <div className={cx('item')}>
+                    <div className={cx('item', 'disable')}>
                         <h6 className={cx('title')}>Recently</h6>
                     </div>
                 </div>

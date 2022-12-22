@@ -57,12 +57,13 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    height: 28px;
+    height: 32px;
     background-color: var(--alpha-bg);
     border-radius: 999px;
 }
 
 .item {
+    user-select: none;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -84,6 +85,12 @@
     &.active {
         color: var(--text-item-hover);
         background-color: var(--tab-active-bg);
+    }
+
+    &.disable {
+        cursor: auto;
+        opacity: 0.5;
+        pointer-events: none;
     }
 }
 
