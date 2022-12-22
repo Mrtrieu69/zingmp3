@@ -12,7 +12,7 @@ import styles from './Footer.module.scss';
 import PlayerQueue from './PlayerQueue';
 import NowPlaying from './NowPlaying';
 import { useTransitionShow } from '../../hooks';
-import { Button, InputProgress } from '../../components';
+import { Button, InputProgress, Tippy } from '../../components';
 import { togglePlay, setListPlayed, setSong, play, pause } from '../../features/music/musicSlice';
 import { Context } from '../../context';
 
@@ -160,13 +160,15 @@ const Footer = () => {
                     <Media hide={showNowPlaying} />
                     <Player audioEl={audioEl} onNext={handleNext} onPrev={handlePrev} active={transitionNowPlaying} />
                     <div className={cx('controls', { hide: showNowPlaying })}>
-                        <Button
-                            rounded
-                            size="medium"
-                            onClick={handleShowNowPlaying}
-                            className={cx('btn-control')}
-                            icon={<BsCameraVideo />}
-                        />
+                        <Tippy title="Show lyric">
+                            <Button
+                                rounded
+                                size="medium"
+                                onClick={handleShowNowPlaying}
+                                className={cx('btn-control')}
+                                icon={<BsCameraVideo />}
+                            />
+                        </Tippy>
                         <Button
                             rounded
                             size="medium"

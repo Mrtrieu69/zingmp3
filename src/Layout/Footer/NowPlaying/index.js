@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from './NowPlaying.module.scss';
-import { Button } from '../../../components';
+import { Button, Tippy } from '../../../components';
+import Lyric from './Lyric';
 
 // icons
 import { IoIosArrowDown } from 'react-icons/io';
 import { MdOutlineOpenInFull, MdOutlineCloseFullscreen } from 'react-icons/md';
 import { useEffect } from 'react';
-import Lyric from './Lyric';
 
 const cx = classNames.bind(styles);
 
@@ -58,20 +58,24 @@ const NowPlaying = ({ close, setShowNowPlaying, audioEl }) => {
                         <div className={cx('tab', 'active')}>Lyric</div>
                     </div>
                     <div className={cx('controls')}>
-                        <Button
-                            onClick={toggleShowScreen}
-                            rounded
-                            size="medium"
-                            className={cx('btn')}
-                            icon={!showFullScreen ? <MdOutlineOpenInFull /> : <MdOutlineCloseFullscreen />}
-                        />
-                        <Button
-                            onClick={handleCloseNowPlaying}
-                            rounded
-                            size="medium"
-                            className={cx('btn')}
-                            icon={<IoIosArrowDown />}
-                        />
+                        <Tippy title={showFullScreen ? 'Exit' : 'Full screen'}>
+                            <Button
+                                onClick={toggleShowScreen}
+                                rounded
+                                size="medium"
+                                className={cx('btn')}
+                                icon={!showFullScreen ? <MdOutlineOpenInFull /> : <MdOutlineCloseFullscreen />}
+                            />
+                        </Tippy>
+                        <Tippy title="Close">
+                            <Button
+                                onClick={handleCloseNowPlaying}
+                                rounded
+                                size="medium"
+                                className={cx('btn')}
+                                icon={<IoIosArrowDown />}
+                            />
+                        </Tippy>
                     </div>
                 </header>
                 <div className={cx('main')}>

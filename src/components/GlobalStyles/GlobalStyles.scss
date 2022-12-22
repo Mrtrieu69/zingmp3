@@ -56,6 +56,27 @@ body {
     }
 }
 
+body *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: transparent;
+    -webkit-box-shadow: inset 0 0 6px var(--scroll-thumb-bg);
+}
+
+body *::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background: transparent;
+}
+
+body *::-webkit-scrollbar {
+    display: block;
+    width: 6px;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
 button,
 input,
 [tabindex] {
@@ -67,6 +88,35 @@ input,
 a[href] {
     color: var(--navigation-text);
     text-decoration: none;
+}
+
+.has-player {
+    #footer {
+        bottom: 0;
+
+        @media (max-width: 740px) {
+            bottom: calc(0px + var(--sidebar-height-mobile));
+        }
+    }
+
+    #sidebar {
+        max-height: calc(100vh - var(--footer-height));
+    }
+
+    #main {
+        max-height: calc(100vh - var(--footer-height));
+
+        @media (max-width: 740px) {
+            max-height: calc(100vh - var(--footer-height) - var(--sidebar-height-mobile));
+        }
+    }
+}
+
+.line-clamp {
+    display: -webkit-box !important;
+    -webkit-line-clamp: var(--line-clamp, 2);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 // fonts emmbeded
@@ -102,22 +152,6 @@ a[href] {
     src: url('/assets/fonts/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
 }
 
-body *::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background: transparent;
-    -webkit-box-shadow: inset 0 0 6px var(--scroll-thumb-bg);
-}
-
-body *::-webkit-scrollbar-track {
-    border-radius: 4px;
-    background: transparent;
-}
-
-body *::-webkit-scrollbar {
-    display: block;
-    width: 6px;
-}
-
 // Custom toastify
 body {
     .Toastify__toast {
@@ -126,36 +160,7 @@ body {
     }
 }
 
-img {
-    height: auto;
-    width: 100%;
-}
-
-.has-player {
-    #footer {
-        bottom: 0;
-
-        @media (max-width: 740px) {
-            bottom: calc(0px + var(--sidebar-height-mobile));
-        }
-    }
-
-    #sidebar {
-        max-height: calc(100vh - var(--footer-height));
-    }
-
-    #main {
-        max-height: calc(100vh - var(--footer-height));
-
-        @media (max-width: 740px) {
-            max-height: calc(100vh - var(--footer-height) - var(--sidebar-height-mobile));
-        }
-    }
-}
-
-.line-clamp {
-    display: -webkit-box !important;
-    -webkit-line-clamp: var(--line-clamp, 2);
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+// Custom tippy
+.tippy {
+    font-size: 1.2rem;
 }

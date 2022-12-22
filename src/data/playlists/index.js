@@ -196,7 +196,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/мокрые-кроссы.webp',
                 thumb: '/images/songs/world-music/мокрые-кроссы-480x480.webp',
                 url: '/music/world-music/мокрые-кроссы.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['мокрые-кроссы'],
             },
             {
                 id: getRandomId(),
@@ -209,7 +209,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/улети.webp',
                 thumb: '/images/songs/world-music/улети-480x480.webp',
                 url: '/music/world-music/улети.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['улети'],
             },
             {
                 id: getRandomId(),

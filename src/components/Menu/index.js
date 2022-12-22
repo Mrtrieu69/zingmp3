@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './Menu.module.scss';
@@ -7,7 +7,7 @@ import { MdNavigateNext } from 'react-icons/md';
 
 const cx = classNames.bind(styles);
 
-const Menu = ({ children, menu, bgImage, icon, className }) => {
+const Menu = forwardRef(({ children, menu, bgImage, icon, className }, ref) => {
     const [showMenu, setShowMenu] = useState(false);
 
     const handleShowMenu = (e, selector) => {
@@ -29,7 +29,7 @@ const Menu = ({ children, menu, bgImage, icon, className }) => {
     };
 
     return (
-        <div className={cx('wrapper', { [className]: className })}>
+        <div ref={ref} className={cx('wrapper', { [className]: className })}>
             {children}
             {icon && (
                 <button className={cx('btn-action')} onClick={(e) => handleShowMenu(e, cx('btn-action'))}>
@@ -66,6 +66,6 @@ const Menu = ({ children, menu, bgImage, icon, className }) => {
             </div>
         </div>
     );
-};
+});
 
 export default Menu;

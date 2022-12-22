@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { SingleNote, DoubleNote } from '../../components/Icons';
+import { Tippy } from '../../components';
 import { likeSong, unlikeSong, setSong, setCurrentList } from '../../features/music/musicSlice';
 import styles from './Footer.module.scss';
 
@@ -60,23 +61,29 @@ const Media = ({ hide }) => {
             </div>
             <div className={cx('media-right')}>
                 {currentSong.isLike ? (
-                    <button onClick={handleUnlike} className={cx('btn')}>
-                        <span className={cx('icon', 'active')}>
-                            <AiFillHeart />
-                        </span>
-                    </button>
+                    <Tippy title={'Remove from favorite songs'}>
+                        <button onClick={handleUnlike} className={cx('btn')}>
+                            <span className={cx('icon', 'active')}>
+                                <AiFillHeart />
+                            </span>
+                        </button>
+                    </Tippy>
                 ) : (
-                    <button onClick={handleLike} className={cx('btn')}>
+                    <Tippy title="Add to favorite songs">
+                        <button onClick={handleLike} className={cx('btn')}>
+                            <span className={cx('icon')}>
+                                <AiOutlineHeart />
+                            </span>
+                        </button>
+                    </Tippy>
+                )}
+                <Tippy title="More">
+                    <button onClick={(e) => e.stopPropagation()} className={cx('btn', 'large')}>
                         <span className={cx('icon')}>
-                            <AiOutlineHeart />
+                            <MdMoreHoriz />
                         </span>
                     </button>
-                )}
-                <button onClick={(e) => e.stopPropagation()} className={cx('btn', 'large')}>
-                    <span className={cx('icon')}>
-                        <MdMoreHoriz />
-                    </span>
-                </button>
+                </Tippy>
             </div>
         </div>
     );

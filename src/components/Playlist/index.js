@@ -17,6 +17,7 @@ import {
     unlikeSong,
 } from '../../features/music/musicSlice';
 import Button from '../Button';
+import Tippy from '../Tippy';
 import { Context } from '../../context';
 
 // icons
@@ -211,25 +212,31 @@ const Playlist = ({ songs }) => {
                                                         <div className={cx('media-time')}>{song.time}</div>
                                                         <div className={cx('controls')}>
                                                             {song.isLike ? (
-                                                                <Button
-                                                                    onClick={() => handleUnlike(song)}
-                                                                    rounded
-                                                                    icon={<AiFillHeart />}
-                                                                    className={cx('icon', 'like')}
-                                                                />
+                                                                <Tippy title="Remove from favorite songs">
+                                                                    <Button
+                                                                        onClick={() => handleUnlike(song)}
+                                                                        rounded
+                                                                        icon={<AiFillHeart />}
+                                                                        className={cx('icon', 'like')}
+                                                                    />
+                                                                </Tippy>
                                                             ) : (
+                                                                <Tippy title="Add to favorite songs">
+                                                                    <Button
+                                                                        onClick={() => handleLike(song)}
+                                                                        rounded
+                                                                        icon={<AiOutlineHeart />}
+                                                                        className={cx('icon')}
+                                                                    />
+                                                                </Tippy>
+                                                            )}
+                                                            <Tippy title="More">
                                                                 <Button
-                                                                    onClick={() => handleLike(song)}
                                                                     rounded
-                                                                    icon={<AiOutlineHeart />}
+                                                                    icon={<MdMoreHoriz />}
                                                                     className={cx('icon')}
                                                                 />
-                                                            )}
-                                                            <Button
-                                                                rounded
-                                                                icon={<MdMoreHoriz />}
-                                                                className={cx('icon')}
-                                                            />
+                                                            </Tippy>
                                                         </div>
                                                     </div>
                                                 </div>

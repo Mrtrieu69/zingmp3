@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { mainRoutes } from './routes';
 import { useState } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
 
 import Layout from './Layout';
 import { Context } from './context';

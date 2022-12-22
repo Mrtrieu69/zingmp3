@@ -5,7 +5,7 @@ import { FcShop } from 'react-icons/fc';
 import classNames from 'classnames/bind';
 
 import styles from './ThemeModal.module.scss';
-import { Button, Modal } from '../../../components';
+import { Button, Modal, Tippy } from '../../../components';
 import { displayThemes } from '../../../data/themes';
 import themes from '../../../data/themes/themes';
 
@@ -101,7 +101,9 @@ const ThemeModal = () => {
 
     return (
         <>
-            <Button onClick={handleShowModal} className={cx('btn-modal')} rounded size="medium" icon={<FcShop />} />
+            <Tippy title="Themes">
+                <Button onClick={handleShowModal} className={cx('btn-modal')} rounded size="medium" icon={<FcShop />} />
+            </Tippy>
             {showModal && (
                 <Modal onClose={handleCloseModal}>
                     <div className={cx('container')}>

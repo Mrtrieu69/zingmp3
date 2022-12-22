@@ -7,3 +7,4 @@ export { default as ChartSong } from './ChartSong';
 export { default as Playlist } from './Playlist';
 export { default as AlbumItem } from './AlbumItem';
 export { default as Modal } from './Modal';
+export { default as Tippy } from './Tippy';

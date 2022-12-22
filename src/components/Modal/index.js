@@ -18,7 +18,7 @@ if (!modalRoot) {
     modalRoot = modalRootDiv;
 }
 
-const Modal = ({ onClose, children }) => {
+const Modal = ({ onClose, children, timer }) => {
     useEffect(() => {
         const handleKeydown = (e) => {
             if (e.code === 'Escape') {
@@ -38,7 +38,7 @@ const Modal = ({ onClose, children }) => {
     return createPortal(
         <div className={cx('wrapper')}>
             <div onClick={onClose} className={cx('layout')}></div>
-            <div className={cx('content')}>
+            <div onClick={(e) => e.stopPropagation()} className={cx('content', { timer })}>
                 <span onClick={onClose} className={cx('close')}>
                     <MdOutlineClose />
                 </span>

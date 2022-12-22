@@ -1,19 +1,28 @@
 import React from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import { MdTimer, MdMoreHoriz } from 'react-icons/md';
 
-import { Button } from '../../../components';
+import { Button, Tippy } from '../../../components';
 import styles from './PlayerQueue.module.scss';
 import PlayerQueueItem from './PlayerQueueItem';
+import TimerSetting from './TimerSetting';
 
 const cx = classNames.bind(styles);
 
 const PlayerQueue = ({ close, className }) => {
+    const [showTimerSetting, setShowTimerSetting] = useState(false);
+
     const { idCurrentSong } = useSelector((state) => state.music);
     const currentList = useSelector((state) => state.music[state.music['currentList']]);
 
     const nextList = [...currentList].splice(idCurrentSong + 1);
+
+    const closeTimerSetting = (e) => {
+        setShowTimerSetting(false);
+        e.stopPropagation();
+    };
 
     return (
         <div className={cx('wrapper', { close: close, [className]: className })}>
@@ -26,8 +35,18 @@ const PlayerQueue = ({ close, className }) => {
                         <h6 className={cx('title')}>Recently</h6>
                     </div>
                 </div>
-                <Button size="small" rounded icon={<MdTimer />} className={cx('btn')} />
-                <Button size="small" rounded icon={<MdMoreHoriz />} className={cx('btn')} />
+                <Tippy title="Timer to stop playing music">
+                    <Button
+                        size="small"
+                        onClick={() => setShowTimerSetting(true)}
+                        rounded
+                        icon={<MdTimer />}
+                        className={cx('btn')}
+                    />
+                </Tippy>
+                <Tippy title="More">
+                    <Button size="small" rounded icon={<MdMoreHoriz />} className={cx('btn')} />
+                </Tippy>
             </div>
             <div className={cx('body')}>
                 <div className={cx('playlist')}>
@@ -40,6 +59,7 @@ const PlayerQueue = ({ close, className }) => {
                     ))}
                 </div>
             </div>
+            {showTimerSetting && <TimerSetting onClose={closeTimerSetting} />}
         </div>
     );
 };

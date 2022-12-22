@@ -26,6 +26,17 @@ const Lyric = ({ audioEl }) => {
         lyricRef.current.scrollTo({ top: 0 });
     }, [currentSong]);
 
+    // scroll to current line when open "now playing"
+    useEffect(() => {
+        const activeLyric = currentSong.lyric.findIndex(
+            (lyric) => lyric.start <= currentTime && currentTime <= lyric.end,
+        );
+        if (activeLyric >= 0 && refs.length) {
+            refs[activeLyric].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [refs]);
+
     useEffect(() => {
         const activeLyric = currentSong.lyric.findIndex((lyric) => lyric.start === currentTime);
         if (activeLyric >= 0 && refs.length) {
