@@ -23,7 +23,7 @@ const Lyric = ({ audioEl }) => {
     }, [currentSong.lyric]);
 
     useEffect(() => {
-        lyricRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+        lyricRef.current.scrollTo({ top: 0 });
     }, [currentSong]);
 
     useEffect(() => {

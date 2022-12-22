@@ -92,7 +92,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/do-not-let-me-down.webp',
                 thumb: '/images/songs/world-music/do-not-let-me-down-480x480.webp',
                 url: '/music/world-music/do-not-let-me-down.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['do-not-let-me-down'],
             },
             {
                 id: getRandomId(),
@@ -105,7 +105,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/friends.webp',
                 thumb: '/images/songs/world-music/friends-480x480.webp',
                 url: '/music/world-music/friends.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['friends'],
             },
             {
                 id: getRandomId(),
@@ -131,7 +131,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/light-switch.webp',
                 thumb: '/images/songs/world-music/light-switch-480x480.webp',
                 url: '/music/world-music/light-switch.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['light-switch'],
             },
             {
                 id: getRandomId(),
@@ -157,7 +157,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/money.webp',
                 thumb: '/images/songs/world-music/money-480x480.webp',
                 url: '/music/world-music/money.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['money'],
             },
             {
                 id: getRandomId(),
@@ -170,7 +170,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/typa-girl.webp',
                 thumb: '/images/songs/world-music/typa-girl-480x480.webp',
                 url: '/music/world-music/typa-girl.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['typa-girl'],
             },
             {
                 id: getRandomId(),
@@ -183,7 +183,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/время-не-пришло.webp',
                 thumb: '/images/songs/world-music/время-не-пришло-480x480.webp',
                 url: '/music/world-music/время-не-пришло.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['время-не-пришло'],
             },
             {
                 id: getRandomId(),
@@ -222,7 +222,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/timber.webp',
                 thumb: '/images/songs/world-music/timber-480x480.webp',
                 url: '/music/world-music/timber.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['timber'],
             },
             {
                 id: getRandomId(),
@@ -235,7 +235,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/the-nights.webp',
                 thumb: '/images/songs/world-music/the-nights-480x480.webp',
                 url: '/music/world-music/the-nights.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['the-night'],
             },
             {
                 id: getRandomId(),
@@ -248,7 +248,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/summer.webp',
                 thumb: '/images/songs/world-music/summer-480x480.webp',
                 url: '/music/world-music/summer.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['summer'],
             },
             {
                 id: getRandomId(),
@@ -261,7 +261,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/positions.webp',
                 thumb: '/images/songs/world-music/positions-480x480.webp',
                 url: '/music/world-music/positions.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['positions'],
             },
             {
                 id: getRandomId(),
@@ -274,7 +274,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/love-is-gone.webp',
                 thumb: '/images/songs/world-music/love-is-gone-480x480.webp',
                 url: '/music/world-music/love-is-gone.mp3',
-                lyric: [],
+                lyric: WORLD_MUSIC_LYRICS['love-is-gone'],
             },
         ],
         participants: [

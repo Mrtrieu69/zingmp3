@@ -399,6 +399,7 @@
 
     &.left {
         margin-right: 10px;
+        color: hsla(0deg, 0%, 100%, 0.5);
     }
 
     &.right {
@@ -412,10 +413,6 @@
     margin: 0 2px !important;
 
     background-color: transparent;
-
-    // &:hover {
-    //     background-color: hsla(0, 0%, 100%, 0.1);
-    // }
 }
 
 .loader-icon {
