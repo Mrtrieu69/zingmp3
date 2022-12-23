@@ -1,9 +1,11 @@
 import classNames from 'classnames/bind';
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
 import moment from 'moment';
 
 import styles from './PlayerQueue.module.scss';
 import { Modal } from '../../../components';
+import { SettingModal } from '../components';
+import { Context } from '../../../context';
 
 const cx = classNames.bind(styles);
 
@@ -19,68 +21,70 @@ const infoTimer = (value) => {
 const TimerSetting = ({ onClose }) => {
     const [value, setValue] = useState({ minute: 0, hour: 0 });
 
+    const { setTimer } = useContext(Context);
+
     const hourRef = useRef();
     const minuteRef = useRef();
 
     const handleChange = (e) => {
-        if (Number(e.target.value) || Number(e.target.value) === 0) {
-            if (e.target.name === 'hour' && (Number(e.target.value) < 0 || Number(e.target.value) > 24)) return;
-            if (e.target.name === 'minute' && (Number(e.target.value) < 0 || Number(e.target.value) > 60)) return;
+        const value = Number(e.target.value);
+        if (value || value === 0) {
+            if (e.target.name === 'hour' && (value < 0 || value >= 24)) return;
+            if (e.target.name === 'minute' && (value < 0 || value >= 60)) return;
 
-            setValue((prev) => ({ ...prev, [e.target.name]: Number(e.target.value) }));
+            setValue((prev) => ({ ...prev, [e.target.name]: value }));
         }
     };
 
-    const handleSaveTimer = () => {};
+    const handleSaveTimer = () => {
+        const { minute, hour } = value;
+        setTimer(hour * 3600 + minute * 60);
+        onClose();
+    };
 
     return (
-        <Modal timer onClose={onClose}>
-            <div className={cx('timer-body')}>
-                <h3 className={cx('timer-title')}>Timer to stop playing music</h3>
-                <div className={cx('settings')}>
-                    <div className={cx('setting')}>
-                        <div className={cx('setting-input')}>
-                            <input
-                                autoComplete="off"
-                                ref={hourRef}
-                                type="text"
-                                value={value.hour}
-                                name="hour"
-                                onChange={handleChange}
-                            />
-                            <span className={cx('setting-label')}>Hour</span>
-                        </div>
-                        <div className={cx('device')}></div>
+        <SettingModal
+            onClose={onClose}
+            onAction={handleSaveTimer}
+            time={value}
+            title={{ action: 'save', exit: 'exit' }}
+        >
+            <h3 className={cx('timer-title')}>Timer to stop playing music</h3>
+            <div className={cx('settings')}>
+                <div className={cx('setting')}>
+                    <div className={cx('setting-input')}>
+                        <input
+                            autoComplete="off"
+                            ref={hourRef}
+                            type="text"
+                            value={value.hour}
+                            name="hour"
+                            onChange={handleChange}
+                        />
+                        <span className={cx('setting-label')}>Hour</span>
                     </div>
-                    <span className={cx('dot')}>:</span>
-                    <div className={cx('setting')}>
-                        <div className={cx('setting-input')}>
-                            <input
-                                autoComplete="off"
-                                ref={minuteRef}
-                                type="text"
-                                value={value.minute}
-                                name="minute"
-                                onChange={handleChange}
-                            />
-                            <span className={cx('setting-label')}>Minute</span>
-                        </div>
-                        <div className={cx('device')}></div>
-                    </div>
+                    <div className={cx('device')}></div>
                 </div>
-                <p className={cx('timer-subtitle')}>
-                    {value.hour === 0 && value.minute === 0
-                        ? 'Enter time to stop playing music'
-                        : `${infoTimer(value)}`}
-                </p>
-                <button onClick={handleSaveTimer} className={cx('save')}>
-                    SAVE
-                </button>
-                <button onClick={onClose} className={cx('exit')}>
-                    EXIT
-                </button>
+                <span className={cx('dot')}>:</span>
+                <div className={cx('setting')}>
+                    <div className={cx('setting-input')}>
+                        <input
+                            autoComplete="off"
+                            ref={minuteRef}
+                            type="text"
+                            value={value.minute}
+                            name="minute"
+                            onChange={handleChange}
+                        />
+                        <span className={cx('setting-label')}>Minute</span>
+                    </div>
+                    <div className={cx('device')}></div>
+                </div>
             </div>
-        </Modal>
+            <p className={cx('timer-subtitle')}>
+                {value.hour === 0 && value.minute === 0 ? 'Enter time to stop playing music' : `${infoTimer(value)}`}
+            </p>
+        </SettingModal>
     );
 };
 

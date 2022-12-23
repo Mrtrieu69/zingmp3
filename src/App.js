@@ -7,9 +7,10 @@ import { Context } from './context';
 
 function App() {
     const [forceRerender, setForceRerender] = useState(false);
+    const [timer, setTimer] = useState(null);
 
     return (
-        <Context.Provider value={{ forceRerender, setForceRerender }}>
+        <Context.Provider value={{ forceRerender, setForceRerender, timer, setTimer }}>
             <Routes>
                 {mainRoutes.map((route, index) => {
                     const Page = route.component;

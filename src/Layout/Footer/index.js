@@ -11,6 +11,7 @@ import Media from './Media';
 import styles from './Footer.module.scss';
 import PlayerQueue from './PlayerQueue';
 import NowPlaying from './NowPlaying';
+import Timer from './Timer';
 import { useTransitionShow } from '../../hooks';
 import { Button, InputProgress, Tippy } from '../../components';
 import { togglePlay, setListPlayed, setSong, play, pause } from '../../features/music/musicSlice';
@@ -24,7 +25,7 @@ const Footer = () => {
     const [audioEl, setAudioEl] = useState(null);
     const navigate = useNavigate();
 
-    const { setForceRerender } = useContext(Context);
+    const { setForceRerender, timer } = useContext(Context);
 
     const { isLoadingData, isPlaying, isRandom, listPlayed, currentList, idCurrentSong } = useSelector(
         (state) => state.music,
@@ -227,6 +228,7 @@ const Footer = () => {
                 {transitionNowPlaying && (
                     <NowPlaying audioEl={audioEl} setShowNowPlaying={setShowNowPlaying} close={!showNowPlaying} />
                 )}
+                {timer !== null && <Timer />}
             </div>
             {isTransition && <PlayerQueue className={cx('player-queue')} close={!isShowPlayerQueue} />}
         </>

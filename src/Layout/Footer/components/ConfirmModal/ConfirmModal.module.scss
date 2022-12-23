@@ -1,0 +1,40 @@
+.body {
+    padding: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--primary-bg);
+}
+
+.title {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.desc {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+
+    .btn {
+        padding: 6px 15px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin-left: 15px;
+
+        &:hover {
+            background-color: var(--purple-primary);
+        }
+
+        &.no {
+            background-color: var(--alpha-bg);
+            border: 1px solid var(--border-primary);
+        }
+    }
+}

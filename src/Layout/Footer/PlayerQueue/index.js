@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import { MdTimer, MdMoreHoriz } from 'react-icons/md';
@@ -8,20 +8,43 @@ import { Button, Tippy } from '../../../components';
 import styles from './PlayerQueue.module.scss';
 import PlayerQueueItem from './PlayerQueueItem';
 import TimerSetting from './TimerSetting';
+import { ConfirmModal } from '../components';
+import { Context } from '../../../context';
 
 const cx = classNames.bind(styles);
 
 const PlayerQueue = ({ close, className }) => {
     const [showTimerSetting, setShowTimerSetting] = useState(false);
+    const [showModalCloseTimer, setShowModalCloseTimer] = useState(false);
 
     const { idCurrentSong } = useSelector((state) => state.music);
     const currentList = useSelector((state) => state.music[state.music['currentList']]);
 
     const nextList = [...currentList].splice(idCurrentSong + 1);
+    const { setTimer, timer } = useContext(Context);
+
+    const handleShow = () => {
+        if (timer) {
+            setShowModalCloseTimer(true);
+        } else {
+            setShowTimerSetting(true);
+        }
+    };
 
     const closeTimerSetting = (e) => {
         setShowTimerSetting(false);
-        e.stopPropagation();
+        if (e) {
+            e.stopPropagation();
+        }
+    };
+
+    const handleCloseModal = () => {
+        setShowModalCloseTimer(false);
+    };
+
+    const handleCloseTimer = () => {
+        setShowModalCloseTimer(false);
+        setTimer(null);
     };
 
     return (
@@ -35,13 +58,13 @@ const PlayerQueue = ({ close, className }) => {
                         <h6 className={cx('title')}>Recently</h6>
                     </div>
                 </div>
-                <Tippy title="Timer to stop playing music">
+                <Tippy title={timer !== null ? 'Close Timer' : 'Timer to stop playing music'}>
                     <Button
                         size="small"
-                        onClick={() => setShowTimerSetting(true)}
+                        onClick={handleShow}
                         rounded
                         icon={<MdTimer />}
-                        className={cx('btn')}
+                        className={cx('btn', { active: timer !== null })}
                     />
                 </Tippy>
                 <Tippy title="More">
@@ -60,6 +83,7 @@ const PlayerQueue = ({ close, className }) => {
                 </div>
             </div>
             {showTimerSetting && <TimerSetting onClose={closeTimerSetting} />}
+            {showModalCloseTimer && <ConfirmModal onClose={handleCloseModal} onConfirm={handleCloseTimer} />}
         </div>
     );
 };

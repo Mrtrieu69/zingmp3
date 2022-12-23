@@ -21,7 +21,6 @@
 }
 
 .content {
-    width: 80%;
     max-width: 900px;
     height: 596px;
     position: relative;
@@ -37,6 +36,11 @@
 
     &.timer {
         width: 330px;
+        height: auto;
+    }
+
+    &.confirm {
+        width: 500px;
         height: auto;
     }
 }
