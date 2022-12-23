@@ -1,5 +1,6 @@
 import { getRandomId } from '../../utils';
 import WORLD_MUSIC_LYRICS from './world-music-lyrics';
+import PLAYLIST_CHILL_LYRICS from './playlist-chill-lyrics';
 
 export const FAVORITE_SONGS = [];
 
@@ -308,7 +309,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/vi-me-anh-bat-chia-tay.webp',
                 thumb: '/images/songs/playlist-chill/vi-me-anh-bat-chia-tay-480x480.webp',
                 url: '/music/playlist-chill/vi-me-anh-bat-chia-tay.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['vi-me-anh-bat-chia-tay'],
             },
             {
                 id: getRandomId(),
@@ -321,7 +322,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/waiting-for-you.webp',
                 thumb: '/images/songs/playlist-chill/waiting-for-you-480x480.webp',
                 url: '/music/playlist-chill/waiting-for-you.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['waiting-foy-you'],
             },
             {
                 id: getRandomId(),
@@ -334,7 +335,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/tu-thich-thich-thanh-thuong-thuong.webp',
                 thumb: '/images/songs/playlist-chill/tu-thich-thich-thanh-thuong-thuong-480x480.webp',
                 url: '/music/playlist-chill/tu-thich-thich-thanh-thuong-thuong.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['tu-thich-thich-thanh-thuong-thuong'],
             },
             {
                 id: getRandomId(),
@@ -347,7 +348,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/mot-nguoi-nhe-nhang-hon.webp',
                 thumb: '/images/songs/playlist-chill/mot-nguoi-nhe-nhang-hon-480x480.webp',
                 url: '/music/playlist-chill/mot-nguoi-nhe-nhang-hon.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['mot-nguoi-nhe-nhang-hon'],
             },
             {
                 id: getRandomId(),
@@ -360,7 +361,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/em-bo-hut-thuoc-chua.webp',
                 thumb: '/images/songs/playlist-chill/em-bo-hut-thuoc-chua-480x480.webp',
                 url: '/music/playlist-chill/em-bo-hut-thuoc-chua.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['em-bo-hut-thuoc-chua'],
             },
             {
                 id: getRandomId(),
@@ -373,7 +374,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/replay-tren-con-guay.webp',
                 thumb: '/images/songs/playlist-chill/replay-tren-con-guay-480x480.webp',
                 url: '/music/playlist-chill/replay-tren-con-guay.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['replay-tren-con-guay'],
             },
             {
                 id: getRandomId(),

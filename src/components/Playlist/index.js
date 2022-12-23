@@ -25,6 +25,7 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { MdMoreHoriz } from 'react-icons/md';
 import { BsMusicNoteBeamed, BsFillPlayFill } from 'react-icons/bs';
 import { BiLoader } from 'react-icons/bi';
+import { HiOutlineMicrophone } from 'react-icons/hi';
 
 const cx = classNames.bind(styles);
 
@@ -54,7 +55,7 @@ const onDragEnd = (result, dispatch, idCurrentSong, idList, currentSong, setForc
 const Playlist = ({ songs }) => {
     const [songRefs, setSongRefs] = useState([]);
 
-    const { forceRerender, setForceRerender } = useContext(Context);
+    const { forceRerender, setForceRerender, setShowNowPlaying } = useContext(Context);
 
     const { currentSong, isPlaying, isFirstStartApp, isLoadingData, currentList, idCurrentSong } = useSelector(
         (state) => state.music,
@@ -103,6 +104,11 @@ const Playlist = ({ songs }) => {
 
         setForceRerender(false);
         toast.success('Removed from favorite songs!');
+    };
+
+    const handlePlayWithLyric = (index, type) => {
+        handlePlay(index, type);
+        setShowNowPlaying(true);
     };
 
     useEffect(() => {
@@ -211,6 +217,16 @@ const Playlist = ({ songs }) => {
                                                         </div>
                                                         <div className={cx('media-time')}>{song.time}</div>
                                                         <div className={cx('controls')}>
+                                                            <Tippy title="Play with lyric">
+                                                                <Button
+                                                                    onClick={() =>
+                                                                        handlePlayWithLyric(index, song.type)
+                                                                    }
+                                                                    rounded
+                                                                    icon={<HiOutlineMicrophone />}
+                                                                    className={cx('icon')}
+                                                                />
+                                                            </Tippy>
                                                             {song.isLike ? (
                                                                 <Tippy title="Remove from favorite songs">
                                                                     <Button

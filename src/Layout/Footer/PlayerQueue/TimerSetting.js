@@ -3,7 +3,6 @@ import { useState, useRef, useContext } from 'react';
 import moment from 'moment';
 
 import styles from './PlayerQueue.module.scss';
-import { Modal } from '../../../components';
 import { SettingModal } from '../components';
 import { Context } from '../../../context';
 

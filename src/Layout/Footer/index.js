@@ -2,9 +2,6 @@ import React, { useEffect, useRef, useState, useContext } from 'react';
 import classNames from 'classnames/bind';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { BsCameraVideo, BsVolumeUp, BsVolumeMute, BsMusicNoteList, BsPauseFill, BsPlayFill } from 'react-icons/bs';
-import { BiLoader } from 'react-icons/bi';
-import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 
 import Player from './Player';
 import Media from './Media';
@@ -17,6 +14,12 @@ import { Button, InputProgress, Tippy } from '../../components';
 import { togglePlay, setListPlayed, setSong, play, pause } from '../../features/music/musicSlice';
 import { Context } from '../../context';
 
+// icons
+import { BsVolumeUp, BsVolumeMute, BsMusicNoteList, BsPauseFill, BsPlayFill } from 'react-icons/bs';
+import { BiLoader } from 'react-icons/bi';
+import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
+import { HiOutlineMicrophone } from 'react-icons/hi';
+
 const cx = classNames.bind(styles);
 
 const Footer = () => {
@@ -25,7 +28,7 @@ const Footer = () => {
     const [audioEl, setAudioEl] = useState(null);
     const navigate = useNavigate();
 
-    const { setForceRerender, timer } = useContext(Context);
+    const { setForceRerender, timer, showNowPlaying, transitionNowPlaying, setShowNowPlaying } = useContext(Context);
 
     const { isLoadingData, isPlaying, isRandom, listPlayed, currentList, idCurrentSong } = useSelector(
         (state) => state.music,
@@ -34,11 +37,6 @@ const Footer = () => {
     const dispatch = useDispatch();
 
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
-    const {
-        isShow: showNowPlaying,
-        isTransition: transitionNowPlaying,
-        setIsShow: setShowNowPlaying,
-    } = useTransitionShow(450);
 
     const volumeRef = useRef();
 
@@ -167,7 +165,7 @@ const Footer = () => {
                                 size="medium"
                                 onClick={handleShowNowPlaying}
                                 className={cx('btn-control')}
-                                icon={<BsCameraVideo />}
+                                icon={<HiOutlineMicrophone />}
                             />
                         </Tippy>
                         <Button
