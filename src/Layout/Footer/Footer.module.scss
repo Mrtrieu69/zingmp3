@@ -208,6 +208,12 @@
     &:hover {
         background-color: hsla(0, 0%, 100%, 0.1);
     }
+
+    &.mobile {
+        &:hover {
+            background-color: transparent;
+        }
+    }
 }
 
 .icon {
@@ -413,6 +419,11 @@
     margin: 0 2px !important;
 
     background-color: transparent;
+
+    &.disable {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 }
 
 .loader-icon {

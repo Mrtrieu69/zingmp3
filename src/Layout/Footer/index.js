@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from 'react';
 import classNames from 'classnames/bind';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import Player from './Player';
 import Media from './Media';
@@ -11,14 +12,24 @@ import NowPlaying from './NowPlaying';
 import Timer from './Timer';
 import { useTransitionShow } from '../../hooks';
 import { Button, InputProgress, Tippy } from '../../components';
-import { togglePlay, setListPlayed, setSong, play, pause } from '../../features/music/musicSlice';
+import {
+    togglePlay,
+    setListPlayed,
+    setSong,
+    play,
+    pause,
+    likeSong,
+    setCurrentList,
+    unlikeSong,
+} from '../../features/music/musicSlice';
 import { Context } from '../../context';
 
 // icons
 import { BsVolumeUp, BsVolumeMute, BsMusicNoteList, BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import { BiLoader } from 'react-icons/bi';
-import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
+import { MdSkipNext } from 'react-icons/md';
 import { HiOutlineMicrophone } from 'react-icons/hi';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 const cx = classNames.bind(styles);
 
@@ -30,10 +41,13 @@ const Footer = () => {
 
     const { setForceRerender, timer, showNowPlaying, transitionNowPlaying, setShowNowPlaying } = useContext(Context);
 
-    const { isLoadingData, isPlaying, isRandom, listPlayed, currentList, idCurrentSong } = useSelector(
+    const { isLoadingData, isPlaying, isRandom, listPlayed, currentList, idCurrentSong, currentSong } = useSelector(
         (state) => state.music,
     );
-    const listSongs = useSelector((state) => state.music[state.music.currentList]);
+    const { listSongs, favoriteSongs } = useSelector((state) => ({
+        listSongs: state.music[state.music.currentList],
+        favoriteSongs: state.music['favorite-songs'],
+    }));
     const dispatch = useDispatch();
 
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
@@ -126,6 +140,25 @@ const Footer = () => {
         setShowNowPlaying(true);
     };
 
+    const handleLike = (e) => {
+        dispatch(likeSong(currentSong));
+        dispatch(setSong(idCurrentSong));
+        toast.success('Added to favorite songs!');
+
+        e.stopPropagation();
+    };
+
+    const handleUnlike = (e) => {
+        if (currentList === 'favorite-songs' && favoriteSongs.length <= 1) {
+            dispatch(setCurrentList('world-music'));
+        }
+        dispatch(unlikeSong(currentSong));
+        dispatch(setSong(idCurrentSong));
+        toast.success('Removed from favorite songs!');
+
+        e.stopPropagation();
+    };
+
     useEffect(() => {
         setAudioEl(document.querySelector('#audio'));
 
@@ -156,7 +189,7 @@ const Footer = () => {
         <>
             <div id="footer" className={cx('wrapper-bg')}>
                 <div id="mini-player" onClick={handleRedirect} className={cx('wrapper', { active: showNowPlaying })}>
-                    <Media hide={showNowPlaying} />
+                    <Media hide={showNowPlaying} onUnlike={handleUnlike} onLike={handleLike} />
                     <Player audioEl={audioEl} onNext={handleNext} onPrev={handlePrev} active={transitionNowPlaying} />
                     <div className={cx('controls', { hide: showNowPlaying })}>
                         <Tippy title="Show lyric">
@@ -164,7 +197,7 @@ const Footer = () => {
                                 rounded
                                 size="medium"
                                 onClick={handleShowNowPlaying}
-                                className={cx('btn-control')}
+                                className={cx('btn-control', { disable: currentSong.lyric?.length === 0 })}
                                 icon={<HiOutlineMicrophone />}
                             />
                         </Tippy>
@@ -194,13 +227,19 @@ const Footer = () => {
 
                     {/* Mobile */}
                     <div className={cx('controls-mobile')}>
-                        <Button
-                            size="mobile"
-                            onClick={handlePrev}
-                            rounded
-                            className={cx('btn-player')}
-                            icon={<MdSkipPrevious />}
-                        />
+                        {currentSong.isLike ? (
+                            <button onClick={handleUnlike} className={cx('btn', 'mobile')}>
+                                <span className={cx('icon', 'active')}>
+                                    <AiFillHeart />
+                                </span>
+                            </button>
+                        ) : (
+                            <button onClick={handleLike} className={cx('btn', 'mobile')}>
+                                <span className={cx('icon')}>
+                                    <AiOutlineHeart />
+                                </span>
+                            </button>
+                        )}
                         {isLoadingData ? (
                             <span className={cx('loader-icon')}>
                                 <BiLoader />

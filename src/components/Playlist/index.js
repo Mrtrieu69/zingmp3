@@ -217,14 +217,16 @@ const Playlist = ({ songs }) => {
                                                         </div>
                                                         <div className={cx('media-time')}>{song.time}</div>
                                                         <div className={cx('controls')}>
-                                                            <Tippy title="Play with lyric">
+                                                            <Tippy title="Play with lyrics">
                                                                 <Button
                                                                     onClick={() =>
                                                                         handlePlayWithLyric(index, song.type)
                                                                     }
                                                                     rounded
                                                                     icon={<HiOutlineMicrophone />}
-                                                                    className={cx('icon')}
+                                                                    className={cx('icon', 'lyrics', {
+                                                                        disable: song.lyric?.length === 0,
+                                                                    })}
                                                                 />
                                                             </Tippy>
                                                             {song.isLike ? (

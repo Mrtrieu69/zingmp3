@@ -387,7 +387,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/chuyen-rang.webp',
                 thumb: '/images/songs/playlist-chill/chuyen-rang-480x480.webp',
                 url: '/music/playlist-chill/chuyen-rang.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['chuyen-rang'],
             },
             {
                 id: getRandomId(),
@@ -400,7 +400,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/vaicaunoicokhiennguoithaydoi.webp',
                 thumb: '/images/songs/playlist-chill/vaicaunoicokhiennguoithaydoi-480x480.webp',
                 url: '/music/playlist-chill/vaicaunoicokhiennguoithaydoi.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['vaicaunoicokhiennguoithaydoi'],
             },
             {
                 id: getRandomId(),
@@ -426,7 +426,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/giac-mo-dep.webp',
                 thumb: '/images/songs/playlist-chill/giac-mo-dep-480x480.webp',
                 url: '/music/playlist-chill/giac-mo-dep.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['giac-mo-dep'],
             },
             {
                 id: getRandomId(),
@@ -452,7 +452,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/tinh-yeu-ngu-quen.webp',
                 thumb: '/images/songs/playlist-chill/tinh-yeu-ngu-quen-480x480.webp',
                 url: '/music/playlist-chill/tinh-yeu-ngu-quen.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['tinh-yeu-ngu-quen'],
             },
             {
                 id: getRandomId(),
@@ -465,7 +465,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/chay-khoi-the-gioi-nay.webp',
                 thumb: '/images/songs/playlist-chill/chay-khoi-the-gioi-nay-480x480.webp',
                 url: '/music/playlist-chill/chay-khoi-the-gioi-nay.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['chay-khoi-the-gioi-nay'],
             },
             {
                 id: getRandomId(),
@@ -478,7 +478,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/anh-sao-va-bau-troi.webp',
                 thumb: '/images/songs/playlist-chill/anh-sao-va-bau-troi-480x480.webp',
                 url: '/music/playlist-chill/anh-sao-va-bau-troi.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['anh-sao-va-bau-troi'],
             },
             {
                 id: getRandomId(),
@@ -517,7 +517,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/tim.webp',
                 thumb: '/images/songs/playlist-chill/tim-480x480.webp',
                 url: '/music/playlist-chill/tim.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['tim'],
             },
             {
                 id: getRandomId(),
@@ -530,7 +530,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/lac-vao-trong-mo.webp',
                 thumb: '/images/songs/playlist-chill/lac-vao-trong-mo-480x480.webp',
                 url: '/music/playlist-chill/lac-vao-trong-mo.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['lac-vao-trong-mo'],
             },
             {
                 id: getRandomId(),
@@ -543,7 +543,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/phai-long-anh.webp',
                 thumb: '/images/songs/playlist-chill/phai-long-anh-480x480.webp',
                 url: '/music/playlist-chill/phai-long-anh.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['phai-long-anh'],
             },
             {
                 id: getRandomId(),
@@ -556,7 +556,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/doi-muoi.webp',
                 thumb: '/images/songs/playlist-chill/doi-muoi-480x480.webp',
                 url: '/music/playlist-chill/doi-muoi.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['doi-muoi'],
             },
             {
                 id: getRandomId(),
@@ -569,7 +569,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/dua-nao-lam-em-buon.webp',
                 thumb: '/images/songs/playlist-chill/dua-nao-lam-em-buon-480x480.webp',
                 url: '/music/playlist-chill/dua-nao-lam-em-buon.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['dua-nao-lam-em-buon'],
             },
             {
                 id: getRandomId(),
@@ -621,7 +621,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/playlist-chill/anh-mo.webp',
                 thumb: '/images/songs/playlist-chill/anh-mo-480x480.webp',
                 url: '/music/playlist-chill/anh-mo.mp3',
-                lyric: [],
+                lyric: PLAYLIST_CHILL_LYRICS['anh-mo'],
             },
         ],
         participants: [

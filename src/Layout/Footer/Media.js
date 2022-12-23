@@ -1,11 +1,9 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
 import { SingleNote, DoubleNote } from '../../components/Icons';
 import { Tippy } from '../../components';
-import { likeSong, unlikeSong, setSong, setCurrentList } from '../../features/music/musicSlice';
 import styles from './Footer.module.scss';
 
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
@@ -13,29 +11,8 @@ import { MdMoreHoriz } from 'react-icons/md';
 
 const cx = classNames.bind(styles);
 
-const Media = ({ hide }) => {
-    const { currentSong, isPlaying, idCurrentSong, currentList } = useSelector((state) => state.music);
-    const favoriteSongs = useSelector((state) => state.music['favorite-songs']);
-    const dispatch = useDispatch();
-
-    const handleLike = (e) => {
-        dispatch(likeSong(currentSong));
-        dispatch(setSong(idCurrentSong));
-        toast.success('Added to favorite songs!');
-
-        e.stopPropagation();
-    };
-
-    const handleUnlike = (e) => {
-        if (currentList === 'favorite-songs' && favoriteSongs.length <= 1) {
-            dispatch(setCurrentList('world-music'));
-        }
-        dispatch(unlikeSong(currentSong));
-        dispatch(setSong(idCurrentSong));
-        toast.success('Removed from favorite songs!');
-
-        e.stopPropagation();
-    };
+const Media = ({ hide, onLike, onUnlike }) => {
+    const { currentSong, isPlaying } = useSelector((state) => state.music);
 
     return (
         <div className={cx('media', { active: isPlaying, hide })}>
@@ -62,7 +39,7 @@ const Media = ({ hide }) => {
             <div className={cx('media-right')}>
                 {currentSong.isLike ? (
                     <Tippy title={'Remove from favorite songs'}>
-                        <button onClick={handleUnlike} className={cx('btn')}>
+                        <button onClick={onUnlike} className={cx('btn')}>
                             <span className={cx('icon', 'active')}>
                                 <AiFillHeart />
                             </span>
@@ -70,7 +47,7 @@ const Media = ({ hide }) => {
                     </Tippy>
                 ) : (
                     <Tippy title="Add to favorite songs">
-                        <button onClick={handleLike} className={cx('btn')}>
+                        <button onClick={onLike} className={cx('btn')}>
                             <span className={cx('icon')}>
                                 <AiOutlineHeart />
                             </span>

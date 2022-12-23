@@ -204,6 +204,17 @@
     &.like {
         color: var(--purple-primary);
     }
+
+    &.lyrics {
+        @media (max-width: 740px) {
+            display: none;
+        }
+    }
+
+    &.disable {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 }
 
 .btn-play,
