@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 const Lyric = ({ audioEl, isIdle }) => {
     const { currentSong, isPlaying } = useSelector((state) => state.music);
-    const [currentTime, setCurrentTime] = useState(parseInt(audioEl.currentTime || 0));
+    const [currentTime, setCurrentTime] = useState(Math.floor(audioEl.currentTime || 0));
     const [refs, setRefs] = useState([]);
     const lyricRef = useRef();
 
@@ -46,7 +46,7 @@ const Lyric = ({ audioEl, isIdle }) => {
 
     useEffect(() => {
         const handleChange = () => {
-            setCurrentTime(parseInt(audioEl.currentTime));
+            setCurrentTime(Math.floor(audioEl.currentTime));
         };
 
         audioEl.addEventListener('timeupdate', handleChange);

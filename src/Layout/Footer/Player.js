@@ -72,7 +72,7 @@ const Player = ({ audioEl, onNext, onPrev, active, isIdle }) => {
                 setProgress(currentPercent);
                 inputProgress.current.style.background = `linear-gradient(90deg, var(--progressbar-active-bg) ${currentPercent}%, var(--progressbar-player-bg) ${currentPercent}%)`;
             }
-            setCurrentTime(currentTime);
+            setCurrentTime(Math.floor(currentTime));
         };
 
         const handleLoadStart = () => {

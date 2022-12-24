@@ -1,0 +1,22 @@
+.test {
+    height: 200px;
+    background-color: red;
+
+    &.current {
+        border: 1px solid white;
+    }
+    &.active {
+        height: 400px;
+        border: 1px solid transparent;
+    }
+}
+
+.slider-block {
+    position: relative;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

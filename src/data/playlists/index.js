@@ -694,7 +694,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/anh-a.webp',
                 thumb: '/images/songs/chill-hits/anh-a-480x480.webp',
                 url: '/music/chill-hits/anh-a.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['anh-a'],
             },
             {
                 id: getRandomId(),
@@ -707,7 +707,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/can-gi-hon.webp',
                 thumb: '/images/songs/chill-hits/can-gi-hon-480x480.webp',
                 url: '/music/chill-hits/can-gi-hon.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['can-gi-hon'],
             },
             {
                 id: getRandomId(),

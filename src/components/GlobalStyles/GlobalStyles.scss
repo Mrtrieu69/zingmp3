@@ -164,3 +164,11 @@ body {
 .tippy {
     font-size: 1.2rem;
 }
+
+// Custom slick slider
+body {
+    .slick-track {
+        display: flex;
+        align-items: flex-end;
+    }
+}

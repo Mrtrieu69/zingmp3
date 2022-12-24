@@ -332,12 +332,11 @@
                 }
             }
         }
-    }
-
-    &.is-idle {
-        opacity: 0;
-        transition: 0.5s ease;
-        visibility: hidden;
+        &.is-idle {
+            opacity: 0;
+            transition: 0.5s ease;
+            visibility: hidden;
+        }
     }
 }
 

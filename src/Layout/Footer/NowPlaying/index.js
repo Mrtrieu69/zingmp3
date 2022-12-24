@@ -112,7 +112,7 @@ const NowPlaying = ({ close, setShowNowPlaying, audioEl, isIdle }) => {
                 </header>
                 <div className={cx('main')}>
                     {currentTab === 'lyrics' && <Lyrics isIdle={isIdle} audioEl={audioEl} />}
-                    {currentTab === 'playlist' && <NowPlaylist />}
+                    {currentTab === 'playlist' && <NowPlaylist isIdle={isIdle} />}
                 </div>
             </div>
         </div>
