@@ -124,4 +124,9 @@
     .artists {
         color: hsla(0, 0%, 100%, 0.5);
     }
+
+    &.is-idle {
+        opacity: 0;
+        transition: 0.5s ease;
+    }
 }

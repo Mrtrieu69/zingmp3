@@ -10,7 +10,7 @@ import styles from './Footer.module.scss';
 import PlayerQueue from './PlayerQueue';
 import NowPlaying from './NowPlaying';
 import Timer from './Timer';
-import { useTransitionShow } from '../../hooks';
+import { useListenerIdle, useTransitionShow } from '../../hooks';
 import { Button, InputProgress, Tippy } from '../../components';
 import {
     togglePlay,
@@ -51,6 +51,7 @@ const Footer = () => {
     const dispatch = useDispatch();
 
     const { isShow: isShowPlayerQueue, isTransition, setIsShow: setIsShowPlayerQueue } = useTransitionShow(500);
+    const isIdle = useListenerIdle(4000);
 
     const volumeRef = useRef();
 
@@ -190,9 +191,15 @@ const Footer = () => {
             <div id="footer" className={cx('wrapper-bg')}>
                 <div id="mini-player" onClick={handleRedirect} className={cx('wrapper', { active: showNowPlaying })}>
                     <Media hide={showNowPlaying} onUnlike={handleUnlike} onLike={handleLike} />
-                    <Player audioEl={audioEl} onNext={handleNext} onPrev={handlePrev} active={transitionNowPlaying} />
+                    <Player
+                        isIdle={isIdle}
+                        audioEl={audioEl}
+                        onNext={handleNext}
+                        onPrev={handlePrev}
+                        active={transitionNowPlaying}
+                    />
                     <div className={cx('controls', { hide: showNowPlaying })}>
-                        <Tippy title="Show lyric">
+                        <Tippy title="Show lyrics">
                             <Button
                                 rounded
                                 size="medium"
@@ -263,7 +270,12 @@ const Footer = () => {
                     </div>
                 </div>
                 {transitionNowPlaying && (
-                    <NowPlaying audioEl={audioEl} setShowNowPlaying={setShowNowPlaying} close={!showNowPlaying} />
+                    <NowPlaying
+                        isIdle={isIdle}
+                        audioEl={audioEl}
+                        setShowNowPlaying={setShowNowPlaying}
+                        close={!showNowPlaying}
+                    />
                 )}
                 {timer !== null && <Timer />}
             </div>

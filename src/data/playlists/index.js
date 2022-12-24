@@ -1,6 +1,7 @@
 import { getRandomId } from '../../utils';
 import WORLD_MUSIC_LYRICS from './world-music-lyrics';
 import PLAYLIST_CHILL_LYRICS from './playlist-chill-lyrics';
+import CHILL_HITS_LYRICS from './chill-hits';
 
 export const FAVORITE_SONGS = [];
 
@@ -236,7 +237,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/world-music/the-nights.webp',
                 thumb: '/images/songs/world-music/the-nights-480x480.webp',
                 url: '/music/world-music/the-nights.mp3',
-                lyric: WORLD_MUSIC_LYRICS['the-night'],
+                lyric: WORLD_MUSIC_LYRICS['the-nights'],
             },
             {
                 id: getRandomId(),
@@ -654,7 +655,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/troi-dau-troi-mang-di.webp',
                 thumb: '/images/songs/chill-hits/troi-dau-troi-mang-di-480x480.webp',
                 url: '/music/chill-hits/troi-giau-troi-mang-di.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['troi-giau-troi-mang-di'],
             },
             {
                 id: getRandomId(),
@@ -667,7 +668,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/em-la-hoang-hon.webp',
                 thumb: '/images/songs/chill-hits/em-la-hoang-hon-480x480.webp',
                 url: '/music/chill-hits/em-la-hoang-hon.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['em-la-hoang-hon'],
             },
             {
                 id: getRandomId(),
@@ -680,7 +681,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/vi-yeu-cu-dam-dau.webp',
                 thumb: '/images/songs/chill-hits/vi-yeu-cu-dam-dau-480x480.webp',
                 url: '/music/chill-hits/vi-yeu-cu-dam-dau.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['vi-yeu-cu-dam-dau'],
             },
             {
                 id: getRandomId(),

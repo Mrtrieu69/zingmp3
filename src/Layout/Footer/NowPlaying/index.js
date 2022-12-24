@@ -1,22 +1,38 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from './NowPlaying.module.scss';
 import { Button, Tippy } from '../../../components';
-import Lyric from './Lyric';
+import { PLAYLISTS } from '../../../data/playlists';
+import Lyrics from './Lyrics';
+import NowPlaylist from './NowPlaylist';
 
 // icons
 import { IoIosArrowDown } from 'react-icons/io';
 import { MdOutlineOpenInFull, MdOutlineCloseFullscreen } from 'react-icons/md';
-import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
-const NowPlaying = ({ close, setShowNowPlaying, audioEl }) => {
-    const [showFullScreen, setShowFullScreen] = useState(false);
+const TABS = [
+    { title: 'Playlist', tab: 'playlist', comp: Lyrics, readiness: true },
+    { title: 'Karaoke', tab: 'karaoke', comp: Lyrics, readiness: false },
+    { title: 'Lyrics', tab: 'lyrics', comp: Lyrics, readiness: true },
+];
 
-    const { currentSong } = useSelector((state) => state.music);
+const renderNamePlaylist = (currentList) => {
+    if (currentList === 'favorite-songs') {
+        return 'Favorite songs';
+    }
+    const nameCurrentList = PLAYLISTS[currentList].name;
+    return nameCurrentList;
+};
+
+const NowPlaying = ({ close, setShowNowPlaying, audioEl, isIdle }) => {
+    const [showFullScreen, setShowFullScreen] = useState(false);
+    const [currentTab, setCurrentTab] = useState('lyrics');
+
+    const { currentSong, currentList } = useSelector((state) => state.music);
 
     const toggleShowScreen = () => {
         if (!document.fullscreenElement) {
@@ -30,6 +46,10 @@ const NowPlaying = ({ close, setShowNowPlaying, audioEl }) => {
         setShowNowPlaying(false);
     };
 
+    const handleChangeTab = (tab) => {
+        setCurrentTab(tab);
+    };
+
     useEffect(() => {
         const handleChangeFullScreen = (e) => {
             setShowFullScreen(!showFullScreen);
@@ -41,7 +61,7 @@ const NowPlaying = ({ close, setShowNowPlaying, audioEl }) => {
     }, [showFullScreen]);
 
     return (
-        <div className={cx('wrapper', { close })}>
+        <div className={cx('wrapper', { close, 'is-idle': isIdle })}>
             <div
                 className={cx('blur')}
                 style={{
@@ -51,11 +71,23 @@ const NowPlaying = ({ close, setShowNowPlaying, audioEl }) => {
             <div className={cx('overlay')}></div>
             <div className={cx('content')}>
                 <header className={cx('header')}>
-                    <div className={cx('logo')}></div>
+                    <div className={cx('left')}>
+                        <div className={cx('logo')}></div>
+                        <div className={cx('info')}>
+                            <p className={cx('label')}>From playlist</p>
+                            <p className={cx('source', 'line-clamp')}>{renderNamePlaylist(currentList)}</p>
+                        </div>
+                    </div>
                     <div className={cx('tabs')}>
-                        <div className={cx('tab')}>Playlist</div>
-                        <div className={cx('tab', 'disable')}>Karaoke</div>
-                        <div className={cx('tab', 'active')}>Lyric</div>
+                        {TABS.map((tab, id) => (
+                            <div
+                                onClick={() => handleChangeTab(tab.tab)}
+                                key={id}
+                                className={cx('tab', { disable: !tab.readiness, active: currentTab === tab.tab })}
+                            >
+                                {tab.title}
+                            </div>
+                        ))}
                     </div>
                     <div className={cx('controls')}>
                         <Tippy title={showFullScreen ? 'Exit' : 'Full screen'}>
@@ -79,7 +111,8 @@ const NowPlaying = ({ close, setShowNowPlaying, audioEl }) => {
                     </div>
                 </header>
                 <div className={cx('main')}>
-                    <Lyric audioEl={audioEl} />
+                    {currentTab === 'lyrics' && <Lyrics isIdle={isIdle} audioEl={audioEl} />}
+                    {currentTab === 'playlist' && <NowPlaylist />}
                 </div>
             </div>
         </div>

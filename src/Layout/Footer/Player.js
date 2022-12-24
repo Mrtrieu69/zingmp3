@@ -9,13 +9,13 @@ import { TbRepeat } from 'react-icons/tb';
 import styles from './Footer.module.scss';
 import { Loader } from '../../components/Icons';
 import { togglePlay, toggleIsRepeat, toggleIsRandom, setIsLoadingData } from '../../features/music/musicSlice';
-import { InputProgress } from '../../components';
+import { InputProgress, Tippy } from '../../components';
 import { Button } from '../../components';
 import { formatTime } from '../../utils';
 
 const cx = classNames.bind(styles);
 
-const Player = ({ audioEl, onNext, onPrev, active }) => {
+const Player = ({ audioEl, onNext, onPrev, active, isIdle }) => {
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
 
@@ -113,15 +113,17 @@ const Player = ({ audioEl, onNext, onPrev, active }) => {
     }, [currentSong, isPlaying]);
 
     return (
-        <div className={cx('player', { active })}>
+        <div className={cx('player', { active, 'is-idle': isIdle })}>
             <div className={cx('actions')}>
-                <Button
-                    size="medium"
-                    onClick={() => dispatch(toggleIsRandom())}
-                    rounded
-                    className={cx('btn-player', { active: isRandom })}
-                    icon={<BiShuffle />}
-                />
+                <Tippy title="Random">
+                    <Button
+                        size="medium"
+                        onClick={() => dispatch(toggleIsRandom())}
+                        rounded
+                        className={cx('btn-player', { active: isRandom })}
+                        icon={<BiShuffle />}
+                    />
+                </Tippy>
                 <Button size="medium" onClick={onPrev} rounded className={cx('btn-player')} icon={<MdSkipPrevious />} />
                 {isLoadingData ? (
                     <div className={cx('loading')}>
@@ -137,13 +139,15 @@ const Player = ({ audioEl, onNext, onPrev, active }) => {
                     />
                 )}
                 <Button size="medium" onClick={onNext} rounded className={cx('btn-player')} icon={<MdSkipNext />} />
-                <Button
-                    size="medium"
-                    onClick={() => dispatch(toggleIsRepeat())}
-                    rounded
-                    className={cx('btn-player', { active: isRepeat })}
-                    icon={<TbRepeat />}
-                />
+                <Tippy title="Repeat">
+                    <Button
+                        size="medium"
+                        onClick={() => dispatch(toggleIsRepeat())}
+                        rounded
+                        className={cx('btn-player', { active: isRepeat })}
+                        icon={<TbRepeat />}
+                    />
+                </Tippy>
             </div>
             <div onClick={(e) => e.stopPropagation()} className={cx('progress')}>
                 <span className={cx('time', 'left')}>{formatTime(currentTime)}</span>

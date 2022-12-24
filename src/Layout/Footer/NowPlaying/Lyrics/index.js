@@ -2,13 +2,13 @@ import classNames from 'classnames/bind';
 import { useRef, createRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import styles from './Lyric.module.scss';
+import styles from './Lyrics.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Lyric = ({ audioEl }) => {
+const Lyric = ({ audioEl, isIdle }) => {
     const { currentSong, isPlaying } = useSelector((state) => state.music);
-    const [currentTime, setCurrentTime] = useState(parseInt(audioEl.currentTime));
+    const [currentTime, setCurrentTime] = useState(parseInt(audioEl.currentTime || 0));
     const [refs, setRefs] = useState([]);
     const lyricRef = useRef();
 
@@ -26,7 +26,7 @@ const Lyric = ({ audioEl }) => {
         lyricRef.current.scrollTo({ top: 0 });
     }, [currentSong]);
 
-    // scroll to current line when open "now playing"
+    // scroll to current line when first open "now playing"
     useEffect(() => {
         const activeLyric = currentSong.lyric.findIndex(
             (lyric) => lyric.start <= currentTime && currentTime <= lyric.end,
@@ -59,7 +59,7 @@ const Lyric = ({ audioEl }) => {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
-                <div className={cx('song', { 'without-lyric': currentSong.lyric.length <= 0 })}>
+                <div className={cx('song', { 'without-lyric': currentSong?.lyric.length <= 0 })}>
                     <div className={cx('card')}>
                         <figure className={cx('thumb-block')}>
                             <img src={currentSong.thumb} alt="" className={cx('thumb')} />
@@ -74,7 +74,7 @@ const Lyric = ({ audioEl }) => {
                         </figure>
                     </div>
                 </div>
-                <div className={cx('lyric-block', { hide: currentSong.lyric.length <= 0 })}>
+                <div className={cx('lyric-block', { hide: currentSong?.lyric.length <= 0 })}>
                     <div ref={lyricRef} className={cx('lyric')}>
                         {currentSong.lyric.map((text, index) => (
                             <div
@@ -91,7 +91,7 @@ const Lyric = ({ audioEl }) => {
                     </div>
                 </div>
             </div>
-            <p className={cx('info')}>
+            <p className={cx('info', { 'is-idle': isIdle })}>
                 {currentSong.name} - <span className={cx('artists')}>{currentSong.artists}</span>
             </p>
         </div>

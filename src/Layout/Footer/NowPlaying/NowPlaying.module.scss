@@ -13,6 +13,21 @@
     @media (max-width: 740px) {
         display: none !important;
     }
+
+    &.is-idle {
+        .tabs,
+        .controls {
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s ease;
+        }
+
+        .left {
+            visibility: visible;
+            opacity: 1;
+            transition: 0.5s ease;
+        }
+    }
 }
 
 .blur {
@@ -46,10 +61,29 @@
     padding: 12px 20px;
 }
 
+.left {
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+}
+
 .logo {
     width: 45px;
     height: 45px;
     background: url('/assets/images/logo/logo-mini.svg');
+    margin-right: 8px;
+}
+
+.label {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.source {
+    --line-clamp: 1;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .tabs {
@@ -83,6 +117,10 @@
         opacity: 0.5;
         pointer-events: none;
     }
+}
+
+.controls {
+    opacity: 1;
 }
 
 .btn {
