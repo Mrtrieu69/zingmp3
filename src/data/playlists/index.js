@@ -720,7 +720,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/co-em-cho.webp',
                 thumb: '/images/songs/chill-hits/co-em-cho-480x480.webp',
                 url: '/music/chill-hits/co-em-cho.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['co-em-cho'],
             },
             {
                 id: getRandomId(),
@@ -733,7 +733,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/em-tam-di-vang-khi-anh-thuc-giac.webp',
                 thumb: '/images/songs/chill-hits/em-tam-di-vang-khi-anh-thuc-giac-480x480.webp',
                 url: '/music/chill-hits/em-tam-di-vang-khi-anh-thuc-giac.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['em-tam-di-vang-khi-anh-thuc-giac'],
             },
             {
                 id: getRandomId(),
@@ -746,7 +746,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/co-em.webp',
                 thumb: '/images/songs/chill-hits/co-em-480x480.webp',
                 url: '/music/chill-hits/co-em.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['co-em'],
             },
             {
                 id: getRandomId(),
@@ -759,7 +759,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/tiny-love.webp',
                 thumb: '/images/songs/chill-hits/tiny-love-480x480.webp',
                 url: '/music/chill-hits/tiny-love.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['tiny-love'],
             },
             {
                 id: getRandomId(),
@@ -772,7 +772,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/chuyen-doi-ta.webp',
                 thumb: '/images/songs/chill-hits/chuyen-doi-ta-480x480.webp',
                 url: '/music/chill-hits/chuyen-doi-ta.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['chuyen-doi-ta'],
             },
             {
                 id: getRandomId(),
@@ -785,7 +785,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/chiec-hop.webp',
                 thumb: '/images/songs/chill-hits/chiec-hop-480x480.webp',
                 url: '/music/chill-hits/chiec-hop.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['chiec-hop'],
             },
             {
                 id: getRandomId(),
@@ -798,7 +798,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/da-lo-yeu-em-nhieu.webp',
                 thumb: '/images/songs/chill-hits/da-lo-yeu-em-nhieu-480x480.webp',
                 url: '/music/chill-hits/da-lo-yeu-em-nhieu.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['da-lo-yeu-em-nhieu'],
             },
             {
                 id: getRandomId(),
@@ -837,7 +837,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/nem-cau-yeu-vao-trong-khong-trung.webp',
                 thumb: '/images/songs/chill-hits/nem-cau-yeu-vao-trong-khong-trung-480x480.webp',
                 url: '/music/chill-hits/nem-cau-yeu-vao-trong-khong-trung.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['nem-cau-yeu-vao-trong-khong-trung'],
             },
             {
                 id: getRandomId(),
@@ -850,7 +850,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/chay-khoi-the-gioi-nay.webp',
                 thumb: '/images/songs/chill-hits/chay-khoi-the-gioi-nay-480x480.webp',
                 url: '/music/chill-hits/chay-khoi-the-gioi-nay.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['chay-khoi-the-gioi-nay'],
             },
             {
                 id: getRandomId(),
@@ -863,7 +863,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/cau-tra-loi.webp',
                 thumb: '/images/songs/chill-hits/cau-tra-loi-480x480.webp',
                 url: '/music/chill-hits/cau-tra-loi.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['cau-tra-loi'],
             },
             {
                 id: getRandomId(),
@@ -876,7 +876,7 @@ export const PLAYLISTS = {
                 image: '/images/songs/chill-hits/em-thich.webp',
                 thumb: '/images/songs/chill-hits/em-thich-480x480.webp',
                 url: '/music/chill-hits/em-thich.mp3',
-                lyric: [],
+                lyric: CHILL_HITS_LYRICS['em-thich'],
             },
             {
                 id: getRandomId(),
