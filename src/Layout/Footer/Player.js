@@ -68,7 +68,7 @@ const Player = ({ audioEl, onNext, onPrev, active, isIdle }) => {
             const currentTime = audioEl.currentTime;
             const durationTime = audioEl.duration;
             if (durationTime) {
-                const currentPercent = Math.round((currentTime / durationTime) * 100);
+                const currentPercent = Math.floor((currentTime / durationTime) * 100);
                 setProgress(currentPercent);
                 inputProgress.current.style.background = `linear-gradient(90deg, var(--progressbar-active-bg) ${currentPercent}%, var(--progressbar-player-bg) ${currentPercent}%)`;
             }
