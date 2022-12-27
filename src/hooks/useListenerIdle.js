@@ -13,9 +13,11 @@ const useListenerIdle = (delay) => {
         };
 
         document.body.addEventListener('mousemove', startInteractionTimer);
+        document.body.addEventListener('click', startInteractionTimer);
 
         return () => {
             document.body.removeEventListener('mousemove', startInteractionTimer);
+            document.body.removeEventListener('click', startInteractionTimer);
             if (timerRef.current) {
                 clearTimeout(timerRef);
             }

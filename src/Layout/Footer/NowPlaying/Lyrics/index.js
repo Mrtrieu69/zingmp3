@@ -65,7 +65,7 @@ const Lyric = ({ audioEl, isIdle }) => {
                             <img src={currentSong.thumb} alt="" className={cx('thumb')} />
                             {isPlaying && (
                                 <span
-                                    className={cx('pause-icon')}
+                                    className={cx('playing-icon')}
                                     style={{
                                         backgroundImage: "url('/images/gif/icon-playing.gif')",
                                     }}

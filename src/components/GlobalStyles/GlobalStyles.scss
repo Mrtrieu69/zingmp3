@@ -171,4 +171,8 @@ body {
         display: flex;
         align-items: flex-end;
     }
+
+    .slick-list {
+        overflow: unset;
+    }
 }
