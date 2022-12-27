@@ -1,7 +1,7 @@
 .wrapper {
     position: fixed;
     inset: 0;
-    z-index: 1000;
+    z-index: 10000;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -35,12 +35,12 @@
     }
 
     &.small {
-        width: 330px;
+        max-width: 330px;
         height: auto;
     }
 
     &.medium {
-        width: 500px;
+        max-width: 500px;
         height: auto;
     }
 }

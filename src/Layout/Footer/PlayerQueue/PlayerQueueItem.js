@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { Button } from '../../../components';
+import { Button, SongMore, Tippy } from '../../../components';
 import styles from './PlayerQueue.module.scss';
 import { play, pause, setSong, likeSong, setCurrentList, unlikeSong } from '../../../features/music/musicSlice';
 
@@ -87,24 +87,32 @@ const PlayerQueueItem = ({ index, children, ...song }) => {
             </div>
             <div className={cx('more')}>
                 {song.isLike ? (
-                    <Button
-                        size="small"
-                        onClick={handleUnlike}
-                        rounded
-                        icon={<AiFillHeart />}
-                        className={cx('btn-more', 'like')}
-                    />
+                    <Tippy title="Remove from favorite songs">
+                        <Button
+                            size="small"
+                            onClick={handleUnlike}
+                            rounded
+                            icon={<AiFillHeart />}
+                            className={cx('btn-more', 'like')}
+                        />
+                    </Tippy>
                 ) : (
-                    <Button
-                        size="small"
-                        onClick={handleLike}
-                        rounded
-                        icon={<AiOutlineHeart />}
-                        className={cx('btn-more')}
-                    />
+                    <Tippy title="Add to favorite songs">
+                        <Button
+                            size="small"
+                            onClick={handleLike}
+                            rounded
+                            icon={<AiOutlineHeart />}
+                            className={cx('btn-more')}
+                        />
+                    </Tippy>
                 )}
 
-                <Button size="small" rounded icon={<MdMoreHoriz />} className={cx('btn-more')} />
+                <Tippy title="More">
+                    <SongMore song={song}>
+                        <Button size="small" rounded icon={<MdMoreHoriz />} className={cx('btn-more')} />
+                    </SongMore>
+                </Tippy>
             </div>
         </div>
     );

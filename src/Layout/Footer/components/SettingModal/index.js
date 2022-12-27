@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import styles from './SettingModal.scss';
+import styles from './SettingModal.module.scss';
 import { Modal } from '../../../../components';
 
 const cx = classNames.bind(styles);

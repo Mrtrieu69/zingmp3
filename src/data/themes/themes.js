@@ -91,7 +91,7 @@ const themes = {
         '--chart-box-bg-alpha': 'hsla(0,0%,100%,0.05)',
         '--chart-bg-img-alpha': 'none',
         '--hover-tooltip-opacity': 'hsla(0,0%,100%,0.3)',
-        '--primary-bg': '#6a39af',
+        '--primary-bg': '#4B1178',
         '--layout-bg': '#37075d',
         '--sidebar-popup-bg': '#572f90',
         '--alpha-layout-bg': 'rgba(16,31,63,0.8)',

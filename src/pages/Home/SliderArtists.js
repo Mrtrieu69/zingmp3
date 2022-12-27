@@ -1,10 +1,12 @@
 import React from 'react';
+import { useRef } from 'react';
 import classNames from 'classnames/bind';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import styles from './Home.module.scss';
+import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
 
 const cx = classNames.bind(styles);
 
@@ -32,8 +34,6 @@ const SliderArtists = () => {
         speed: 500,
         slidesToShow: 7,
         slidesToScroll: 7,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
         responsive: [
             {
                 breakpoint: 1350,
@@ -59,9 +59,11 @@ const SliderArtists = () => {
         ],
     };
 
+    const slider = useRef();
+
     return (
-        <div>
-            <Slider className={cx('artists-slider')} {...settings}>
+        <div className={cx('artist-wrapper')}>
+            <Slider ref={slider} className={cx('artists-slider')} {...settings}>
                 {ARTISTS.map((artist, id) => (
                     <div key={id}>
                         <div className={cx('artist-item')}>
@@ -70,18 +72,14 @@ const SliderArtists = () => {
                     </div>
                 ))}
             </Slider>
+            <button onClick={() => slider.current.slickPrev()} className={cx('arrow-prev')}>
+                <GrFormPrevious />
+            </button>
+            <button onClick={() => slider.current.slickNext()} className={cx('arrow-next')}>
+                <GrFormNext />
+            </button>
         </div>
     );
 };
-
-function SampleNextArrow(props) {
-    const { className, onClick } = props;
-    return <div className={cx('arrow-next', className)} onClick={onClick} />;
-}
-
-function SamplePrevArrow(props) {
-    const { className, onClick } = props;
-    return <div className={cx('arrow-prev', className)} onClick={onClick} />;
-}
 
 export default SliderArtists;

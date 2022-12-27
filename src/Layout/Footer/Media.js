@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { SingleNote, DoubleNote } from '../../components/Icons';
-import { Tippy } from '../../components';
+import { Tippy, SongMore } from '../../components';
 import styles from './Footer.module.scss';
 
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
@@ -55,11 +55,13 @@ const Media = ({ hide, onLike, onUnlike }) => {
                     </Tippy>
                 )}
                 <Tippy title="More">
-                    <button onClick={(e) => e.stopPropagation()} className={cx('btn', 'large')}>
-                        <span className={cx('icon')}>
-                            <MdMoreHoriz />
-                        </span>
-                    </button>
+                    <SongMore song={currentSong}>
+                        <button onClick={(e) => e.stopPropagation()} className={cx('btn', 'large')}>
+                            <span className={cx('icon')}>
+                                <MdMoreHoriz />
+                            </span>
+                        </button>
+                    </SongMore>
                 </Tippy>
             </div>
         </div>

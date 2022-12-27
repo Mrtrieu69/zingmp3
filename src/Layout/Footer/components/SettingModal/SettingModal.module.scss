@@ -1,0 +1,39 @@
+.body {
+    text-align: center;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: var(--primary-bg);
+}
+
+.save,
+.exit {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+.save {
+    background-color: var(--purple-primary);
+    border-color: var(--purple-primary);
+    border-radius: 999px;
+    padding: 9px 24px;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &.disable {
+        cursor: not-allowed;
+        opacity: 0.7;
+        pointer-events: none;
+    }
+}
+
+.exit {
+    padding: 8px 0;
+    background-color: transparent;
+}

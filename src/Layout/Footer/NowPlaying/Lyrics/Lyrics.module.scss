@@ -29,6 +29,7 @@
 }
 
 .card {
+    user-select: none;
     position: relative;
     overflow: hidden;
     width: 80%;

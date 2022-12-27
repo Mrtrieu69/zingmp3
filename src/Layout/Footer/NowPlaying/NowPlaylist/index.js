@@ -59,6 +59,7 @@ const NowPlaylist = ({ isIdle }) => {
 
     useEffect(() => {
         slider.current.slickGoTo(idCurrentSong);
+        setCurrentSlide(idCurrentSong);
     }, [idCurrentSong]);
 
     useEffect(() => {

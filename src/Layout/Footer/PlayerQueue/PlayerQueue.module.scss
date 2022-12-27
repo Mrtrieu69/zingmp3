@@ -145,16 +145,6 @@
     &:hover {
         background-color: var(--alpha-bg);
 
-        .more {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-        }
-
-        .desc {
-            max-width: 150px;
-        }
-
         .icon {
             display: -webkit-box;
             display: -ms-flexbox;
@@ -205,7 +195,7 @@
 }
 
 .desc {
-    max-width: 230px;
+    max-width: 150px;
 }
 
 .title-song {
@@ -279,7 +269,7 @@
 }
 
 .more {
-    display: none;
+    display: flex;
     margin-left: 10px;
     -webkit-box-align: center;
     -ms-flex-align: center;

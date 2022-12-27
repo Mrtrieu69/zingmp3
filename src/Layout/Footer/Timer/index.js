@@ -56,6 +56,9 @@ const Timer = () => {
             if (isPlaying) {
                 dispatch(pause());
             }
+            if (showModalClose) {
+                setShowModalClose(false);
+            }
             setShowModalSetting(true);
         }
 
