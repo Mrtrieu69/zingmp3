@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 const Confirm = ({ onClose, onConfirm }) => {
     return (
-        <Modal confirm onClose={onClose}>
+        <Modal size="medium" onClose={onClose}>
             <div className={cx('body')}>
                 <h3 className={cx('title')}>Close timer</h3>
                 <p className={cx('desc')}>Are you sure you want to close the timer?</p>

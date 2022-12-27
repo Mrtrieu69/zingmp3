@@ -18,6 +18,7 @@ import {
 } from '../../features/music/musicSlice';
 import Button from '../Button';
 import Tippy from '../Tippy';
+import SongMore from '../SongMore';
 import { Context } from '../../context';
 
 // icons
@@ -225,7 +226,7 @@ const Playlist = ({ songs }) => {
                                                                     rounded
                                                                     icon={<HiOutlineMicrophone />}
                                                                     className={cx('icon', 'lyrics', {
-                                                                        disable: song.lyric?.length === 0,
+                                                                        disable: song?.lyric?.length === 0,
                                                                     })}
                                                                 />
                                                             </Tippy>
@@ -249,11 +250,13 @@ const Playlist = ({ songs }) => {
                                                                 </Tippy>
                                                             )}
                                                             <Tippy title="More">
-                                                                <Button
-                                                                    rounded
-                                                                    icon={<MdMoreHoriz />}
-                                                                    className={cx('icon')}
-                                                                />
+                                                                <SongMore song={song}>
+                                                                    <Button
+                                                                        rounded
+                                                                        icon={<MdMoreHoriz />}
+                                                                        className={cx('icon')}
+                                                                    />
+                                                                </SongMore>
                                                             </Tippy>
                                                         </div>
                                                     </div>

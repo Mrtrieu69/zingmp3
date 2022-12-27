@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 const SettingModal = ({ children, onClose, onAction, time, title }) => {
     return (
-        <Modal timer onClose={onClose}>
+        <Modal size="small" onClose={onClose}>
             <div className={cx('body')}>
                 {children}
                 <button onClick={onAction} className={cx('save', { disable: time?.minute === 0 && time?.hour === 0 })}>

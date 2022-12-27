@@ -9,8 +9,8 @@ import { TbRepeat } from 'react-icons/tb';
 import styles from './Footer.module.scss';
 import { Loader } from '../../components/Icons';
 import { togglePlay, toggleIsRepeat, toggleIsRandom, setIsLoadingData } from '../../features/music/musicSlice';
-import { InputProgress, Tippy } from '../../components';
-import { Button } from '../../components';
+import { Tippy, Button } from '../../components';
+import { InputProgress } from './components';
 import { formatTime } from '../../utils';
 
 const cx = classNames.bind(styles);

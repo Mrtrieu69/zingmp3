@@ -12,7 +12,7 @@ const initialState = {
     isPlaying: false,
     currentSong: currentSong,
     idCurrentSong: 0,
-    currentList: 'favorite-songs',
+    currentList: 'world-music',
     'favorite-songs': FAVORITE_SONGS,
     'playlist-chill': PLAYLISTS['playlist-chill'].list,
     'chill-hits': PLAYLISTS['chill-hits'].list,

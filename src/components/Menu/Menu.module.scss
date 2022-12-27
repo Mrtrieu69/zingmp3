@@ -15,7 +15,7 @@
     right: 0;
     background-color: var(--primary-bg);
     border-radius: 8px;
-    display: none;
+    display: block;
 
     .menu-link {
         height: 19px;
@@ -29,9 +29,9 @@
         }
     }
 
-    &.show {
-        display: block;
-    }
+    // &.show {
+    //     display: block;
+    // }
 }
 
 .menu-content {

@@ -7,8 +7,8 @@ import styles from './Header.module.scss';
 import Search from './Search';
 import Menu from '../../components/Menu';
 import { MENU_ACCOUNT, MENU_SETTING } from '../../data/menu';
-import { Tippy } from '../../components';
 import ThemeModal from './ThemeModal';
+import { Tippy } from '../../components';
 
 const cx = classNames.bind(styles);
 
@@ -38,7 +38,7 @@ const Header = () => {
                     <Tippy title="Settings">
                         <Menu menu={MENU_SETTING} className={cx('action-setting')} icon={<AiOutlineSetting />} />
                     </Tippy>
-                    <Menu menu={MENU_ACCOUNT} bgImage></Menu>
+                    <Menu menu={MENU_ACCOUNT} bgImage />
                 </div>
             </div>
         </>

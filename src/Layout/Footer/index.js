@@ -11,7 +11,8 @@ import PlayerQueue from './PlayerQueue';
 import NowPlaying from './NowPlaying';
 import Timer from './Timer';
 import { useListenerIdle, useTransitionShow } from '../../hooks';
-import { Button, InputProgress, Tippy } from '../../components';
+import { Button, Tippy } from '../../components';
+import { InputProgress } from './components';
 import {
     togglePlay,
     setListPlayed,
