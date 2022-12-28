@@ -18,7 +18,7 @@ const infoTimer = (value) => {
 };
 
 const TimerSetting = ({ onClose }) => {
-    const [value, setValue] = useState({ minute: 0, hour: 0 });
+    const [value, setValue] = useState({ minute: '00', hour: '00' });
 
     const { setTimer } = useContext(Context);
 
@@ -31,13 +31,13 @@ const TimerSetting = ({ onClose }) => {
             if (e.target.name === 'hour' && (value < 0 || value >= 24)) return;
             if (e.target.name === 'minute' && (value < 0 || value >= 60)) return;
 
-            setValue((prev) => ({ ...prev, [e.target.name]: value }));
+            setValue((prev) => ({ ...prev, [e.target.name]: value < 10 ? `0${value}` : value }));
         }
     };
 
     const handleSaveTimer = () => {
         const { minute, hour } = value;
-        setTimer(hour * 3600 + minute * 60);
+        setTimer(parseInt(hour) * 3600 + parseInt(minute) * 60);
         onClose();
     };
 

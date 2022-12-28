@@ -71,6 +71,11 @@
         background-color: var(--alpha-bg);
         color: var(--text-item-hover);
     }
+
+    &.disable {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 }
 
 .icon {

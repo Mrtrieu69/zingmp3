@@ -33,7 +33,7 @@ const SongMore = forwardRef(({ children, song }, ref) => {
                     </span>
                     <span className={cx('label')}>Download</span>
                 </a>
-                <div onClick={() => setShowLyrics(true)} className={cx('item')}>
+                <div onClick={() => setShowLyrics(true)} className={cx('item', { disable: song.lyric.length === 0 })}>
                     <span className={cx('icon')}>
                         <BsCardText />
                     </span>

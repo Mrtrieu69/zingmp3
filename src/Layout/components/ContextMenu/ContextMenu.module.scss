@@ -1,0 +1,43 @@
+.wrapper {
+    position: fixed;
+    border-radius: 8px;
+    z-index: 1100;
+    width: 250px;
+    background-color: var(--primary-bg);
+    box-shadow: 0 2px 5px var(--portal-menu-box-shadow);
+}
+
+.actions {
+    padding: 10px 0;
+}
+
+.action {
+    cursor: pointer;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: var(--alpha-bg);
+        color: var(--text-item-hover);
+    }
+
+    &.disable {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-right: 14px;
+}
+
+.label {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1;
+}

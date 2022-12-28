@@ -77,6 +77,7 @@ const ThemeModal = () => {
             --chart-bg-img-alpha: ${colors['--chart-bg-img-alpha']};
             --chart-box-bg-alpha: ${colors['--chart-box-bg-alpha']};
             --img-logo: ${colors['--img-logo']};
+            --portal-menu-box-shadow: ${colors['--portal-menu-box-shadow']};
         `;
 
         const miniPlayer = document.querySelector('#mini-player');
