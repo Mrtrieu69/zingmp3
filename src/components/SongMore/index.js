@@ -58,7 +58,7 @@ const SongMore = forwardRef(({ children, song }, ref) => {
             {showLyrics && (
                 <Modal onClose={handleClose} size="medium">
                     <div className={cx('body')}>
-                        <h3 className={cx('body-title')}>Lời Bài Hát</h3>
+                        <h3 className={cx('body-title')}>Lyrics "{song.name}"</h3>
                         <div className={cx('content')}>
                             {song.lyric.map((lyric, id) => (
                                 <p key={id} className={cx('line')}>
