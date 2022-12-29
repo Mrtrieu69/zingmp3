@@ -21,7 +21,7 @@ const useListenerIdle = (delay) => {
             document.body.addEventListener('click', startInteractionTimer);
             document.body.removeEventListener('wheel', startInteractionTimer);
             if (timerRef.current) {
-                clearTimeout(timerRef);
+                clearTimeout(timerRef.current);
             }
         };
     }, [delay]);
