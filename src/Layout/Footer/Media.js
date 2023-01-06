@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { SingleNote, DoubleNote } from '../../components/Icons';
 import { Tippy, SongMore } from '../../components';

@@ -11,6 +11,7 @@ import { Loader } from '../../components/Icons';
 import { togglePlay, toggleIsRepeat, toggleIsRandom, setIsLoadingData } from '../../features/music/musicSlice';
 import { Tippy, Button } from '../../components';
 import { InputProgress } from './components';
+import { useMediaSession as mediaSession } from '../../hooks';
 import { formatTime } from '../../utils';
 
 const cx = classNames.bind(styles);
@@ -54,6 +55,12 @@ const Player = ({ audioEl, onNext, onPrev, active, isIdle }) => {
             audioEl.muted = false;
         }
     };
+
+    useEffect(() => {
+        mediaSession(currentSong, audioEl, onNext, onPrev);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentSong, audioEl]);
 
     useEffect(() => {
         const handleEnded = () => {
