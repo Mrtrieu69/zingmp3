@@ -38,7 +38,7 @@ const themes = {
         '--empty-album-icon': 'url("/images/empty/empty-album-dark.png")',
         '--empty-podcast-icon': 'url("/images/empty/podcast-empty-dark.png")',
         '--empty-song-icon': 'url("/images/empty/empty-fav-song-dark.png")',
-        '--empty-upload-icon': 'url("/images/empty/empty-upload-drak.png")',
+        '--empty-upload-icon': 'url("/images/empty/empty-upload-dark.png")',
         '--linear-gradient-bg': 'linear-gradient(180deg,#1b2f5a,#182e5d)',
         '--empty-mv-icon': 'url("/images/empty/empty-mv-dark.png")',
         '--img-logo': 'url("/images/logo/logo-dark.svg")',
