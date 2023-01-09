@@ -10,7 +10,10 @@ const SettingModal = ({ children, onClose, onAction, time, title }) => {
         <Modal size="small" onClose={onClose}>
             <div className={cx('body')}>
                 {children}
-                <button onClick={onAction} className={cx('save', { disable: time?.minute === 0 && time?.hour === 0 })}>
+                <button
+                    onClick={onAction}
+                    className={cx('save', { disable: time?.minute === '00' && time?.hour === '00' })}
+                >
                     {title.action}
                 </button>
                 <button onClick={onClose} className={cx('exit')}>
