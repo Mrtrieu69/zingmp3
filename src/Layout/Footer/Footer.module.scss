@@ -69,6 +69,7 @@
     }
 
     @media (max-width: 740px) {
+        display: flex !important;
         width: 100%;
         height: 50px;
     }
