@@ -7,4 +7,5 @@ export { default as Playlist } from './Playlist';
 export { default as AlbumItem } from './AlbumItem';
 export { default as Modal } from './Modal';
 export { default as Tippy } from './Tippy';
+export { default as ListPlaylist } from './ListPlaylist';
 export { default as SongMore } from './SongMore';

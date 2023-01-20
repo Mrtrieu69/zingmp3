@@ -348,6 +348,14 @@
     }
 }
 
+a.list-link {
+    color: var(--text-primary);
+    display: block;
+    &:hover {
+        color: var(--link-text-hover);
+    }
+}
+
 .artists {
     color: var(--text-secondary);
     font-size: 1.4rem;

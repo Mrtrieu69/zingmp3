@@ -28,7 +28,7 @@ const ZingChart = () => {
                 </div>
                 <ChartSong SONGS={SONGS} />
                 <div className={cx('more')}>
-                    <button>Xem top 100</button>
+                    <button>Show top 100</button>
                 </div>
                 <div className={cx('container')}>
                     <div id="week-chart" className={cx('background')}></div>
@@ -50,7 +50,7 @@ const ZingChart = () => {
                                         </div>
                                         <ChartSong week SONGS={list.songs} />
                                         <div className={cx('more')}>
-                                            <button>Xem thêm</button>
+                                            <button>Show More</button>
                                         </div>
                                     </div>
                                 </div>

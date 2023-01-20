@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames/bind';
 import { Helmet } from 'react-helmet-async';
 
@@ -116,7 +115,11 @@ const Home = () => {
                                             <Button icon={<MdMoreHoriz />} rounded className={cx('icon')} />
                                         </div>
                                     </div>
-                                    <h4 className={cx('name')}>{subItem.name}</h4>
+                                    <h4 className={cx('name')}>
+                                        <a href="#1" className={cx('list-link')}>
+                                            {subItem.name}
+                                        </a>
+                                    </h4>
                                     <p className={cx('artists')}>{subItem.artists}</p>
                                 </div>
                             ))}

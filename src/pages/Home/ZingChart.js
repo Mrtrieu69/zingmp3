@@ -30,7 +30,7 @@ const ZingChart = () => {
             <ChartSong sort SONGS={SONGS} />
             <div className={cx('layer')}>
                 <Link onClick={handleChangeLink} to="/zingchart" className={cx('more')}>
-                    Xem Thêm
+                    Show More
                 </Link>
             </div>
         </div>
