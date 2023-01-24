@@ -19,6 +19,20 @@ const Radio = () => {
             </Helmet>
             <LiveStream />
             <TopPodcasts />
+            <div className={cx('container')}>
+                <h3 className={cx('title')}>Category Podcasts</h3>
+                <div className={cx('categories')}>
+                    {Array(5)
+                        .fill()
+                        .map((_, id) => (
+                            <div key={id} className={cx('category-column')}>
+                                <a href="#1" className={cx('category')}>
+                                    <img src={`/images/categoryPodcasts/${id + 1}.webp`} alt="" />
+                                </a>
+                            </div>
+                        ))}
+                </div>
+            </div>
             <FeaturedPrograms />
             {LIST_PLAYLIST.map((list) => (
                 <div key={list.subTitle.id} className={cx('container')}>

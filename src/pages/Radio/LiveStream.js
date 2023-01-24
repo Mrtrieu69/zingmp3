@@ -73,12 +73,14 @@ const LiveStream = () => {
                 {LIVE_STREAM.map((item) => (
                     <div key={item.id} className={cx('slider-item')}>
                         <div className={cx('slider-card')}>
-                            <div className={cx('slider-content')}>
-                                <img src={item.host.thumbnail} alt="" className={cx('slider-image')} />
-                                <div className={cx('slider-play')}>
-                                    <BsPlayCircle />
+                            <div className={cx('slider-content-block')}>
+                                <div className={cx('slider-content')}>
+                                    <img src={item.host.thumbnail} alt="" className={cx('slider-image')} />
+                                    <div className={cx('slider-play')}>
+                                        <BsPlayCircle />
+                                    </div>
+                                    <img src={item.thumbnail} alt="" className={cx('slider-thumb')} />
                                 </div>
-                                <img src={item.thumbnail} alt="" className={cx('slider-thumb')} />
                                 <p className={cx('slider-live')}>Live</p>
                             </div>
                             <h3 className={cx('slider-item-title')}>{item.host.name}</h3>

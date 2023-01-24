@@ -52,15 +52,26 @@
     align-items: center;
 }
 
+.slider-content-block {
+    position: relative;
+}
+
 .slider-content {
     cursor: pointer;
     width: 100%;
     position: relative;
     border-radius: 50%;
     border: 3px solid #ff4b4a;
+    overflow: hidden;
 
-    &:hover .slider-play {
-        display: flex;
+    &:hover {
+        .slider-play {
+            display: flex;
+        }
+
+        .slider-image {
+            transform: scale(1.1);
+        }
     }
 }
 
@@ -80,6 +91,7 @@
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
+    transition: transform 0.7s;
 }
 
 .slider-thumb {
@@ -350,4 +362,70 @@ a.playlist-link {
     font-size: 14px;
     line-height: 1.43;
     color: rgba(254, 255, 255, 0.8);
+}
+
+// Categories
+
+.categories {
+    display: flex;
+    margin: 0 -14px;
+
+    @media (max-width: 1024px) {
+        margin: 0 -12px;
+    }
+
+    @media (max-width: 740px) {
+        margin: 0 -8px;
+    }
+}
+
+.category-column {
+    width: 20%;
+    padding: 0 14px;
+
+    @media (max-width: 1350px) {
+        width: 25%;
+
+        &:nth-child(5) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        width: 33.33333%;
+        padding: 0 12px;
+
+        &:nth-child(4) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 740px) {
+        width: 50%;
+        padding: 0 8px;
+
+        &:nth-child(3) {
+            display: none;
+        }
+    }
+}
+
+.category {
+    position: relative;
+    border-radius: 4px;
+    background-color: red;
+    padding-bottom: 56.25%;
+    display: flex;
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+        position: absolute;
+        inset: 0;
+        transition: transform 0.7s;
+    }
+
+    &:hover img {
+        transform: scale(1.1);
+    }
 }
