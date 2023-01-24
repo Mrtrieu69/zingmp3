@@ -22,7 +22,7 @@ export const mainLinks = [
     { path: '/', component: Home, title: 'Explore', iconLeft: <BsPlayCircle /> },
     { path: '/zingchart', component: ZingChart, title: '#zingchart', iconLeft: <AiOutlineLineChart /> },
     { path: '/radio', component: Radio, title: 'Radio', iconLeft: <VscRadioTower />, separate: 'Live' },
-    { path: '/following', component: Following, title: 'Following', iconLeft: <BsReverseLayoutTextWindowReverse /> },
+    // { path: '/following', component: Following, title: 'Following', iconLeft: <BsReverseLayoutTextWindowReverse /> },
 ];
 
 export const mainRoutes = [
@@ -31,7 +31,7 @@ export const mainRoutes = [
     { path: '/', component: Home },
     { path: '/zingchart', component: ZingChart },
     { path: '/radio', component: Radio },
-    { path: '/following', component: Following },
+    // { path: '/following', component: Following },
 ];
 
 // Secondary routes

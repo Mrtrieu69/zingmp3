@@ -17,6 +17,9 @@
     overflow-y: scroll;
     overflow-x: hidden;
 
+    // loai bo hieu ung debounce tren ios
+    overscroll-behavior: none;
+
     @media (min-width: 740px) and (max-width: 1024px) {
         margin-left: 70px;
     }
